@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Mystery That No Longer Lingers — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 012 &middot; Coleman Family</div>
+    <h1>One Mystery That No Longer Lingers</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published November 28, 2023</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/mystery/fig1-cornwall-cottage-extended.jpg" alt="The extended Cornwall Cottage, following Robert H. Coleman's 1877 addition">
+    <figcaption><span class="fig-no">FIG. 1</span>The extended "Cornwall Cottage," following Robert H. Coleman's 1877 addition.</figcaption>
+  </figure>
+
+  <p class="lead">The mystery surrounding Robert H. Coleman's Cornwall mansions has energized local historians for decades. Among them, John and Margery Feitig conducted exhaustive research with hopes of writing a book, "Memories that Linger"; both died before achieving their goal but left a trove of research materials and several newspaper stories, "Mysteries that Linger."</p>
+
+  <div class="section">
+    <p>The mystery, in brief: after Robert received his inheritance he began building, first a grand extension to his parents' "Cornwall Cottage" in 1877. Then, married to Lillie Clark in 1879, he undertook to build a "bridal mansion" on the Cornwall grounds. A year later she died and grief-stricken Robert tore down the incomplete mansion; the building materials dispersed to other buildings in Lebanon, including <a href="cold-springs-water-supply.html">St. Luke's Episcopal church</a> that same year. By the mid-1880s Robert remarried and began building another grand mansion, "Cornwall Hall," for his second wife Edith, one to rival the grandeur of his sister's <a href="anne-of-cornwall.html">"Crumwold Hall"</a> in Hyde Park. Tragedy struck again; this second mansion was neither completed nor occupied before his financial demise in 1893. It was eventually torn down, as was the old Cottage, leaving Cornwall with several empty fields that now fail to arouse the attention of modern-day passersby.</p>
+
+    <figure class="plate">
+      <img src="images/mystery/fig2-cornwall-hall-second-mansion.jpg" alt="Cornwall Hall, Robert H. Coleman's second, unfinished mansion">
+      <figcaption><span class="fig-no">FIG. 2</span>"Cornwall Hall," Coleman's second, unfinished mansion.</figcaption>
+    </figure>
+
+    <p>Although photos and related evidence exist for the second mansion, the strange thing is that the first, bridal mansion left no evidence at all. No photographs, no architectural drawings, and very little correspondence exist. Questions abound as to where it was located and what it looked like.</p>
+
+    <figure class="plate">
+      <img src="images/mystery/fig3-crumwold-hall.jpg" alt="Crumwold Hall in Hyde Park, New York">
+      <figcaption><span class="fig-no">FIG. 3</span>Crumwold Hall &mdash; the one Coleman mansion of the three still standing today, though badly damaged by fire in 2026.</figcaption>
+    </figure>
+
+    <p>Some confuse the two mansions and even wonder if the first ever actually existed. Feitig had produced a theory on its location as well as photographs of several surviving stones that lay as evidence among the trees.</p>
+    <p>The search for a complete story on the bridal mansion has been a subject of frequent discussion. At one point a photograph was presented by the Coleman family (of the Elizabeth Furnace lineage) to John Feitig, which has generated further controversy, until now.</p>
+
+    <figure class="plate">
+      <img src="images/mystery/fig4-mystery-photo-arborfield.jpg" alt="The mystery photograph, later identified as Arborfield Hall in England, showing a completed manor house with two figures on the lawn">
+      <figcaption><span class="fig-no">FIG. 4</span>Arborfield Hall &mdash; not Coleman's bridal mansion, as claimed on the reverse side, below.</figcaption>
+    </figure>
+
+    <p>The photograph claimed, by the inscription on the back, as attested by a Coleman descendant, the mansion was the "Robert H. Coleman house, Cornwall Pa." Several things did not sit well with local experts. First, the architecture was unlike the gothic revival style of other buildings in Cornwall, nor was the local terrain recognized. Second, the mansion was reportedly torn down before completion when Lillie died, whereas this photograph shows a completed structure with pristine grounds. Finally, the two individuals posing at leisure in the photo were not recognizable.</p>
+
+    <figure class="plate">
+      <img src="images/mystery/fig5-inscription-back-of-photo.jpg" alt="Handwritten inscription on the back of the photo, reading Robert H. Coleman House, Cornwall Pa, twice">
+      <figcaption><span class="fig-no">FIG. 5</span>The inscription on the back of the photo.</figcaption>
+    </figure>
+
+    <p>Acting on a hunch that the mansion was of British origin, local researcher Bruce Chadbourne threw the question to a contact in the UK, asking "do you recognize this picture?" An immediate reply came back identifying it as "Arborfield Hall" in Arborfield, Berkshire, just south of Reading, UK.</p>
+    <p>The original building dates back to the 13th century, with a connection to a member of the court of Henry VIII, and was rebuilt in 1837.</p>
+    <p>The question arises, "how then does this property connect to Coleman family history?" Craig Coleman of Elizabeth Furnace investigated and provided some insights. The Arborfield property was inherited by Elmira Reeves, whose husband was George Dawson. Their son, George Pelsant Dawson, would tear down the original building in 1832 and begin work on a new Arborfield Hall in 1837, only to sell it 5 years later, unfinished, to Sir John Conroy.</p>
+    <p>That answer explained not only the link to Arborfield but also the introduction of the Dawson name to the Coleman family. One of the Dawson cousins, also named George, was the father of Harriet Dawson, who married James Coleman (Robert Coleman's son), master of Elizabeth Furnace. Among the children of James and Harriet Coleman was George Dawson Coleman. He built the North Lebanon furnaces in the 1840s with his brother Robert and became the master of the Lebanon branch of the Coleman family, and the estate with several mansions on the hill now remembered as <a href="https://www.friendsofcmp.org/our-story" target="_blank" rel="noopener">Coleman Memorial Park</a>.</p>
+    <p>It's a shame that none of these mansions stand today, excepting Crumwold, which passed from the hands of the family decades ago.</p>
+
+    <figure class="plate">
+      <img src="images/mystery/fig6-george-dawson-coleman-homestead.jpg" alt="George Dawson Coleman's Homestead Mansion, circa 1852">
+      <figcaption><span class="fig-no">FIG. 6</span>George Dawson Coleman's "Homestead Mansion," c. 1852.</figcaption>
+    </figure>
+
+    <p>For more Arborfield history see <a href="https://www.berkshirehistory.com/castles/arborfield_hall.html" target="_blank" rel="noopener">berkshirehistory.com</a> and <a href="http://www.arborfieldhistory.org.uk/pictures_shearn.htm" target="_blank" rel="noopener">arborfieldhistory.org.uk</a>.</p>
+  </div>
+
+  <div class="credits">
+    <p>Originally published on LebTown, November 28, 2023.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

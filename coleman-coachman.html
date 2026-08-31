@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Case of the Coleman Coachman — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  .plate-row-3{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:1rem;
+  }
+  @media (max-width:600px){
+    .plate-row, .plate-row-3{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 018 &middot; Coleman Family</div>
+    <h1>The Case of the Coleman Coachman</h1>
+    <div class="subtitle">The butler did it &mdash; really!</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published January 29, 2025</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/coleman-coachman/fig1-homestead-coachman-1880.jpg" alt="George D. Coleman's Homestead, with sisters Debbie and Sarah Brock and coachman Patrick Guare, May 15, 1880">
+    <figcaption><span class="fig-no">FIG. 1</span>George D. Coleman "Homestead," sisters Debbie Brock and Sarah Brock with coachman Patrick Guare, May 15, 1880. (Nancy Allwein Nebiker)</figcaption>
+  </figure>
+
+  <p class="lead">This story begins with the expansion of the Robert Coleman family from their vast land holdings east and west of Cornwall, to the north, occupying a prominent position on "Mount Lebanon." A hub of Lebanon's high society, the site now known as Coleman Memorial Park was home not only for the Colemans but those who served them.</p>
+
+  <div class="section">
+    <h2>James Coleman Family</h2>
+    <figure class="plate plate-sm">
+      <img src="images/coleman-coachman/fig2-james-coleman-1784-1831.jpg" alt="Portrait of James Coleman">
+      <figcaption><span class="fig-no">FIG. 2</span>James Coleman (1784&ndash;1831). (Craig Coleman, Elizabeth Furnace)</figcaption>
+    </figure>
+
+    <p>Founder Robert Coleman raised his family at <a href="iron-and-horses.html">Speedwell</a> and then <a href="coleman-memorial-chapel.html">Elizabeth</a>, retiring in 1809. Leaving his sons in charge, it was James who continued operating the Elizabeth furnace while three others, William, Edward and Thomas managed the other Coleman iron enterprises.</p>
+    <p>James and his wife Harriett Dawson raised five children at Elizabeth. After his death in 1831, his brothers served as guardians over their young two sons, Robert and George Dawson Coleman, managing affairs for them until the time of their majority.</p>
+    <p>The Elizabeth furnace operated until 1856, reportedly going out of blast "for lack of wood." In September of that year George liquidated many of his capital assets from the furnace in a public sale.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig3-lancaster-news-1856.jpg" alt="Lancaster newspaper item, September 1856, on the sale of Elizabeth Furnace assets">
+      <figcaption><span class="fig-no">FIG. 3</span>Lancaster news item, September 1856.</figcaption>
+    </figure>
+
+    <p>More to the point, the old, cold-blast charcoal furnace was no longer competitive with emerging technology, necessitating its final closure.</p>
+    <p>Anthracite furnaces and hot blast furnaces had been developing in the 1840s. Such furnaces had been constructed in Ashland Maryland by Artemas Wilhelm and his father. He then came to assist R. W. Coleman with Cornwall's Anthracite furnace in 1849.</p>
+    <p>But according to Grittinger's history of Lebanon's iron industries, the first anthracite blast furnaces in the county had already been built by their cousins Robert and George in North Lebanon in 1846 and 1848.</p>
+
+    <h2>Why North Lebanon?</h2>
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig4-1873-map-mt-lebanon.jpg" alt="1873 Fowler and Baily map of Lebanon showing Mt. Lebanon and the North Lebanon furnaces along the Union Canal">
+      <figcaption><span class="fig-no">FIG. 4</span>Mt. Lebanon and the North Lebanon furnaces along the Union Canal, from the "Fowler &amp; Baily" 1873 map of Lebanon. (Michael Trump)</figcaption>
+    </figure>
+
+    <p>Having come from the woods and eastern hills of Elizabeth furnace at Brickerville, how did they come to North Lebanon and pick that hill as a site for their new venture?</p>
+    <p>Several reasons suggest themselves: it was closer to the Cornwall ore mines, and easier to transport the ore across the flat terrain of Lebanon valley. Furthermore, the Union Canal, completed in 1828, ran straight through Lebanon within a block of the site they chose. The branch to Pine Grove was finished within two more years. Easy access brought needed coal in and shipped iron out.</p>
+    <p>Most traces of the canal are gone except for a few "Canal Street" and "Water Street" names, a park, and a few details to be discovered by a more discerning eye. It ran east to west just south of Maple Street.</p>
+    <p>The "bank furnace" construction required them to excavate the side of a hill. In that decade it was still easier to load the furnace from the top, as with the old furnaces at Cornwall, Elizabeth and elsewhere in the region.</p>
+    <p>So they chose a site we now recognize as Mt. Lebanon, where the Colemans also built their expansive estates, eventually five mansions in all.</p>
+
+    <h2>George Dawson Coleman (1825&ndash;1878) and Deborah Norris Brown (1832&ndash;1894)</h2>
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig5a-george-dawson-coleman.jpg" alt="Portrait of George Dawson Coleman">
+        <figcaption><span class="fig-no">FIG. 5</span>George Dawson Coleman&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig5b-deborah-brown-coleman.jpg" alt="Portrait of Deborah Norris Brown Coleman">
+        <figcaption><span class="fig-no">FIG. 5</span>&hellip;and Deborah Norris Brown.</figcaption>
+      </figure>
+    </div>
+
+    <p>After their initial successes with newer furnace technology, George Dawson Coleman's brother Robert moved abroad to Paris France, having sold his interest to his brother in 1852. While Augustus Boyd managed the Elizabeth furnace, George flourished in Lebanon as "one of the most prominent and progressive iron manufacturers in Pennsylvania, (Grittinger)" making many improvements to his new furnaces.</p>
+    <p>George died in 1878, the same year that his brother Robert passed away in Paris. His wife Deborah Brown Coleman or "Debbie" continued ownership of the furnaces and reigned as a <a href="profound-possessions.html">strong pillar of the community</a>, during the same years as her younger cousin, Cornwall and Lebanon's <a href="florida-man.html">Robert H. Coleman</a>.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/coleman-coachman/fig6-gettysburg-93rd-stone.jpg" alt="The stone monument for the Pennsylvania 93rd regiment at Gettysburg">
+      <figcaption><span class="fig-no">FIG. 6</span>Deborah contributed the stone for Gettysburg's 93rd regiment monument from the farm at Elizabeth.</figcaption>
+    </figure>
+
+    <p>Among her support of churches and other charities in Lebanon, she served on the executive committee of the Ladies Aid Society of Good Samaritan hospital.</p>
+    <p>On her death in 1894 the newspapers were filled with accolades. She had contributed not just to Lebanon, but to numerous greater works, far more than can be named here, such as the City Parks Commission of Philadelphia and president of Philadelphia's Society of Colonial Dames.</p>
+    <p>In her will she left $500 to her cook, Bridget Grady for her years of faithful service. Other servants who had lived with her for at least five years received $200 each.</p>
+    <p>She not only left the properties in Mt. Lebanon and Brickerville, but also a mansion in Philadelphia. Her will stated "her earnest request" that the property at the Elizabeth farm remain in the Coleman family forever.</p>
+    <p>Age 65 at death she had been "a remarkable woman, her charities being very large. Her wealth was large and of it she spent freely for every good purpose."</p>
+
+    <div class="plate-row-3">
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig7a-horace-brock.jpg" alt="Portrait of Horace Brock">
+        <figcaption><span class="fig-no">FIG. 7</span>Horace Brock&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig7b-arthur-brock.jpg" alt="Portrait of Arthur Brock">
+        <figcaption><span class="fig-no">FIG. 7</span>&hellip;Arthur Brock&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig7c-bertram-dawson-coleman.jpg" alt="Portrait of Bertram Dawson Coleman">
+        <figcaption><span class="fig-no">FIG. 7</span>&hellip;Bertram Dawson Coleman.</figcaption>
+      </figure>
+    </div>
+
+    <p>The furnaces were managed by brothers Horace and Arthur Brock, both of whom had married Coleman daughters Deborah and Sarah respectively, in 1878 and 1879.</p>
+    <p>When Bertram and his brother Edward had come of age the four formed a company in 1889, Coleman &amp; Brock to continue managing the furnaces. In 1901 they sold the furnaces to Pennsylvania Steel.</p>
+    <p>Many fascinating details of the life of George Dawson Coleman are related in local historian James Polczynski's book "Souls of Iron" (2022).</p>
+
+    <h2>The Mansions of Mt. Lebanon</h2>
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig8-homestead-mansion-1853.jpg" alt="Coleman's Homestead Mansion, built 1853">
+      <figcaption><span class="fig-no">FIG. 8</span>Coleman's "Homestead" Mansion, built 1853.</figcaption>
+    </figure>
+
+    <p>With much already written about Coleman family furnaces, the intention of this story, like other recent stories, is to call attention to the homes and names of families that characterized Lebanon in the latter 19th century.</p>
+    <p>Their success in the iron business was accompanied by the care the Colemans gave to their workers and the community, providing housing and churches. See additional details in the story involving the loss of their <a href="coleman-memorial-chapel.html">young son James</a> due to a horse-riding accident in 1874.</p>
+    <p>George built their "Homestead Mansion" after marrying Deborah Brown of Philadelphia in 1852 (the same year brother Robert departed for France). Some three or more decades later four more mansions were built on "Mt. Lebanon" for their married children.</p>
+    <p>Typical of other wealthy families, these homes served part-time during the year. George's son Bertram Dawson Coleman resided there only during the summer, having many business concerns in Philadelphia and throughout the state.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig9-mt-lebanon-mansions.jpg" alt="The Coleman family mansions of Mt. Lebanon">
+      <figcaption><span class="fig-no">FIG. 9</span>The Coleman family mansions of Mt. Lebanon. (See <a href="https://www.friendsofcmp.org/our-story" target="_blank" rel="noopener">friendsofcmp.org</a>)</figcaption>
+    </figure>
+
+    <p>All of the property was deeded to the city in the 1930s and the last of the homes demolished in 1961. The public enjoys the site today as "Coleman Memorial Park."</p>
+
+    <h2>The Irish Coachman &mdash; Patrick Guare (1842&ndash;1916)</h2>
+    <p>The 1860 census lists George Dawson Coleman as "iron master," living in North Lebanon with wife "Debbie" and two young children Debbie and Sarah. In their household were five domestics, one born in Ireland, a gardener named John Hagerty.</p>
+    <p>Ten years later there were seven young Coleman children in all, in addition to six domestics, some of whom were Irish-born, and one named Fanny Brown (coincidentally the same name as their own child Fanny Brown Coleman).</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig10-furnace-hill-houses.jpg" alt="Houses on Furnace Hill built for Coleman's furnace workers">
+      <figcaption><span class="fig-no">FIG. 10</span>Houses on Furnace Hill, built by Coleman for his furnace workers.</figcaption>
+    </figure>
+
+    <p>The keeping of Irish immigrants as household servants seems fitting, the original Robert Coleman had come from Castle Finn, Ireland in 1764.</p>
+    <p>Some of them lived in the Coleman mansion and others in the adjacent houses on Furnace Hill that had been constructed by Coleman for his furnace workers. Not far from the mansion and two doors from the house of furnace manager Charles Forney, was a house occupied by a large Irish family consisting of the Gradys and Guares.</p>
+    <p>In 1870 Bridget Guare ("retired servant, age 65," her husband Martin long-since passed) lived with her two Irish-born sons Patrick, age 27 a coachman, and James, age 25 a "day laborer" who served many years as a gardener. They shared the house with the family of her daughter Bridget, married to Patrick Grady. The Gradys had six Pennsylvania-born children, making it a very full house.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/coleman-coachman/fig11-patrick-guare-coachman.jpg" alt="Portrait of Patrick Guare, coachman">
+      <figcaption><span class="fig-no">FIG. 11</span>Patrick Guare, coachman.</figcaption>
+    </figure>
+
+    <p>In 1859 Patrick, age 17 was engaged as the Coleman family coachman, a position he would hold for nearly 30 years until 1889.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig12-coleman-stables.jpg" alt="The Coleman stables at Mt. Lebanon">
+      <figcaption><span class="fig-no">FIG. 12</span>The Coleman stables.</figcaption>
+    </figure>
+
+    <p>His place of employment would have been the Coleman stables. His service was highly satisfactory, such that the Colemans promised to build him a home, on the condition that he became married.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig13-guare-gatehouse-2007.jpg" alt="The Guare house at Mt. Lebanon, 2007 photo">
+      <figcaption><span class="fig-no">FIG. 13</span>The Guare house at Mt. Lebanon (2007 photo, Nancy Nebiker)</figcaption>
+    </figure>
+
+    <p>The home has also been referred to as the Furnace Hill Gatehouse, and is one of the few remaining structures in the park today. Situated at the top of Furnace Hill Road at the intersection with Krause Drive, it is referred to informally as the "Exit House" and is rented as a private residence. The stables also remain.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig14-patrick-annie-guare-family.jpg" alt="The family of Patrick and Annie Guare">
+      <figcaption><span class="fig-no">FIG. 14</span>The family of Patrick and Annie Guare. Margaret, the eldest child, was grandmother of Nancy Nebiker, who contributed this photo.</figcaption>
+    </figure>
+
+    <p>On April 17, 1871 Patrick and Annie Connell (also from Ireland) were married. In all they raised nine children, some of whom would continue in the employ of the Coleman family. They appear in the 1880 census adjacent to the households of "Brock, Horace" and "Coleman, Mrs. G. D."</p>
+    <p>Patrick's mother Bridget Guare died in April 1880; his sister, Bridget Guare Grady, served as the cook for the Colemans for 40 years, with her husband as a groundskeeper. The families kept close; the Guares intermarried with the Allweins and the Gradys with the Wachters.</p>
+    <p>In addition to the Colemans and Brocks, Patrick served the President of the United States on several occasions. According to one family anecdote, in April 1873 U. S. Grant arrived in Lebanon to visit with George Dawson Coleman. It very likely was Patrick Guare who drove the carriage from the train station, taking the party back to the Coleman residence.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/coleman-coachman/fig15-grant-visit-newspaper.jpg" alt="Newspaper account of President Grant's visit to Lebanon">
+      <figcaption><span class="fig-no">FIG. 15</span>Grant visited Lebanon several times, always Coleman's guest at Homestead.</figcaption>
+    </figure>
+
+    <p>In this particular visit, Grant had just nominated Coleman to represent the country at the 1873 Vienna World's Fair, and arrived from New York to visit for the weekend. Later that month, the entire Coleman family departed for six months on the Continent, representing the United States.</p>
+
+    <h2>Patrick's Second Career at Pennsylvania Bolt and Nut Company</h2>
+    <p>In September 1889, Arthur and Horace Brock, along with Bertram and Edward Coleman, bought into The Pennsylvania Bolt &amp; Nut Company. Founded in 1882, it had gone through a few different majority owners.</p>
+    <p>Now in the capable hands of the Colemans and Brocks, "the works rank as the most extensive of their kind in America; it is a source of pleasure to feel that all the stock is now held by Lebanonians (Lebanon Daily News)."</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig16-bolt-nut-news-1883.jpg" alt="News item on the Pennsylvania Bolt and Nut Company, January 1883">
+      <figcaption><span class="fig-no">FIG. 16</span>A news item from January 1883.</figcaption>
+    </figure>
+
+    <p>That same year Patrick Guare departed his job as coachman for the Colemans and Brocks and began working at the company.</p>
+    <p>A few years later (1892), Patrick made news in an on-the-job accident, having dropped a bar of iron on his foot, causing severe injury.</p>
+
+    <div class="plate-row-3">
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig17a-strike-newspaper-1.jpg" alt="Newspaper item on the 1902 strike at the Nut and Bolt Works">
+        <figcaption><span class="fig-no">FIG. 17</span>September 1902&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig17b-strike-newspaper-2.jpg" alt="Second newspaper item on the strike">
+        <figcaption><span class="fig-no">FIG. 17</span>&hellip;spelled trouble&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig17c-strike-newspaper-3.jpg" alt="Third newspaper item on the strike and violence">
+        <figcaption><span class="fig-no">FIG. 17</span>&hellip;at the Nut and Bolt Works, a strike and various outbursts of violence.</figcaption>
+      </figure>
+    </div>
+
+    <p>In 1899 the "Nut and Bolt Works" consolidated with four other companies to form the American Iron &amp; Steel Manufacturing Company (and later bought by Bethlehem Steel in 1917). It is not certain, when the company experienced violent labor riots in 1902, whether Patrick was an employee at that time.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig18-fire-1898-newspaper.jpg" alt="Newspaper account of the 1898 fire at the Guare home">
+      <figcaption><span class="fig-no">FIG. 18</span>Newspaper account of the 1898 fire.</figcaption>
+    </figure>
+
+    <p>When they left Mt. Lebanon, the family relocated to 516 North 10th Street. A catastrophic fire in their home caused news in 1898. Patrick was rendered unconscious by the smoke, but was rescued and resuscitated by his son John. Much of their clothing was destroyed, but most of the house spared. Oddly, the assumed cause of the fire was attributed to matches in a coat pocket having been gnawed by a mouse.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-coachman/fig19-liberty-fire-company.jpg" alt="Newspaper clipping about the Liberty Fire Company">
+      <figcaption><span class="fig-no">FIG. 19</span>The Liberty Fire Company.</figcaption>
+    </figure>
+
+    <p>It is possible that his brush with fire led to Patrick returning to his former career, this time driving the engine for the Liberty Fire Company in 1901. Very soon afterwards the unfortunate Patrick Guare was placed out-of-commission by an unspecified injury.</p>
+    <p>In 1916 Patrick suffered a paralytic stroke and died three weeks later. He was described as "one of the most popular and best-known Irish born residents of Lebanon," and remembered for his service to the Coleman family.</p>
+    <p>Services were held at St. Mary's Catholic Church and burial in the church cemetery. In honor of his service, a coach from the home of Miss Fannie Coleman (daughter of George Dawson Coleman) was among the carriages in the procession to the cemetery.</p>
+
+    <h2>James Guare, the Coleman Butler</h2>
+    <p>Among the nine Guare children, James Joseph Guare served as the Coleman's butler.</p>
+    <p>In February 1899, third ward Constable Geo. A. Hunter became suspicious when he saw a piece of expensive jewelry in a pawn shop, a gold chain worth $16 and pawned for $1. Keeping his eyes on the matter, within a few days he noticed James Guare visiting the shop.</p>
+    <p>Hunter reported the suspected crime to Edward R. Coleman, who was unaware of any theft and unwilling to believe ill of James, age 23, who had been a trusted servant for the last twelve years. Hunter and several officers were in hiding in Coleman's quarters when James came in to attend to his master. He was confronted with the crime, to which he confessed.</p>
+    <p>This led to a search of his quarters, where an "immense amount of plunder" was discovered in his bedroom. He had in his possession a duplicate key to the Coleman's safe. He had also broken into a sideboard and taken a quantity of whiskey.</p>
+    <p>The story made news as far as Philadelphia (part-time home of the Colemans) having robbed the house of clothing, jewelry, silverware and other items amounting to several thousand dollars in value. However the true extent of the loss was probably greater.</p>
+    <p>Anna Wise of Walnut Street was also arrested for receiving stolen property from James, a nine-pointed star pin with 32 diamonds. She posted $100 bail and was later discharged at her hearing.</p>
+    <p>It is surprising that so many valuables had not been missed by the Colemans. One paper said Guare's apartment "had the appearance of a well-stocked jewelry store." James was escorted to jail where he was unable to post $800 bail.</p>
+    <p>The crime was reported as one of the boldest and most extensive robberies in the vicinity for many years. Rumors described James attending various social functions and becoming part of a "fast set of young men and women," requiring him to steal to support his popular lifestyle.</p>
+    <p>Being his first offense, he was sent to Huntingdon Reformatory for Young Offenders in March 1899. Discharged in November the following year he enlisted as an ordinary seaman in the U. S. Navy.</p>
+    <p>He served on the USS Minneapolis and in December 1902 reported to the battleship USS Maine (BB-10), commissioned that month and not to be confused with the famous ship sunk in Havana harbor a few years earlier (1898).</p>
+    <p>He served on several more ships in his career, the Cincinnati, the Von Steuben, and the Missouri. Reports described him as delighted with the Navy, visiting ports around the world, and achieving Chief Boatswain's Mate, having served from 1901 to 1922.</p>
+    <p>James J. Guare lived his remaining years in Cape May, New Jersey until 1949.</p>
+
+    <h2>Constable George A. Hunter</h2>
+    <p>The man who was responsible for turning James Guare away from a life of crime to one of responsible service was George Hunter.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/coleman-coachman/fig20-george-hunter-portrait.jpg" alt="Portrait of Constable George A. Hunter">
+      <figcaption><span class="fig-no">FIG. 20</span>(Lebanon Daily News, March 28, 1904)</figcaption>
+    </figure>
+
+    <p>Living in Lebanon most of his life, George enjoyed many friendships. In early years he owned an ice business, the dam near Light's rolling mill being known as "Hunter's ice dam." The dam formed present-day Lion's Lake just north of Lebanon in Ebenezer.</p>
+    <p>In the early 1890s he made news several times selling about 100 tons of ice per day in the summertime to Mt Gretna Ice Company's ice house near Colebrook.</p>
+    <p>Later he was appointed as county detective by district attorney Frank Seltzer, serving for years before elected as constable in the Third Ward, which he held until death.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig21a-hunter-advertisement.jpg" alt="George Hunter's advertisement in Magistrate and Constable, 1895">
+        <figcaption><span class="fig-no">FIG. 21</span>George advertised in a local journal, Magistrate and Constable, 1895.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-coachman/fig21b-hunter-sign.jpg" alt="Sign advertising Hunter's services">
+        <figcaption><span class="fig-no">FIG. 21</span>(continued)</figcaption>
+      </figure>
+    </div>
+
+    <p>His obituary headlined him as "Terror to Crooks," and described his state-wide reputation as one of the most astute sleuths. His tall, muscular build made him an imposing figure when bearing down on his suspects.</p>
+    <p>Various news accounts report him dealing with crimes ranging from attempted murder, assault and battery; others involving chicken thieves, a horse thief ("soiled dove" named Lizzie Lebo &mdash; "well-known in police circles for public intoxication"), and once had to chase gypsies to recover stolen property.</p>
+    <p>Though a terror to thieves, the community enjoyed his genial disposition, good-natured and popular wherever he went.</p>
+    <p>Later in life he started a trucking business and served in the Union fire company. He had begun negotiations for a farm prior to his death. He died unexpectedly at his home at 166 North 10th Street, collapsing in March 1904.</p>
+  </div>
+
+  <div class="credits">
+    <p>Nancy Nebiker's contributions have been invaluable, helping add color to a story-in-progress on the Colemans of North Lebanon.</p>
+    <p>Cindy Schlegel and Joseph Morales, Friends of Coleman Memorial Park, for providing insights on the Guare home.</p>
+    <p>Margaret Hopkins, LebTown writer, for her timely story on <a href="https://lebtown.com/2025/01/21/lebanons-ice-industry-turned-winter-temperatures-into-cold-cash/" target="_blank" rel="noopener">Lebanon's ice dams</a>, which added to the life of Constable Geo. A. Hunter.</p>
+    <p>Mike Trump, local historian, for locating Hunter's dam in Ebenezer.</p>
+    <p>Originally published on LebTown, January 29, 2025.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

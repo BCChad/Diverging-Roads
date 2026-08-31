@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Market, To Market — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .part-label{
+    font-family:'Special Elite', monospace;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin:2.75rem 0 1rem;
+    padding-bottom:.75rem;
+    border-bottom:2px solid var(--brass);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .aside-note{
+    font-style:italic;
+    color:var(--slate);
+    font-size:.92rem;
+    max-width:66ch;
+    margin-bottom:1rem;
+  }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .ai-tag{
+    display:inline-block;
+    font-family:'Special Elite', monospace;
+    font-size:.6rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    border:1px solid var(--rust);
+    padding:.1rem .4rem;
+    margin-bottom:.3rem;
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 017 &middot; Civic Life</div>
+    <h1>To Market, To Market</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published as a two-part series on LebTown, January 8 &ndash; 16, 2025</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/to-market/p1-fig1-market-clock-tower.jpg" alt="The clock tower of the Lebanon Farmers Market building">
+    <figcaption><span class="fig-no">FIG. 1</span>The clock tower of the Lebanon Farmers Market, built 1892.</figcaption>
+  </figure>
+
+  <p class="lead">Lebanon's historic Farmers Market, mentioned recently in <a href="spirit-of-kindness.html">"The Spirit of Kindness"</a> series has been back in focus in the news with the December 30th auction.</p>
+
+  <div class="section">
+    <p>In that story about the roots of the Agape Family Shelter, readers learned of Lyman Nutting, the man who built and lived in the mansion at 139 South 9th Street. The story went on to tell of his other contributions to Lebanon businesses and infrastructure including the Samler building at 8th and Cumberland.</p>
+    <p>Among these accomplishments he was stockholder and director of the "Farmers Market," at the time known as the Lebanon Market House Company built in 1892. As his sons came of age, they worked with him and after his death took Lebanon's concept of markets even further. William and Harry Nutting combined the Lebanon Market House with three other markets to create the Consolidated Market House Company in 1908. Their vision ended an era of foul street markets, beginning a transition to the conveniences we take for granted today.</p>
+    <p>Here's how it unfolded.</p>
+
+    <h2>Lebanon's Early Markets</h2>
+    <p>These days Americans head to the local grocery store to purchase essentially everything and anything one could imagine. In many countries that is still not the case, nor was it even the case in this country in previous centuries.</p>
+    <p>Fortunately in this region of the country we still have expansive farms to remind us where food comes from. In previous centuries we all grew our own food and learned to trade with one another. We took our grain to the local grist mill to make the flour for our bread. Meats could be bought from a butcher, perhaps from our own livestock.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/to-market/p1-fig2a-new-orleans-market.jpg" alt="A typical New Orleans street market scene, circa 1880">
+        <figcaption><span class="fig-no">FIG. 2</span>Typical New Orleans street market scenes, similar to Lebanon's, c. 1880 (Library of Congress)</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/to-market/p1-fig2b-new-orleans-market-carriages.jpg" alt="Horse-drawn carriages in front of a New Orleans street market building">
+        <figcaption><span class="fig-no">FIG. 2</span>(continued)</figcaption>
+      </figure>
+    </div>
+
+    <p>Like other American cities (like New Orleans above), as Lebanon grew so did its marketplaces. There were open air marketplaces, street markets, street vendors, market sheds. Some marketers operated from open wagons.</p>
+
+    <h2>One Man's Street Market &mdash; Lebanon's James Fairburn (1847&ndash;1926)</h2>
+
+    <figure class="plate">
+      <span class="ai-tag" style="margin:.6rem .3rem 0;">AI-generated representation</span>
+      <img src="images/to-market/p1-fig3-ai-james-fairburn.jpg" alt="An AI-generated representation of James Fairburn, since no photographs of him are known to survive">
+      <figcaption><span class="fig-no">FIG. 3</span>AI representation of James Fairburn, for whom no known photos exist.</figcaption>
+    </figure>
+
+    <p>We Lebanonians herald the new year with a descending bologna, a tradition not yet 30 years old. Imagine, to be historically correct, that it might be celebrated with &mdash; an over-sized oyster (?).</p>
+    <p>In the spring of 1873 the Lebanon Daily News reported several visits by Civil War veteran James Fairburn, a merchant from Philadelphia. He lodged in the Lebanon Valley House hotel and began scouting different marketing opportunities.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/to-market/p1-fig4-lebanon-valley-house.jpg" alt="The Lebanon Valley House hotel at North 8th and Scull Streets">
+      <figcaption><span class="fig-no">FIG. 4</span>Lebanon Valley House at North 8th and Scull Streets. (Michael Trump)</figcaption>
+    </figure>
+
+    <p>Then in February 27, 1874 the newspaper reported Fairburn's return from Philadelphia with eight tons of oysters, oranges, lemons, figs, and peanuts.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/to-market/p1-fig5-fairburn-poem-ad.jpg" alt="Fairburn's poetic newspaper advertisement">
+      <figcaption><span class="fig-no">FIG. 5</span>Fairburn's poetic advertisement.</figcaption>
+    </figure>
+
+    <p>He must have hurried to the newspaper office with this poetic advertisement, which ran the next day and continued throughout the month of March. Within a week he moved his "Fruit &amp; Oyster House" several blocks from 710 Cumberland to 15 South 9th Street and added "Philadelphia Oyster Bay" to the name of his business.</p>
+
+    <h2>Philadelphia Beginnings</h2>
+    <p>James Fairburn was born in 1847 in Philadelphia to his Irish father John Fairbairn and his Pennsylvania-born wife Mary (last name unknown). James grew up there with his brother Charles, who remained in Philadelphia until his death in 1929.</p>
+    <p>A young James enlisted in the Philadelphia regiment for 3 months in 1861 until discharged.</p>
+    <p>Jane Anderson, a young woman from Ireland became his wife in 1866 and they soon raised three children: Emma C. Fairburn Fitton (1864&ndash;1934), Anna Elizabeth Fairburn (1869&ndash;1894) and William Henry Fairburn (1870&ndash;1924).</p>
+
+    <figure class="plate">
+      <img src="images/to-market/p1-fig6-philadelphia-fish-market.jpg" alt="Representation of the Philadelphia fish market">
+      <figcaption><span class="fig-no">FIG. 6</span>Representation of the Philadelphia fish market. (Library Company of Philadelphia)</figcaption>
+    </figure>
+
+    <p>His occupation in Philadelphia was probably in the city's fish markets, until at age 26 he came to Lebanon seeking his fortune and a home for his young family.</p>
+
+    <h2>"Truthful James" Fairburn</h2>
+    <p>After Fairburn had sold his eight tons of oysters and produce, the next month he expanded, advertising "all kinds of fresh fish, cleaned and delivered to all parts of the town, free of charge!" His Norfolk and Chesapeake Bay oysters are "received daily" and sell for 40 cents a quart.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/to-market/p1-fig7-newspaper-ad.jpg" alt="One of Fairburn's newspaper advertisements">
+      <figcaption><span class="fig-no">FIG. 7</span>One of Fairburn's daily advertisements.</figcaption>
+    </figure>
+
+    <p>He advertised daily, often poetically, as the "Philadelphia Oyster Bay" enterprise, continuing business under various names at 11-15 South 9th Street into the 1900s. He and his wife Jane lived just down the street at 132 South 9th Street, across from <a href="spirit-of-kindness.html">the DeHuff family</a>.</p>
+    <p>His seasonal business closed down by late spring, reopening in the fall, offering sweet potatoes and peanuts, with free delivery to any part of town. In the summer he kept a truck stand that moved about; one could track his whereabouts in the paper.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/to-market/p1-fig8-truck-stand-ad.jpg" alt="An advertisement for Fairburn's mobile truck stand">
+      <figcaption><span class="fig-no">FIG. 8</span>"Truck Stand" &mdash; Fairburn's mobile operation.</figcaption>
+    </figure>
+
+    <p>While he stored some of his wares in the basement of a building at Walnut Alley, he operated his outdoor stand as long as possible. He had fresh black bass for sale on one given morning. In the spring he took out advertisements announcing more fresh produce from Philadelphia and thanking the public for their continued support.</p>
+
+    <h2>A Reformed Huckster</h2>
+    <p>He may have enjoyed public support, but he often drew the wrong kind of attention.</p>
+    <p>"Huckster" once simply meant "a peddler," one who re-sells merchandise. The root of the word carries the notion of "to haggle," or "to hawk wares." More recent connotations re-color it as "one who sells or advertises something in an aggressive, dishonest, or annoying way (Merriam-Webster)."</p>
+    <p>In Fairburn's case, the latter was intended when the newspapers often referred to Fairburn as "the huckster." They capitalized on his reputation, giving readers amusement, even on the front page (of course they also benefited from his paid advertising).</p>
+
+    <figure class="plate">
+      <img src="images/to-market/p1-fig9-huckster-newspaper.jpg" alt="Newspaper item about Fairburn the huckster">
+      <figcaption><span class="fig-no">FIG. 9</span>Our 30-something, street-wise huckster made good newsprint.</figcaption>
+    </figure>
+
+    <p>Consider brief stories of him being arrested for disturbing the peace, turned in by his own wife, and more than once.</p>
+    <p>The couple made the news in 1875 when she filed for divorce (apparently later reconciled).</p>
+    <p>Fairburn was arrested on another occasion when his temporary market stall encroached on too much of the pavement on 9th Street, providing further insight into the general public disgust with market men.</p>
+
+    <figure class="plate">
+      <img src="images/to-market/p1-fig10-arrest-newspaper.jpg" alt="Newspaper article about one of Fairburn's arrests">
+      <figcaption><span class="fig-no">FIG. 10</span>One of several newspaper items on Fairburn's brushes with the law.</figcaption>
+    </figure>
+
+    <p>Fairburn took his truck stand around the county and to events like the Pinegrove campmeeting grounds, where he was tolerated briefly before being run out of the place. One time it was for selling cigars without a license.</p>
+    <p>Many years later when he visited the Pinegrove camp meeting with a large supply of cantaloupes, watermelons and peaches he informed the newspaper "that he did not receive much patronage and at about 7 o'clock in the evening he was stoned off the grounds."</p>
+    <p>Hollywood could have made a movie, James Fairburn a caricature of a scrappy, self-respecting Irishman picking himself up and dusting off again, and again.</p>
+    <p>In December 1880 Fairburn made the news, being found nearly frozen to death while selling his wares on the road in Berks county.</p>
+    <p>Again in the spring of 1882 the newspapers noted that Fairburn had been "among the missing for some time," yet "turned up today in Lebanon." Likely he had been away in Philadelphia between seasons.</p>
+    <p>Glad for the return of their colorful curmudgeon, another notice cheerfully noted his presence at 8th and Cumberland with a load of watermelons, cantaloupes, sweet potatoes and peaches from the Jersey shore. "Astonishingly low prices, my greatest pleasure is to please."</p>
+
+    <h2>The Green Grocer</h2>
+    <p>He appeared in the news almost as frequently as the weather report. Stories of remodeling his shop, and arriving produce shipments were the stuff of front page news.</p>
+    <p>Despite such a reputation as "huckster" later news items referred to him more kindly as "dealer in truck" and "the old oysterman." In one he was the "jovial street dealer." Later still, the "green grocer."</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/to-market/p1-fig11-christmas-ad.jpg" alt="Advertisement during the Christmas season">
+      <figcaption><span class="fig-no">FIG. 11</span>Advertisement during the Christmas season.</figcaption>
+    </figure>
+
+    <p>As Fairburn's reputation improved, he claimed in one advertisement "25 years in the business" which, if true confirms his early career as a merchant in Philadelphia in the thirteen years before testing Lebanon's waters.</p>
+    <p>Certainly Fairburn was not the only street marketer in Lebanon, but a city registry of grocers showed him as the only <em>oysterman</em>. He claimed his experience in Philadelphia and New York enabled him to outperform other dealers in both price and quality.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/to-market/p1-fig12-oysterman-newspaper.jpg" alt="Newspaper item calling Fairburn the old oysterman">
+      <figcaption><span class="fig-no">FIG. 12</span>"The old oysterman."</figcaption>
+    </figure>
+
+    <p>His reputation improved further, drawing sympathy on occasions when thieves broke into his warehouse or into rail cars containing his produce &mdash; Lebanon had scoundrels lower than hucksters!</p>
+
+    <figure class="plate">
+      <img src="images/to-market/p1-fig13-brick-mortar-restaurant.jpg" alt="Advertisement for Fairburn's restaurant expansion, 1888">
+      <figcaption><span class="fig-no">FIG. 13</span>"Brick and Mortar" &mdash; Fairburn expands into a restaurant, 1888.</figcaption>
+    </figure>
+
+    <p>Among promotions, he once raffled off one of his horses at 10 cents per chance. The winner had no idea what to do with "the elephant," other than to give it to a friend.</p>
+    <p>Fairburn should have kept the animal; three months later while visiting a town with his vegetable wagon his horse suffered a seizure and died. He claimed he would not have taken $100 for his prized animal.</p>
+
+    <h2>About That New Year's Eve Oyster&hellip;</h2>
+    <figure class="plate">
+      <img src="images/to-market/p1-fig14-freeman-check.jpg" alt="A check from Edward C. Freeman's records showing purchases from Fairburn">
+      <figcaption><span class="fig-no">FIG. 14</span>From Edward C. Freeman's household records.</figcaption>
+    </figure>
+
+    <p>Oysters featured prominently in Lebanon culture. Edward C. Freeman, residing in Cornwall's Buckingham Mansion, frequented Fairburn's stand, especially around Christmas and New Years, buying "Prime" and "Extras" by the hundreds at $1.50 per lot.</p>
+    <p>These molluscs were not reserved for the higher classes; in a <a href="spirit-of-kindness.html">previous story</a> Jacob DeHuff had conducted public events featuring "all kinds of cooked oysters."</p>
+    <p class="aside-note">(Thankfully, the New Year's oyster drop was never imagined becoming a "thing" here in Lebanon. This author prefers Lebanon bologna over oysters any day of the year.)</p>
+
+    <h2>Like Father, Like Son</h2>
+    <p>James put his teenage son William to work, who made news in 1885 having fallen from the wagon on Cumberland Street and breaking his wrist. Fifteen years later William was severely injured when the horse team became frightened by an automobile, causing a runaway and throwing him from the wagon.</p>
+
+    <figure class="plate">
+      <span class="ai-tag" style="margin:.6rem .3rem 0;">AI-generated representation</span>
+      <img src="images/to-market/p1-fig15-ai-william-fairburn.jpg" alt="An AI-generated representation of William Fairburn, James's son">
+      <figcaption><span class="fig-no">FIG. 15</span>AI representation of son William Fairburn.</figcaption>
+    </figure>
+
+    <p>William was later remembered for hawking bananas to the crowds on Cumberland street in the evening. Imagine "BANANAS! &mdash; 25 CENTS a DOZEN!" on New Years eve and warm summer nights.</p>
+    <p>Business expanded with William's help. James had to advertise for another young man to open oysters for him; an unfortunate Philip Mease made news, put out of commission when gashing his hand with the sharp oyster blade.</p>
+    <p>Fairburn also hired an unmarried young man to work for his business, having acquired a team of horses from Pottsville that enabled him to put a truck on the road to distribute more of his wares. They boasted "James has an immense stock on hand and what he doesn't know about doing business isn't worth knowing."</p>
+
+    <h2>End of an Era &mdash; Though Still Making News</h2>
+    <p>The consolidation of markets near the end of the century began the end of Fairburn's career; he eased out of business over the next decade.</p>
+    <p>Eventually F. C. Rump took over operation of the oyster house.</p>
+
+    <figure class="plate">
+      <img src="images/to-market/p1-fig16-doans-pills-newspaper.jpg" alt="Newspaper advertisement featuring Fairburn endorsing Doan's Pills">
+      <figcaption><span class="fig-no">FIG. 16</span>Fairburn, still in the public eye, endorsing "Doan's Pills."</figcaption>
+    </figure>
+
+    <p>But James was still public news, featured in advertisements endorsing "Doan's Pills." He suffered from lumbago which confined him to his home two weeks at a time.</p>
+    <p>Fairburn's stature improved, having become friends of men like Mayor Gerhart, Lyman Nutting's son Harry, and Frank Gleim, the druggist. They made news for their occasional travels out of state to places like Florida and Cuba.</p>
+    <p>On his 74th birthday, Fairburn was honored as one of three "prominent Lebanonians." The days of the scrappy street marketer had passed.</p>
+    <p>By 1926, the year of his death, he and the "Missus" were living at 827 Chestnut Street and attended St. Mark's Reformed Church. He was buried with military honors in Philadelphia's North Cedar Hill Cemetery.</p>
+  </div>
+
+  <div class="part-label">Part 2</div>
+
+  <div class="section">
+    <p>In the last installment of this story we briefly traced the roots of the Lebanon Farmers Market in telling the story of James Fairburn, huckster and real-life caricature of a typical street merchant.</p>
+    <p>Now, the continued story of the evolution and consolidation of Lebanon's markets in the late 19th century, setting the foundation for today's modern conveniences.</p>
+
+    <h2>Lebanon's Early Grocers</h2>
+    <p>Street markets were not the only place of trade for food.</p>
+    <p>There were many grocers where you went to get your canned and dry goods. Cornwall's Edward C. Freeman (mentioned in part 1 for his love of oysters) and his shopping habits have been preserved in great detail in the records left behind in his estate.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/to-market/p2-fig1-shiffler-grocery.jpg" alt="Advertisement for C.W. Shiffler and Bro. grocery">
+      <figcaption><span class="fig-no">FIG. 17</span>C. W. Shiffler &amp; Bro.</figcaption>
+    </figure>
+
+    <p>C. W. Shiffler &amp; Bro. offered "Fancy and Staple Groceries" at 819 Cumberland, having taken over the establishment of J. A. Mark &amp; Co, which had operated for years prior. Among their offerings of eggs, potatoes, etc., Freeman visited them several times a month to purchase several pounds of "Prescott Butter," two pounds for 52 cents.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/to-market/p2-fig2a-valentine-grocery-ad.jpg" alt="Advertisement for S.G. Valentine's Fine Groceries and Provisions">
+        <figcaption><span class="fig-no">FIG. 18</span>S. G. Valentine's&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/to-market/p2-fig2b-valentine-grocery-ad2.jpg" alt="Another advertisement for S.G. Valentine's grocery">
+        <figcaption><span class="fig-no">FIG. 18</span>&hellip;"Fine Groceries and Provisions."</figcaption>
+      </figure>
+    </div>
+
+    <p>Just up the street at 838 Cumberland was S. G. Valentines "Fine Groceries and Provisions." Freeman stopped in here for bacon, ham (15 cents a pound), sardines, rice, sugar, "Bert's Snaps," roquefort crackers, olive oil, and &hellip; "sapolio."</p>
+
+    <figure class="plate">
+      <img src="images/to-market/p2-fig3-sapolio-ad.jpg" alt="Advertisement for Sapolio scouring soap">
+      <figcaption><span class="fig-no">FIG. 19</span>Sapolio &mdash; a household name by the end of the 19th century.</figcaption>
+    </figure>
+
+    <p>By the end of the 19th century, sapolio was one of the best-advertised products, rivaling any big-name brand you can imagine today. The scouring soap was used to clean everything in the kitchen, and even useful for bathing.</p>
+    <p>Incidentally S. G. Valentine served as pianist for the Perseverance Band in some of their concerts. Previously he had been in charge of Lebanon's Colebrook furnaces; he opened his grocery late in 1894.</p>
+    <p>Freeman (or one of his house servants who purchased on his account) might then head several blocks east to Shugar's Groceries &amp; Provisions at 623 Cumberland. Here he shopped for beef, bacon, candles, maple syrup and butter.</p>
+    <p>John H. Shugar may have been one of the longest-standing grocers. Newspaper records for Shugar's store go back to 1872. He also acquired property 1874 at Cumberland and 7th, and began building three-story brick houses with at least one storefront.</p>
+    <p>He was carrying fresh fish in 1874, the year James Fairburn had come to town.</p>
+
+    <figure class="plate">
+      <img src="images/to-market/p2-fig4-ed-miller-store.jpg" alt="Ed Miller's grocery branch store at 243 South 10th Street">
+      <figcaption><span class="fig-no">FIG. 20</span>Photo supplied by Mike Trump; the original courtesy of the Lebanon County Historical Society.</figcaption>
+    </figure>
+
+    <p>Ed Miller was another who got his start in 1891, with a store at market square on North 9th Street. Within a few years he opened four more "branch stores," the one above at 243 S. 10th Street, and others at 9th &amp; Mifflin, 9th &amp; Spring, and South 8th Street.</p>
+
+    <figure class="plate">
+      <img src="images/to-market/p2-fig5-retailers-license-list.jpg" alt="A published list of Lebanon's licensed retailers">
+      <figcaption><span class="fig-no">FIG. 21</span>Lebanon's licensed retailers.</figcaption>
+    </figure>
+
+    <p>The list of all of Lebanon's licensed retailers, published periodically, shows many grocers operating in Lebanon (in 1893, having grown from 34 retailers in 1853). A class 14 license meant the proprietor conducted less than $5,000 in sales annually. Shugar's class 12 license indicated sales around $10,000.</p>
+
+    <h2>The Outdoor Produce Markets</h2>
+    <figure class="plate">
+      <img src="images/to-market/p2-fig6-1860-city-map.jpg" alt="An 1860 city map showing the widened marketplace blocks on 9th Street">
+      <figcaption><span class="fig-no">FIG. 22</span>An 1860 city map, showing the widened blocks on 9th Street (formerly called Market Street) planned as a town square or marketplace.</figcaption>
+    </figure>
+
+    <p>Looking back a few decades before the expansion of grocers, the largest marketplace was at 9th and Cumberland Streets. <em>(Notice the names that precede the numbered streets today: "Walnut Street" then became 8th Street, and what was "Hill Street" now bears the name "Walnut." These were renamed prior to 1870.)</em></p>
+
+    <figure class="plate">
+      <img src="images/to-market/p2-fig7-1875-city-map.jpg" alt="An 1875 city map showing the large market pavilion on 9th Street">
+      <figcaption><span class="fig-no">FIG. 23</span>This 1875 city map shows the large pavilion standing in the square on 9th, just north of Cumberland. This had been erected in 1834 and finally demolished in March 1884.</figcaption>
+    </figure>
+
+    <p>The pavilion possibly was replaced by an earlier one that stood on South 9th on the opposite side of Cumberland Street in the widened square.</p>
+    <p>There were other markets: Mr. Asa Weimer had organized one on North 8th near the railroad. Other "enterprising gentlemen" had a market at North 9th and Lehman, which became known as the Central Market House Company, near the railroad crossing. These convenient locations provided wares freshly offloaded from the trains.</p>
+
+    <h2>Progress of a Sort</h2>
+    <figure class="plate">
+      <img src="images/to-market/p2-fig8-market-house-bell-tower.jpg" alt="A market house building with a bell tower">
+      <figcaption><span class="fig-no">FIG. 24</span>Progress came slowly after the 1884 removal of the 9th and Cumberland pavilion.</figcaption>
+    </figure>
+
+    <p>The public expressed growing demand ("we are a city!") for the construction of a new market.</p>
+    <p>"Where is our new market?" one editorial lamented in January of 1886. Two months later another story reported Mr. Weimer taking the lead in "giving the people of Lebanon better market house accommodations." He organized a meeting with local "capitalists" who realized "profit could be made out of a first-class market house."</p>
+    <p>For the lack of an appropriate structure, market would be held along the curbstones in front of places of public businesses, to the annoyance of pedestrians and injury to businessmen. In part 1 of this story, James Fairburn had been arrested for encroaching too much of the street with his stand.</p>
+    <p>Furthermore, "the accumulated filth on a hot windy day, settling down upon the edibles we purchase and put into our stomachs" and the freezing inconvenience of purchasing one's necessities during the winter, fueled the outcry.</p>
+
+    <h2>Lebanon's Centralized Markets</h2>
+    <p>You may have visited Philadelphia's historic <a href="https://readingterminalmarket.org/about-the-market/history/" target="_blank" rel="noopener">Reading Terminal Market</a>, which offers a glimpse, on a larger scale, of the development of Lebanon's markets. Before its construction in 1893 Philadelphia markets had been described as a "ragtag crowd of farmers, fishermen, and huntsmen hawking their goods all over the bustling settlement." By the 1800s they had evolved into a string of market sheds six blocks long along appropriately named Market Street.</p>
+    <p>Such conditions were considered health hazards and nuisances, and later became obstacles for the growing streetcar traffic. By 1859 Philadelphia's city planners ordered a change from the street sheds to two centralized markets.</p>
+    <p>Over time, the fresh air produce hucksters gravitated to various districts. As one wagon or "truck" established clientele in a neighborhood, others set up shop on the same block to take advantage of the draw.</p>
+    <p>Likewise, markets evolved in Lebanon, as they did also in Lancaster and Harrisburg.</p>
+    <p>A Harrisburg editorial in 1884 described the interest in demolishing its old market sheds "which still disfigure one of the principal business streets&hellip; a disgrace to the city&hellip; should not be permitted to exist in this age of progress."</p>
+    <p>The same editorial upheld Lebanon as an example to follow: "If Harrisburg people desire to see what a change has been made by the removal of the Lebanon market house they need but come here and witness the improved condition of the street. Market houses standing in the middle of streets are at best but eyesores and have a tendency to depreciate property in the vicinity."</p>
+
+    <h2>A Turning Point, Finally</h2>
+    <figure class="plate">
+      <img src="images/to-market/p2-fig9-old-lebanon-jail.jpg" alt="The old Lebanon Jail on South 8th Street">
+      <figcaption><span class="fig-no">FIG. 25</span>The old Lebanon Jail on South 8th Street, demolished after a fire in 1891 for the Lebanon Market House (now "Lebanon Farmers' Market"). See the <a href="https://lebtown.com/2018/10/24/the-true-crime-story-that-made-lebanon-famous-around-the-world-the-blue-eyed-six-plotters-of-a-murder-140-years-ago/" target="_blank" rel="noopener">"Blue-Eyed Six"</a> story.</figcaption>
+    </figure>
+
+    <p>In 1891 the old city jail had been destroyed by fire and demolished. In April the same year, a board of directors was formed for a new market company, "The Lebanon Market House Company," which included Lyman Nutting, Jacob Shenk and Samuel Brightbill among others, eleven in all.</p>
+    <p>The directors planned the new Lebanon market on South 8th Street. They had visited several cities before declaring Lancaster's central market the finest they'd seen.</p>
+    <p>The plan called for building on the site of the old jail on South 8th Street, resulting in the beautiful structure that has stood on the spot today since 1892, known now as Lebanon Farmers Market.</p>
+
+    <h2>Consolidated Market in 1908</h2>
+    <p>Lebanon's markets progressed for several more years until 1908, with the formation of a syndicate that would control every market house in Lebanon. The market house owners combined their respective businesses into the "Consolidated Market House Company."</p>
+    <p>Although <a href="spirit-of-kindness.html">Lyman Nutting</a> had passed away the year after the completion of the Lebanon Market House his sons William and Harry remained very much in control of his businesses that had been modernizing the city of Lebanon. They were also central in the new syndicate, along with Jacob Shenk, S. L. Light and others.</p>
+    <p>In addition to "Shenk's" market house on South 8th Street, other markets named in the consolidation were "Seltzer's" on North 9th Street (the Central Market House Company), Asa Weimer's on Sixth Street, and Martin Wengert's on Liberty Square.</p>
+    <p>The reason for consolidation was profitability. Shenk's, the largest market had never paid a dividend and the others made barely one or two percent. They believed that centralizing would improve returns without burdening the farmers, the renters or the general public.</p>
+    <p>They also intended to close one of the other houses as there were more stalls than needed.</p>
+    <p>Those outdoor curbside stalls in their day rented at $40 to $50 a year. The newer houses had provided well-lit, comfortable accommodation renting for only $10 to $30 a year. Consolidation would also result in uniform rents, giving equal privilege to all farmers.</p>
+
+    <h2>Last Stop: Lebanon's Central Market</h2>
+    <figure class="plate">
+      <img src="images/to-market/p2-fig10-central-market-1914.jpg" alt="Central Market in 1914">
+      <figcaption><span class="fig-no">FIG. 26</span>Central Market (1914 photo from Lebanon Daily News/Newspapers.com; the Lebanon County Historical Society holds the original)</figcaption>
+    </figure>
+
+    <p>For those curious about the location of the Central Market, which had been hailed as one of the city's first modern market houses, it no longer stands. In its place is the 9th Street bridge that passes over the railroad.</p>
+    <p>The Market suffered a significant fire in 1914. The building was repurposed for a textile business and again destroyed by fire in 1984.</p>
+    <p>Lebanon's remaining Farmers Market on 8th Street is a treat to visit. When you go, be sure to pause and breathe in reminders of our history.</p>
+  </div>
+
+  <div class="credits">
+    <p>Mike Trump (maps and photos). Cornwall Manor for Edward C. Freeman's shopping records. Helen Tangires' "Public Markets."</p>
+    <p>Originally published as a two-part series on LebTown, January 8 &ndash; 16, 2025.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

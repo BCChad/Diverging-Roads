@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cornwall Borough's "Cold Springs" Water Supply — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; }
+  .plate-float{
+    float:right;
+    max-width:200px;
+    margin:0 0 1rem 1.5rem;
+  }
+  @media (max-width:560px){
+    .plate-float{ float:none; max-width:280px; margin:1.5rem auto; }
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 009 &middot; Coleman Family</div>
+    <h1>Cornwall Borough's "Cold Springs" Water Supply</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published February 1, 2023</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate plate-float">
+    <img src="images/cold-springs/fig1-faucet.jpg" alt="A chrome bathroom faucet">
+    <figcaption><span class="fig-no">FIG. 1</span></figcaption>
+  </figure>
+
+  <p class="lead">Admit it, these days when you need water you reach for the faucet with very little thought. In the old days when indoor plumbing was still more of a luxury, the supply of water required some planning. In 1879 newly married Robert H. Coleman was building an exquisite mansion in Cornwall center for his new bride. He literally went to great lengths to furnish it with running water. How did he do it?</p>
+
+  <div class="section">
+    <p>At Coleman's request, civil engineer Henry Kendall reported on January 14, 1880 the results of a survey of springs in the wooded hills of Anne Coleman Alden's property known as Cold Springs <em>(vicinity of Old Mine Road and Route 117 today)</em>. The survey had been conducted two months earlier in November 1879 in a period he described as "great drought." Even so, per his report the survey of three outlets provided a combined flow of 42,000 gallons per day.</p>
+    <p>From his Lebanon office at 927 Cumberland Street, Kendall described the vertical drop of 97 to 130 feet from the various springs to Coleman's mansion, over an estimated distance of 9,000 feet. He therefore proposed collecting the water in a basin 90 feet above the mansion and provided further details of the sizes of pipe needed. The run from the collection basin to the mansion would be served by a 4-inch pipe, providing 30 gallons per minute of flow.</p>
+
+    <figure class="plate">
+      <img src="images/cold-springs/fig2-kendall-brothers-letterhead.jpg" alt="Letterhead of Kendall Brothers, Civil Engineers, Surveyors and Conveyancers, Reading, Pa.">
+      <figcaption><span class="fig-no">FIG. 2</span>Letterhead of Kendall Brothers, Civil Engineers, Surveyors and Conveyancers, Reading, Pa.</figcaption>
+    </figure>
+
+    <p>Robert H. Coleman had married Lillie Clark on January 5, 1879. While they were spending a fair part of the year traveling and honeymooning in Thomasville, Georgia, he had his manager Artemus Wilhelm and architect Wm. B. Powell busy designing and building the new mansion. Affluence and luxury were perhaps not the only reason necessitating the project, as Lillie's frail health had been a growing concern for which reliable water might be considered more of a necessity.</p>
+    <p>Up until that time the family of Susan Ellen Coleman, with her son Robert and daughter Anne at "The Cottage" in Cornwall Center, had depended on water from Snitz Creek and a small spring house on the adjacent Smith farm. With the construction of a large extension to the Cottage two years earlier, and the construction of Robert H. Coleman's first mansion for his new bride, the expectation of piped, running water necessitated what became one of Cornwall's first water supplies. <em>(The Cornwall Iron Master's mansion, now known as "Buckingham Mansion" at Cornwall Manor, had a similar piped water system from a small reservoir that had been established on the hills near Minersvillage.)</em></p>
+
+    <figure class="plate plate-sm" style="margin-left:auto;margin-right:auto;">
+      <img src="images/cold-springs/fig3-kendall-survey-sketch.jpg" alt="Kendall's original 1880 pencil sketch of the spring survey">
+      <figcaption><span class="fig-no">FIG. 3</span>Kendall's original 1880 pencil sketch of the spring survey.</figcaption>
+    </figure>
+
+    <p>Given its surplus capacity, the Cold Springs water system would later expand to supply other houses in Cornwall over a few years' time. Included was the great Millwood mansion or <a href="restoring-millwoods-former-glory.html">"Alden Villa"</a> built by Anne Coleman Alden in 1881 for her son Robert Percy Alden; the water main passing near the hill on which it still stands.</p>
+    <p>The curious part of the Cold Springs water supply is that it still flows today. At the time of its development, the wooded hills were relatively quiet, being used to harvest trees for the charcoal furnace. The Cornwall &amp; Lebanon Railroad, and the extension that would lead to the birth of Mount Gretna did not exist. There were no National Guard encampments, no church Sunday school picnics. All of these have come and gone; the springs still flow.</p>
+  </div>
+
+  <div class="section">
+    <h2>Beehives</h2>
+    <p>The springs were tapped at four locations; each capped with a small dome-like stone structure known as a beehive. These remain today, moss-covered and tucked away in the woods of Old Mine Road, continuing to collect spring water. Their approximate locations are indicated in Kendall's original 1880 pencil sketch.</p>
+
+    <figure class="plate">
+      <img src="images/cold-springs/fig4-beehive-structure.jpg" alt="A moss-covered stone beehive structure capping one of the springs, tucked in the woods">
+      <figcaption><span class="fig-no">FIG. 4</span>Beehive structure capping one of the springs.</figcaption>
+    </figure>
+  </div>
+
+  <div class="section">
+    <h2>The Reservoir</h2>
+    <p>Initially the spring water had been collected in a shallow reservoir created by building an earthen dam. Later in the 1880s a Reservoir building was erected of familiar red sandstone, characteristic of many historic buildings in Cornwall. It remains today, serving essentially as a large cistern protected with walls and roof.</p>
+    <p>This structure, known now as "Cold Springs Reservoir" is registered as an historic site. An official with the Pennsylvania Department of Conservation remarked on its uniqueness; nothing else like it is known to exist in the state. This relatively hidden, though impressive structure houses a capacity of 50,400 gallons. As shown in the photo, the building contains a pool measuring 20x30 feet, 11.6 feet deep.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/cold-springs/fig5-reservoir-exterior-front.jpg" alt="Exterior front view of the red sandstone Cold Springs Reservoir building">
+        <figcaption><span class="fig-no">FIG. 5</span>Exterior view of the Reservoir building.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/cold-springs/fig6-reservoir-exterior-rear.jpg" alt="Exterior rear view of the Cold Springs Reservoir building">
+        <figcaption><span class="fig-no">FIG. 6</span>Exterior view, rear elevation.</figcaption>
+      </figure>
+    </div>
+
+    <figure class="plate">
+      <img src="images/cold-springs/fig7-reservoir-interior.jpg" alt="Interior of the Cold Springs Reservoir, showing the stone-walled cistern still holding water beneath a timber roof">
+      <figcaption><span class="fig-no">FIG. 7</span>Interior view of the Reservoir.</figcaption>
+    </figure>
+
+    <h2>Expanding Growth in Cornwall</h2>
+    <p>The attached aerial map tells the story of the growing demand for water (locations are approximate). The outlet from the reservoir was first piped to Robert H. Coleman's Cornwall property. It was initially intended to supply the new mansion at "A." The blue line from the lower left corner points back (southwest) to the reservoir. It crosses through a low cut in the ridge south of "Horseshoe Turnpike" (Freeman Drive / Rt. 419) and proceeds northeast to the Coleman estate.</p>
+
+    <figure class="plate">
+      <img src="images/cold-springs/fig8-aerial-distribution-map.jpg" alt="Aerial map showing the Cold Springs water distribution lines to Cornwall center, with lettered site markers">
+      <figcaption><span class="fig-no">FIG. 8</span>Aerial map (partial) of the Cold Springs water distribution to Cornwall center.</figcaption>
+    </figure>
+
+    <p>Although work had begun early in 1880, plans quickly changed after Coleman's new bride succumbed to her illness and died in late May 1880 while they were traveling in Europe. Robert ordered a halt to construction and in fact completely dismantled what had been built. No definitive remains or photographs exist of this "first mansion."</p>
+    <p>In June and July of 1880 Wilhelm and Kendall exchanged correspondence regarding the order of an additional 2,000 feet of pipe and associated fittings. These were apparently to continue the work of extending the water supply to the other buildings of the estate, which are identified as: A &mdash; the 1st Mansion (unfinished), B &mdash; the Stables, C &mdash; "Cornwall Hall (both the original extended Cottage and the 2nd unfinished mansion)," D &mdash; the Music hall, E &mdash; the Greenhouse.</p>
+    <p>An October 19, 1887 article in the Lebanon Daily News reported that plumbers Matthews &amp; Zerman of North Eighth Street, Lebanon finished laying a water main for Robert H. Coleman at his Cornwall mansion. "Pipe was laid a distance of almost a mile and was accomplished in the short space of four days." "Cornwall Hall" or the 2nd Mansion had begun construction several years after Robert had remarried in 1883. It too suffered from lack of completion as Robert was beginning to suffer financial problems, leading to his failure in 1893.</p>
+
+    <figure class="plate">
+      <img src="images/cold-springs/fig9-cornwall-hall-unfinished-mansion.jpg" alt="Historic photo of Cornwall Hall, Coleman's second unfinished mansion, labeled Unfinished Mansion, Cornwall Pa">
+      <figcaption><span class="fig-no">FIG. 9</span>"Cornwall Hall," Coleman's 2nd Unfinished Mansion, the smaller "Cottage" attached at the right.</figcaption>
+    </figure>
+
+    <p>In spite of Coleman's difficulties, the demand for expanding the water supply resulted in continued growth of the Cold Springs system. Later developments included connecting the Alden "Millwood" mansion (N) and barn (O), and the water main grew northward from "E" to the Freeman property and other parts of Cornwall, even to the riding club at "R."</p>
+    <p>Over time Cold Springs gravity-fed water expanded service to locations throughout West Cornwall Township and Cornwall Borough. The Cold Springs property was deeded to the Cornwall Borough Water Authority in 1956 from the William C. Freeman, Jr. estate and was used as part of the Borough's water system until the mid-1990s. Although a more modern 250,000 gallon steel tank had been added in 1983 at the site of the reservoir, the system was rendered obsolete a decade later by updated state regulations. For the last 30 years, Cornwall has received its water from the City of Lebanon Authority (COLA) water system.</p>
+    <p>More surprising than its origins is the simple fact that the integrity of this historic water system remains in place today. More than 140 years after its construction, the building continues to serve its original purpose &mdash; daily collecting 50,000 gallons of spring water, fed continually from its network of unassuming beehives. Given the economic circumstances of our times, the water is no longer used to serve the population of a growing community, but simply runs off to a local creek.</p>
+  </div>
+
+  <div class="credits">
+    <p>Credit: Photos and information supplied by Barbara Henry, Executive Director of Cornwall Borough's Water &amp; Sewer Department.</p>
+    <p>Originally published on LebTown, February 1, 2023.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

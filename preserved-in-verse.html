@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anne Caroline Coleman, Preserved in Verse — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-sm{ max-width:340px; margin-left:auto; margin-right:auto; }
+
+  .poem{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.1rem;
+    line-height:2;
+    color:var(--iron);
+    background:var(--paper-dark);
+    border:1px solid rgba(43,36,29,0.2);
+    padding:2rem 2rem;
+    margin:2rem 0;
+  }
+  .poem .stanza + .stanza{ margin-top:1.4rem; }
+  .poem p{ margin:0; }
+  .poem-title{
+    font-family:'Special Elite', monospace;
+    font-style:normal;
+    font-size:.85rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-align:center;
+    margin-bottom:1.5rem;
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 019 &middot; Coleman Family</div>
+    <h1>Anne Caroline Coleman, Preserved in Verse</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published March 12, 2025</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/preserved-in-verse/fig1-anne-caroline-coleman-portrait.jpg" alt="Portrait of Anne Caroline Coleman in an ornate gilt frame">
+    <figcaption><span class="fig-no">FIG. 1</span>Anne Caroline Coleman (1796&ndash;1819).</figcaption>
+  </figure>
+
+  <p class="lead">One assumes that most local history buffs have heard by now the tragic love story involving Anne Caroline Coleman and the nation's "bachelor president" James Buchanan.</p>
+
+  <div class="section">
+    <p>The story has been published in numerous places, but before you tune out, thinking "&hellip;heard this one before&hellip;" please pause to enjoy something "new" and original.</p>
+    <p>Found recently among the "Coleman Collection" papers held at Elizabeth Furnace is a poem written by Anne's brother on the occasion of her death in 1819.</p>
+
+    <figure class="plate">
+      <img src="images/preserved-in-verse/fig2-lines-manuscript-preface.jpg" alt="Handwritten manuscript preface, reading Lines, written at the request of my daughter Anne, on the death of her aunt Ann Caroline Coleman, who died suddenly, whilst on a visit to her sister in Philadelphia, December 1819">
+      <figcaption><span class="fig-no">FIG. 2</span>The original 1819 manuscript.</figcaption>
+    </figure>
+
+    <p>In a manuscript entitled "Lines," it begins with the preface "Written at the request of my daughter Anne, on the death of her aunt Ann [sic] Caroline Coleman, who died suddenly, whilst on a visit to her sister in Philadelphia in December 1819."</p>
+    <p>Anne had "fled" in despair to her sister Margaret's home, Strawberry Mansion in Philadelphia. Anne was one of the youngest of fourteen children, born in 1796. Margaret was 22 years older, married to Judge Joseph Hemphill.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/preserved-in-verse/fig3-lines-manuscript-full.jpg" alt="The full handwritten pages of the poem Lines">
+      <figcaption><span class="fig-no">FIG. 3</span>The manuscript pages of "Lines."</figcaption>
+    </figure>
+
+    <p>Without further ado&hellip;</p>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">&ldquo;Lines&rdquo;</div>
+
+    <div class="stanza">
+      <p>Hark, 'tis the sound of deep distress!<br>
+      A father's sigh, a mother's groan!<br>
+      Attending angels! Hear, and bless;<br>
+      Oh, sanctify a parent's moan.</p>
+    </div>
+
+    <div class="stanza">
+      <p>Hark! 'tis a brother's, sister's cry!<br>
+      In mournful cadence fill my ears:<br>
+      Attending angels, quickly fly,<br>
+      Oh, calm their sorrow, dry their tears.</p>
+    </div>
+
+    <div class="stanza">
+      <p>'Tis not for wealth, for treasure lost,<br>
+      'Tis not for fleeting, honours gone<br>
+      For pride, depress'd, ambition, cross'd,<br>
+      These moans are heard, those tears have flown;</p>
+    </div>
+
+    <div class="stanza">
+      <p>Ah, no: far nobler feelings swell,<br>
+      The sorrows of a parent's heart:<br>
+      Fair Anna's death, her fun'ral knell!<br>
+      Inspire this anguish, these sad griefs impart.</p>
+    </div>
+
+    <div class="stanza">
+      <p>Gone from the world, her gentle soul,<br>
+      Sudden and silent, wing'd its way,<br>
+      No hand could save, no skill control!<br>
+      God spake! And mortals must obey.</p>
+    </div>
+
+    <div class="stanza">
+      <p>Enraptur'd shade! Speed on, speed on,<br>
+      Beaming with love, and grace divine,<br>
+      Approach the everlasting throne!<br>
+      Where seraphs dwell, where glories shine!</p>
+    </div>
+
+    <div class="stanza">
+      <p>The eye of faith, can see thee thru<br>
+      The mind of faith, conceive thy joy.<br>
+      Beatific vision! Let me share<br>
+      One moment, in this sweet employ!</p>
+    </div>
+
+    <div class="stanza">
+      <p>I knew thee maid, when infant grace<br>
+      Adorn'd thy cheek with rosy smiles,<br>
+      Mark'd the young beauties of thy face,<br>
+      Watch'd all thy little artless wiles.</p>
+    </div>
+
+    <div class="stanza">
+      <p>When more matur'd, thy op'ning mind,<br>
+      Yielded to science and to truth.<br>
+      Soft piety, with taste refin'd<br>
+      Mark'd all the footsteps of thy youth.</p>
+    </div>
+
+    <div class="stanza">
+      <p>Retiring, modest, kind and meek,<br>
+      Yet fill'd with all a virgin's pride,<br>
+      'Twas thine to turn th'indignant cheek<br>
+      Where scorn should point, or virtue chide.</p>
+    </div>
+
+    <div class="stanza">
+      <p>The pride of soul, the pride sex,<br>
+      Taught thee to know thine innate worth;<br>
+      Folly might pain thee, vice perplex,<br>
+      But candor own'd thee from thy birth.</p>
+    </div>
+
+    <div class="stanza">
+      <p>Yet was thine heart, too soft, too good,<br>
+      To brave at last, the mortal storm.<br>
+      Did falsehood scare thee! Freeze thy blood!<br>
+      Dissolve thy frame, thy life disarm!</p>
+    </div>
+
+    <div class="stanza">
+      <p>But thou art gone, thy gentle soul,<br>
+      Sudden and silent, wing'd its way.<br>
+      No hand could save! No skill control!<br>
+      God spake, and mortals must obey.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <figure class="plate plate-sm">
+      <img src="images/preserved-in-verse/fig4-obituary-newspaper.jpg" alt="Anne Caroline Coleman's obituary as printed in the newspaper, found in the same file as the poem">
+      <figcaption><span class="fig-no">FIG. 4</span>Anne's obituary, as found in the same file as the poem.</figcaption>
+    </figure>
+
+    <h2>Closing Notes</h2>
+    <p>As remarked in the series <a href="anne-of-cornwall.html">"Anne of Cornwall,"</a> the name "Ann(e) Caroline" appears frequently across the generations of the Coleman family tree, a source of confusion to the casual reader.</p>
+    <p>While the brother did not sign the manuscript or otherwise identify himself, the fact that his daughter "Ann" requested the verse helps to narrow down which of the nine brothers was the poet.</p>
+    <p>It could have been Edward (b. 1792) but more likely Thomas Bird Coleman, her brother closest in age, and whose young daughter Ann was older by 1 year at the time of her aunt's death. This Ann would grow up to marry Bradford Alden and is known to us as one of the "R. W. Coleman Heirs." She is perhaps best known for building <a href="restoring-millwoods-former-glory.html">"Alden Villa"</a> as a wedding gift for her son Percy.</p>
+    <p>Whichever brother, he enjoyed writing poetry; another set of poems was found with the same handwriting, tributes to young men who were likely classmates or social friends.</p>
+  </div>
+
+  <div class="credits">
+    <p>Thanks to Craig Coleman of Elizabeth Furnace for permission to publish this poem.</p>
+    <p>We attempted to transcribe the hand-written poem faithful to the original punctuation.</p>
+    <p>Originally published on LebTown, March 12, 2025.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

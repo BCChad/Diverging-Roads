@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calling All Cornwall Miners — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:340px; margin-left:auto; margin-right:auto; }
+
+  .callout{
+    background:var(--paper-dark);
+    border-left:3px solid var(--brass);
+    padding:1rem 1.25rem;
+    margin:1.75rem 0;
+    font-size:.95rem;
+  }
+  .callout strong{ color:var(--rust); }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 008 &middot; Cornwall Furnace</div>
+    <h1>Calling All Cornwall Miners</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published as a two-part series on LebTown, January 18 &ndash; 31, 2023</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/miners/fig1-mine-no3-crew-1923.jpg" alt="Crew of Cornwall Ore Bank Co. Slope No. 3 miners posed at the mine entrance, 1923">
+    <figcaption><span class="fig-no">FIG. 1</span>Cornwall Mine No. 3, c. 1923.</figcaption>
+  </figure>
+
+  <p class="lead">Fifty-one years ago, Tropical Storm Agnes flooded the Cornwall Mine, expediting the end of over 230 years of operation when it closed a year later on June 30, 1973. Though Lebanon County's industry and commerce have moved on, they owe their existence to the discovery and development of what had once been described as the largest iron mine in the western hemisphere, with its lode of rich magnetite ore and other precious minerals.</p>
+
+  <div class="section">
+    <p>With the coming of 2023 the Cornwall Iron Furnace intends to celebrate the 50th anniversary of the closure of the mine by recognizing Cornwall's "greatest generation," those few miners and iron workers who remain among us.</p>
+
+    <h2>First Interview: Clair Bernard</h2>
+    <p>The celebration began with the release of a video on the Furnace's <a href="https://www.youtube.com/@cornwallironfurnace6291" target="_blank" rel="noopener">YouTube&trade; channel</a> featuring an oral history interview with Cornwall Manor resident Clair "Nip" Bernard, who worked in Mine No. 3 for about 15 years until much of the mine closed in 1972. <a href="https://www.youtube.com/watch?v=-nJPTHCtkFA" target="_blank" rel="noopener">The video may be watched here.</a></p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/miners/fig2-clair-bernard-video-still.jpg" alt="Still from the oral history video featuring Clair Bernard">
+        <figcaption><span class="fig-no">FIG. 2</span>Oral history video featuring Clair Bernard.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/miners/fig3-clair-bernard-interview.jpg" alt="Clair Bernard being interviewed by Michael Emery">
+        <figcaption><span class="fig-no">FIG. 3</span>Clair Bernard, interviewed by Michael Emery, Site Administrator, Cornwall Iron Furnace.</figcaption>
+      </figure>
+    </div>
+
+    <p>After leaving the mine, Clair continued his employment with Bethlehem Steel at the Millard limestone quarry near Annville. Both Clair's father and grandfather were also Cornwall miners, making him a third-generation employee. His father D.R. Bernard was also a surveyor and active resident of Rexmont.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/miners/fig4-dr-bernard-father.jpg" alt="D.R. Bernard, Clair's father, seated outdoors with an unknown friend">
+      <figcaption><span class="fig-no">FIG. 4</span>Clair's father, D.R. Bernard (left), with unknown friend.</figcaption>
+    </figure>
+
+    <p>Two other oral history interviews with Cornwall miners were poised for release. The next video was set for January 24 with another Cornwall Manor resident, Gerald Boltz. His father having been in Bethlehem Steel administration, "Gerry" was able to get a summer job for several years. Working in the same Mine No. 3, his interview describes memories of some of the more menial tasks.</p>
+    <p>A third video, planned for February 14, would feature Lebanon resident and retired miner Frank Stellar. Frank tells of coming home from World War II with his buddies and finding jobs in the mine. With many tales of working the mine shaft and planting explosives, Frank shares his personal photographs in the video.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/miners/fig5-frank-stellar-monument-1993.jpg" alt="Frank Stellar at the Miner's Monument, 1993">
+      <figcaption><span class="fig-no">FIG. 5</span>Frank Stellar at the Miner's Monument, 1993.</figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="images/miners/fig6-aerial-view-mine-1960s.jpg" alt="Aerial view of the Cornwall open pit mine, circa 1960s">
+      <figcaption><span class="fig-no">FIG. 6</span>Aerial view of the Cornwall "Mine," c. 1960s.</figcaption>
+    </figure>
+
+    <p>Though the 1960s photograph of the open pit shows an impressive view, it is difficult to grasp its expanse and depth. The hidden features are the mine shafts and the complex underground engineering.</p>
+    <p>The lower left quadrant of the photo shows the surface area of Mine No. 3. On close examination you'll see the descending shaft. To the very lower left is Burd Coleman Village, one of eight villages in Cornwall Borough, adjacent to which used to be the massive Burd Coleman furnaces (removed in the 1920s). To the left are Cornwall Manor with its Buckingham mansion, and the Cornwall Iron Furnace. Upper left is Anthracite Village, also the site of an anthracite furnace now removed.</p>
+    <p>At the top center of the photograph is what remains of the heavily excavated "Big Hill" and beyond it, the Concentrator Plant. To the upper right, Minersvillage and old Horseshoe Pike (Route 322) can be seen.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/miners/fig7-miners-riding-into-mine-1957.jpg" alt="Miners riding a mine car down into Mine No. 3 to start their shift, 1957">
+      <figcaption><span class="fig-no">FIG. 7</span>"&hellip;It's off to work we go&hellip;" 1957.</figcaption>
+    </figure>
+
+    <p>You may recognize someone in the above photo of men riding down into Mine No. 3 to start their day's work.</p>
+
+    <h2>Second Interview: Gerry Boltz</h2>
+    <p>The second interview in the series features Gerald "Gerry" Boltz, who worked the mine as a summer job while attending college locally. <a href="https://www.youtube.com/watch?v=zvaVz9XAPEE" target="_blank" rel="noopener">The video may be watched here.</a></p>
+
+    <figure class="plate">
+      <img src="images/miners/fig8-gerry-boltz-video-still.jpg" alt="Still from the oral history video featuring Gerry Boltz">
+      <figcaption><span class="fig-no">FIG. 8</span>Oral history video featuring Gerry Boltz.</figcaption>
+    </figure>
+
+    <p>In this second hour-long video, Gerry tells his story, from the time he graduated from Lebanon High School in 1962 to working the summer job while in college. He and his wife were life-long teachers in the area, now retired and continuing to live in Lebanon County.</p>
+    <p>He relates the life of "hard labor" as a mucker, with a shovel constantly in his hand or at his side, cleaning up ore debris by shoveling it back onto the conveyor in Mine No. 3. He recalls observing the use of explosives and equipment to free the iron ore embedded in rock. On the lighter side, as college students he and his peers were inevitably subjected to some testing and teasing at the hands of the career miners.</p>
+
+    <figure class="plate">
+      <img src="images/miners/fig9-gerry-boltz-open-pit.jpg" alt="Gerry Boltz describing the view from the bottom of the open pit">
+      <figcaption><span class="fig-no">FIG. 9</span>Gerry Boltz, describing the view from the bottom of the open pit.</figcaption>
+    </figure>
+
+    <p>The February 14 video featuring Frank Stellar remains on schedule. The release of the first two video interviews had already prompted replies from a number of local residents who have memories they're willing to share in future interviews.</p>
+
+    <div class="callout">
+      <strong>Cornwall Iron Furnace hopes there are more retired Cornwall miners and iron workers "out there"</strong> who read this and come forward to share their own stories, photos and memorabilia. Call the Furnace at 717-272-9711, or leave a comment in the videos so you may be contacted. A list of names and contact information will aid in planning an anniversary event this coming summer. Your assistance in providing first-hand confirmation of on-going research will be very helpful.
+    </div>
+
+    <p>That's not to say that only the miners have stories to tell! Certainly there are surviving wives and family members of deceased miners, who have memories or a stash of their own memorabilia. Please share your treasures so that a greater story of the Cornwall iron mine may be preserved for all.</p>
+  </div>
+
+  <div class="credits">
+    <p>This article and its photographs would not be possible without the gracious assistance of Michael Emery, Site Administrator of the Cornwall Iron Furnace.</p>
+    <p>Originally published as a two-part series on LebTown, January 18 &ndash; 31, 2023.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

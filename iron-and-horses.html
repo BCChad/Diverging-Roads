@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron and Horses — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 014 &middot; Coleman Family</div>
+    <h1>Iron and Horses</h1>
+    <div class="subtitle">A Coleman Story</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published July 30, 2024</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/iron-and-horses/fig1-hambletonian-stakes-stock.jpg" alt="A horse-drawn sulky race in progress at the Hambletonian Stakes">
+    <figcaption><span class="fig-no">FIG. 1</span>Stock photo of the Hambletonian Stakes. (Augie Ray/Flickr)</figcaption>
+  </figure>
+
+  <p class="lead">Horse racing, anyone? No, not here at our Lebanon county fair but 3 hours away at New Jersey's Meadowlands.</p>
+
+  <div class="section">
+    <p>Saturday, August 3rd is the running of the historic Hambletonian Stakes, a harness racing event with a million-dollar purse. This its 99th year, the Stakes have run since 1926. The stakes are named for "Hambletonian 10," a famous horse from 1849. The National Museum of American History titles him the "Father of the American Trotter," whose blood-line runs into ninety per cent of the trotters and pacers of today. He is buried near the site of his birth, under a fifteen-foot monument of pink granite at Chester, Orange County, New York.</p>
+
+    <figure class="plate">
+      <img src="images/iron-and-horses/fig2-rysdyk-and-hambletonian.jpg" alt="William Rysdyk standing with the horse Hambletonian">
+      <figcaption><span class="fig-no">FIG. 2</span>William Rysdyk and Hambletonian.</figcaption>
+    </figure>
+
+    <p>Hambletonian's was one of those true-life, underdog success stories that would make a great equestrian movie. His father Abdullah, a "mean and ugly" racehorse, had been bought for only $5 (cheap even in that day) and his mother, a lame Norfolk trotting mare from a good line. A farm hand named William Rysdyk bought Hambletonian for $125. The horse excelled in the mile run, beating a favorite by seven seconds and becoming a sensation. In his career he sired 1,331 foals, earning his owner over $200,000 before life's end in 1876. Forty of his offspring trotted the mile in less than 2&frac12; minutes. Today's champions finish well under 2 minutes.</p>
+
+    <figure class="plate">
+      <img src="images/iron-and-horses/fig3-currier-ives-trotters.jpg" alt="A Currier and Ives print of two trotting horses racing">
+      <figcaption><span class="fig-no">FIG. 3</span>Both Nathaniel Currier and James Ives were avid supporters of "trotters," the horses used in racing. In response to the horse-racing craze of the 19th century, Currier &amp; Ives published many images related to this American pastime. (<a href="https://springfieldmuseums.org" target="_blank" rel="noopener">springfieldmuseums.org</a>) <em>Note: "Dexter," pictured here, was half-brother to "Middletown."</em></figcaption>
+    </figure>
+  </div>
+
+  <div class="section">
+    <h2>Bringing It Home</h2>
+    <p>What lends interest to this horse story is that just before the Civil War, "Middletown 162" was born in 1860 of "Hambletonian." Named for nearby Middletown, New York, his first owner was Jefferson Fost of Florida, who paid an unusually low service fee of $35. "Middletown" was then sold to D. B. Irwin of Middletown before being sold to the Coleman family in 1875 and kept at Speedwell Stockfarms, in Brickerville.</p>
+    <p>Chester and Middletown lie about 10 miles east of Pennsylvania at the intersection of I-84 and Route 17.</p>
+
+    <figure class="plate">
+      <img src="images/iron-and-horses/fig4-middletown-ny-map.jpg" alt="A map showing Middletown, Chester, and Florida, New York">
+      <figcaption><span class="fig-no">FIG. 4</span>Middletown and Chester, New York.</figcaption>
+    </figure>
+
+    <figure class="plate plate-sm">
+      <img src="images/iron-and-horses/fig5-middletown-copperplate.jpg" alt="A copperplate image of the horse Middletown">
+      <figcaption><span class="fig-no">FIG. 5</span>Image from a copperplate of "Middletown."</figcaption>
+    </figure>
+
+    <p>By the time Robert H. Coleman was born in 1856, the Speedwell forge had ceased operating two years earlier and the family continued to use the farm property to breed standardbred horses (an American breed) for harness racing. Iron, trains <em>and</em> horses were in Robert's Coleman blood.</p>
+    <p>Young Robert and his sister <a href="anne-of-cornwall.html">Anne</a> both had their pet horses while growing up in Cornwall. Anne wrote letters of her pleasurable rides between Cornwall and Colebrook. The farm hands kept Robert's favorite Mollie while he was away at school. Then in 1876 he arranged to have Mollie shipped to Hartford so he could enjoy riding.</p>
+    <p>In Cornwall and Lebanon, horse and carriage was the mode of local transportation; when not riding the train into Lebanon they went by carriage to church, and for commerce.</p>
+    <p>No surprise that when he inherited his trust, Robert became a horse fancier, inspired by the fine horses and stables at Speedwell. Around 1878-79 he built his grand stables on the Cornwall estate. The <a href="the-pinkerton-cornwall-caper.html">"Pinkerton" story</a> told how Robert would send his stable manager off to places like Saratoga in search of fine horses to add to his stable. A half-mile racetrack still sits in the woods on the north side of Freeman Drive in Cornwall.</p>
+    <p>At the same time Robert's Freeman relatives built their fine stables and carriage house on the Freeman estate (now Cornwall Manor). Cousins Willie and Eddie would continue their love of horses and livestock well after Robert had left the area &mdash; see <a href="florida-man.html">"Robert H. Coleman, Florida Man."</a> Both Fairview Farms and what later became known as the Quentin Riding club grew out of that passion.</p>
+    <p>Two years after the R. W. Coleman Heirs had acquired "Middletown," 21-year-old Robert H. Coleman had sent word to George Youtz, manager of Speedwell, that he would be sending "Mollie" from Cornwall to be bred with "Middletown."</p>
+
+    <figure class="plate">
+      <img src="images/iron-and-horses/fig6-youtz-letter-1877.jpg" alt="A handwritten 1877 letter from George Youtz to Robert H. Coleman about breeding Mollie with Middletown">
+      <figcaption><span class="fig-no">FIG. 6</span>George Youtz's July 1877 letter to Robert H. Coleman, confirming Mollie would be sent to "Middletown."</figcaption>
+    </figure>
+
+    <p>A year later, in November 1878 Coleman's attorney Artemas Wilhelm wrote "Our horse 'Middletown' is considered the finest horse in the U.S. I am very hopeful of the young horse stock at Speedwell. It was only financial embarrassment that compelled the former owner of 'Middletown' to part with him." Having bred Mollie successfully Robert was eager to have another mare bred; Wilhelm wrote, advising patience as the approaching winter months were not as conducive to foaling.</p>
+  </div>
+
+  <div class="section">
+    <h2>Speedwell Forge / Speedwell Stockfarms</h2>
+    <p>Speedwell began as a forge, built on Hammer Creek c. 1760; later managed by James Old, father-in-law to young Robert's great grandfather Robert Coleman. Coleman bought the forge in 1784. Over the years he expanded the property (in addition to his properties at Elizabeth furnace as well as in Cornwall and Colebrook) and used the forge as a training ground for his sons who would later take over his iron business.</p>
+    <p>In addition to the mansion, its surrounding farmlands, woods, and meadows, Coleman added a "superbly built barn, side stables and a half-mile racetrack, which became the center of the Speedwell Stockfarms" (credit Herbert H. Beck, 1940).</p>
+    <p>After acquiring "Middletown," they soon added stallions "Shamrock" by Hambletonian, and "Middletown Chief" by Middletown, and "Millwood," and a fine stable of brood mares. In late 1879 an exhaustive Lancaster newspaper article described Speedwell, part of the 24,100 acre Coleman estate, as "one of the most complete Stock Farms in the country." One quarter of the lands were adapted for agricultural purposes, most of the remaining as "grazing commons and woodlands." Furthermore, "Middletown's" fame was known from Maine to California.</p>
+    <p>The article goes on to describe the ornate and well-equipped barn, 9 stables and room for 100 horses. Furthermore, an infirmary with box stalls, and a spring-fed water supply. All managed by George Yountz and a well-paid staff of eight stable hands and 17 farm hands. The barn was lost to fire many years ago.</p>
+    <p>The stock farm continued operation for over 40 years, finally managed by Robert H. Coleman's cousins William and Edward Freeman. The breeding of standard bred horses was discontinued at Speedwell in 1896 when the last sale was held.</p>
+  </div>
+
+  <div class="section">
+    <h2>An End for "Middletown"</h2>
+
+    <figure class="plate">
+      <img src="images/iron-and-horses/fig7-speedwell-racetrack-oval.jpg" alt="The former racetrack oval at Speedwell, now an open field">
+      <figcaption><span class="fig-no">FIG. 7</span>Speedwell's racetrack oval stood on a plateau east of the great barn.</figcaption>
+    </figure>
+
+    <p>"When Middletown died his memory was so highly prized by the Freemans that they had a surveyor get the exact center of their half-mile racing oval on which honored spot their beloved horse was buried" (Herbert H. Beck).</p>
+    <p>At the time Margaret Coleman Freeman Buckingham transferred the Cornwall Iron Furnace to the Commonwealth of Pennsylvania, she also sold Speedwell to Gerald and Kathryn Darlington in 1942. Their son Bill established the Wolf Sanctuary of Pennsylvania in 1980. His daughter Dawn continues to maintain the property and established the Speedwell Forge Bed &amp; Breakfast.</p>
+    <p>Although "Hambletonian" is commemorated with a 15-foot high monument in Chester, New York, the remains of "Middletown," his famous son and local hero, lie in an old cornfield at Speedwell.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/iron-and-horses/fig8-hambletonian-monument-chester.jpg" alt="The 15-foot granite monument to Hambletonian in Chester, New York">
+      <figcaption><span class="fig-no">FIG. 8</span>Hambletonian's monument in Chester, New York &mdash; a memorial his son "Middletown" never received.</figcaption>
+    </figure>
+
+    <p>There is no marker of his grave, which seems uncharacteristic for the Colemans and Freemans given their "highly-prized" champion. Instead, the old oval became a cornfield, plowed for many decades, "Middletown" hidden somewhere out there in the "middle."</p>
+    <p>Presently the former oval track serves as a large grass field used for event parking. On its perimeter a section remains as a tree-lined path, the only reminder of former days.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/iron-and-horses/fig9-tree-lined-path-today.jpg" alt="A tree-lined path at Speedwell today, the only remaining trace of the old racetrack oval">
+      <figcaption><span class="fig-no">FIG. 9</span>A path through the woods at Speedwell &mdash; the only physical trace of the old oval remaining today.</figcaption>
+    </figure>
+
+    <p>More Speedwell history is found <a href="https://www.bbonline.com/united-states/pennsylvania/lititz/speedwell.html" target="_blank" rel="noopener">here</a>. The <a href="https://wolfsanctuarypa.org/" target="_blank" rel="noopener">Wolf Sanctuary of Pennsylvania</a> and <a href="https://speedwellforge.com/" target="_blank" rel="noopener">Speedwell Forge B&amp;B</a> are private and welcome reservations only. Please visit their websites for more information.</p>
+  </div>
+
+  <div class="credits">
+    <p>The author is grateful to the Cornwall Iron Furnace, its Feitig research collection, and also Dawn Darlington of Speedwell.</p>
+    <p>Originally published on LebTown, July 30, 2024.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

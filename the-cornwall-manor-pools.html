@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cornwall Manor Pools — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  /* ---------- ARTICLE HEADER ---------- */
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  /* ---------- ARTICLE BODY ---------- */
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:2.5rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .pull{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.4;
+    color:var(--rust);
+    border-left:3px solid var(--brass);
+    padding:.25rem 0 .25rem 1.5rem;
+    margin:2rem 0;
+    max-width:52ch;
+  }
+
+  .plate{
+    margin:2rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.75rem;
+    line-height:1.7;
+    color:var(--slate);
+  }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 001 &middot; Cornwall Furnace</div>
+    <h1>The Cornwall Manor Pools</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published March 1, 2022</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <p class="lead">It happened again, this cold November day as I walked my dog on the Rail Trail, just as it had last year. A riddle presented itself for the curious and clever: "Here in Cornwall, what is gray, disappears in Spring and reappears in Fall?"</p>
+
+  <div class="section">
+    <h2>The Riddle</h2>
+    <p>Perhaps you already know the answer. When walking the trail from the Buckingham campus to the Woods campus, you may discern a ghostly gray shape down amongst the trees to your right. You must be paying attention because it pops up and within a few steps it's gone.</p>
+    <p>Furthermore, the phenomenon happens not just once but three times as you walk along. What <em>IS</em> that? By the way, as Spring turns into Summer — it just won't happen at all. Nothing to see, move along folks!</p>
+  </div>
+
+  <div class="section">
+    <h2>Care for a Swim, Anyone?</h2>
+    <figure class="plate">
+      <img src="images/pools/fig1-topo-map.jpg" alt="Topographic map showing 'The Pools' near the Rail Trail, the Cornwall Iron Furnace, and Burd Coleman Road">
+      <figcaption><span class="fig-no">FIG. 1</span>The three settling ponds — "The Pools" — marked on a topographic map alongside the Rail Trail, the Cornwall Iron Furnace, and Burd Coleman Road.</figcaption>
+    </figure>
+    <p>Though it looks like an overgrown wooded area that deer are known to inhabit, there is more than meets the eye. Once when examining a local topographic map I was surprised to see three rectangular pools right in the midst of our Meadows neighborhood of the Woods.</p>
+  </div>
+
+  <div class="section">
+    <h2>Rising to the Challenge</h2>
+    <p>I had no idea what those pools on the map were for. But late last winter curiosity finally got the better of me, so I trudged through the snowy woods to go find those strange gray shapes. It was the proper time for bushwhacking, with the undergrowth reduced by autumn and winter. Spring was approaching so the ground was soft and slippery in spots, and ice was turning to slush.</p>
+    <p>As I left my backyard the terrain soon dropped off into the sanctuary of the first pool. Artificial berms define each side. On later dog-walks down Chicory Drive it became easy to notice these berms extending down behind the houses. Who knew, my Chicory Drive neighbors enjoy waterfront property with an Olympic-sized swimming pool in their backyard!</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/pools/fig2-cofferdam-one.jpg" alt="A weathered concrete cofferdam in the woods, iced over in winter">
+        <figcaption><span class="fig-no">FIG. 2</span>The first cofferdam — not quite six feet tall, arched backward for strength, with rusted iron protruding from the concrete.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/pools/fig3-cofferdam-two.jpg" alt="A second cofferdam with a rusted iron ladder climbing its face">
+        <figcaption><span class="fig-no">FIG. 3</span>The second cofferdam, its iron rungs still climbing the concrete face.</figcaption>
+      </figure>
+    </div>
+
+    <p>150 feet through the first pool stands an old concrete cofferdam, not quite 6 feet tall, arched backward to provide strength in holding back water. Old pieces of rusted iron protruded from the concrete. The sloping sides on the downstream side of the coffer dam explained the angular shapes I had been seeing through the trees from the rail trail.</p>
+    <p>I trekked down further to another pair of berms, truncated by a second cofferdam. Continuing further I found the third pool, again complete with berms and cofferdam. This lowest section was quite marshy, with dead cattails bobbing and weaving in the slight breeze. There were plenty of deer tracks around; the only sound was the chirping of the early birds on a sunny afternoon. The cold winter air was clean; not many spring odors were registering in my nose. As I looked up through the trees, the sky was a pretty, soft blue punctuated with cotton-ball clouds.</p>
+    <p>Somewhat satisfied with my find I returned home, yet still in a fog. What the heck are these things? How do they fit into the local history of furnaces, mines, and railroads?</p>
+  </div>
+
+  <div class="section">
+    <h2>Answers Come to Those Who Wait</h2>
+    <p>On those daily dog walks I've collected a few other puzzling pieces. A rusty open-ended iron pipe sticks out of the road bank behind my house. Half-buried in the dirt nearby is a long companion section of rusted pipe. Further, immediately behind my neighbor's sun porch still rests a concrete abutment with a large industrial pipe fitting.</p>
+    <p>The puzzle pieces dropped into place when I put the question to a colleague at the Cornwall Iron Furnace, where I volunteer. Mike Weber, our own professional geologist known for his excellent history webinars on the Cornwall ore deposit, gave me the answer. Mike has also been researching the history of Bethlehem Steel in Cornwall.</p>
+    <p>Briefly, Bethlehem Steel came to town starting in 1916, purchasing the various furnaces, buying other small steel companies, and also acquiring a controlling share in the Cornwall Mine, aided by their significant profits from World War I. By 1921 they had shut down the local anthracite furnaces and were instead sending ore to their steel mills in the region.</p>
+    <p>At that time the open pit mine was getting deeper (460 feet) and narrower so the miners drilled shaft number 3 under the open pit in pursuit of deeper ore to a level of 740 feet. The shaft entrance was between Middle and Grassy Hill, and the access road is nearly opposite to our entrance to "The Woods," where the stone mason's property stands today. The large piles of waste rock along Burd Coleman Road came out of No. 3 mine over decades of operation.</p>
+  </div>
+
+  <div class="section">
+    <h2>Wait for It&hellip;</h2>
+    <p>Yes, yes, about those mysterious swimming pools. The No. 3 mine first operated from 1927 to 1941 and then paused for several years to avoid interfering with open pit mining up above. After World War II new winds were blowing. Underground operations were resuming in Mine No. 3. The year before the Methodists opened a retirement community in 1949, the Federal Water Pollution Control Act of 1948 prompted the State of Pennsylvania to require the regulation of water discharges from the mine. The State subsequently approved the construction of three settling ponds for Mine No. 3, which completed on June 12, 1951.</p>
+    <p>The settling ponds performed as needed. Samples of the water pumped from No. 3 Mine had 74,306 parts per million (ppm) of suspended solids and a pH of 7.6. By the time the water flowed down that iron pipe in my back yard, through the valve behind my neighbor's house, and into the three cascading settling ponds, the discharge from the final pond as it entered Snitz Creek had only 14 parts per million suspended solids and a pH of 8.2.</p>
+
+    <p class="pull">That's 99.98% reduction, water that is "purer" than ivory soap!</p>
+
+    <p>As life in Cornwall moved on into 1972 Hurricane Agnes caused serious problems for Lebanon County, including the cessation of mining operations. The settling ponds no longer served a purpose and over the last 50 years trees have rendered them unseen. When the Woods Campus started building in 2004, they were left undisturbed. You might have never known, but courtesy of Mike Weber we have both explanations and photos.</p>
+  </div>
+
+  <div class="section">
+    <h2>Epilogue: A Pictorial History</h2>
+
+    <figure class="plate">
+      <img src="images/pools/fig4-dam-construction.jpg" alt="Black and white photo of settling pond dam breasts under construction, circa 1951">
+      <figcaption><span class="fig-no">FIG. 4</span>Settling pond dam breasts under construction, c. 1951. The railroad, the trestle, and the former furnace "office" on the hill are visible — the latter where Cornwall Manor resident Lee McMindes later lived for many years. This tract of land today forms part of "The Meadows" neighborhood of the Woods campus.</figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="images/pools/fig5-inlet-valve.jpg" alt="Black and white photo of three men watching the first water reach the inlet valve on June 12, 1951">
+      <figcaption><span class="fig-no">FIG. 5</span>June 12, 1951 — the settling ponds are placed in operation. Several men watch the first water reach the inlet valve of the first pond. In the upper left, the railroad runs down toward Mt. Gretna.</figcaption>
+    </figure>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/pools/fig6-looking-upstream.jpg" alt="Black and white photo looking upstream from the No. 3 pond, June 12, 1951">
+        <figcaption><span class="fig-no">FIG. 6</span>Looking southwest from the final of the three ponds, June 12, 1951. Notice — no trees!</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/pools/fig7-ponds-completed.jpg" alt="Black and white photo of the three completed settling ponds seen from Burd Coleman Road">
+        <figcaption><span class="fig-no">FIG. 7</span>A later view looking north from Burd Coleman Road at the settling ponds in full operation.</figcaption>
+      </figure>
+    </div>
+
+  </div>
+
+  <div class="credits">
+    Historical photographs (Figs. 4&ndash;7) supplied from the 1951 Annual Report of the Cornwall Division, Bethlehem Mines Corporation, courtesy of Mike Weber. Originally published on LebTown, March 1, 2022.
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

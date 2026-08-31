@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profound Possessions — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  /* ---------- ARTICLE HEADER ---------- */
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  /* ---------- ARTICLE BODY ---------- */
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:2.5rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .aside-note{
+    font-style:italic;
+    color:var(--slate);
+    font-size:.95rem;
+    max-width:66ch;
+  }
+
+  .pull{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.4;
+    color:var(--rust);
+    border-left:3px solid var(--brass);
+    padding:.25rem 0 .25rem 1.5rem;
+    margin:2rem 0;
+    max-width:52ch;
+  }
+
+  /* ---------- LEDGER / MANIFEST LIST ---------- */
+  h3.ledger{
+    font-family:'Special Elite', monospace;
+    font-size:.82rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--rust);
+    border-bottom:1px solid var(--brass);
+    padding-bottom:.6rem;
+    margin:2.5rem 0 1.25rem;
+  }
+  ul.manifest{
+    list-style:none;
+    column-count:1;
+    column-gap:2.25rem;
+  }
+  @media (min-width:640px){
+    ul.manifest{ column-count:2; }
+  }
+  ul.manifest li{
+    font-size:.92rem;
+    line-height:1.5;
+    color:#3a332a;
+    padding-left:1rem;
+    position:relative;
+    margin-bottom:.7rem;
+    break-inside:avoid;
+  }
+  ul.manifest li::before{
+    content:"\2013";
+    position:absolute;
+    left:0;
+    color:var(--brass);
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.75rem;
+    line-height:1.7;
+    color:var(--slate);
+  }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 002 &middot; Coleman Family</div>
+    <h1>Profound Possessions</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published March 8, 2022</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/profound-possessions/fig1-coleman-mansion.jpg" alt="Robert Habersham Coleman inset beside a photo of the Coleman mansion in Cornwall">
+    <figcaption><span class="fig-no">FIG. 1 </span>Robert Habersham Coleman (left inset) and his family would have furnished their long-gone mansion with innumerable treasures whose historical and artistic appeal are frankly hard to imagine. His mansion used to stand near the corner of Cornwall Road and Freeman Drive (Route 417) across from where the Cornwall Elementary School and Sacred Heart Church now stand.</figcaption>
+  </figure>
+
+  <p class="lead">Straight from the 1885 annals of "Robin Leach's Lifestyles of the Rich and Famous" comes this fascinating report, a surprising glimpse into the opulence of Cornwall, Pennsylvania in the 19<sup>th</sup> century.</p>
+
+  <div class="section">
+    <h2>Introduction</h2>
+    <p>A published record of the Dauphin County Centenary Exhibition graciously recognized the generous support shown by Cornwall's Iron Baron Robert H. Coleman with his loan of cherished souvenirs from European travels.</p>
+    <p>Not just Robert, but his mother, aunts and cousins made frequent trips to Europe, boarding steamships in the springtime bound for England and France and staying for months. Their letters record the anticipation of the annual trip, with an occasional regret &mdash; "Sorry, I shan't be able to travel abroad with you this year."</p>
+    <p>Wm. Henry Egle's book (1886) on the Centenary Exhibition records the following exhaustive list of donated possessions. One might assume that these are just a part of his total collection. Just reading the items invites many questions and an opportunity to "google" some arcane bits of European history.</p>
+    <p class="aside-note">[Note: the following lists are quoted exactly as described in Egle's account.]</p>
+  </div>
+
+  <h3 class="ledger">Coleman, Robert H. &mdash; Cornwall</h3>
+  <ul class="manifest">
+      <li>Two old paintings of Venice, by Vetunhe</li>
+      <li>Two old clocks, time of Louis XIV</li>
+      <li>Table cover owned by Marie Antoinette</li>
+      <li>Piece of green velvet, embroidered in fleurs de lis and gold stars, used as a rug by Marie Antoinette at Trainon</li>
+      <li>Two gilt chairs, with imperial eagle in a crown on the back, belonging to a set owned by Napoleon I</li>
+      <li>Three old Roman statuettes</li>
+      <li>Bronze group, Farnese bull</li>
+      <li>Pair of old bronze knockers</li>
+      <li>Gilt fire set (five pieces) used by Napoleon at Elba</li>
+      <li>Pair of andirons used by Napoleon at Elba</li>
+      <li>Old majolica inkstand</li>
+      <li>Carved walnut bellows, Italian, of the sixteenth century</li>
+      <li>Breast pin—antique Grecian work—turquoise, cameo, bacchanalian scene</li>
+      <li>Three gold Etruscan rings, from tombs near Betolle</li>
+      <li>Child's bronze chair, buried in the tomb of a young Prince, near Naples, 2,500 years ago (this is the only perfect chair of its kind ever found)</li>
+      <li>Bottle from the tomb of Chiusi</li>
+      <li>Six vases, etc., of curious shapes, from Cortona</li>
+      <li>Three Chinese mummies, from Cortona</li>
+      <li>Three Roman lamps</li>
+      <li>Two old Etruscan terra cotta panels</li>
+      <li>Old terra cotta—St. John preaching in the wilderness</li>
+      <li>Six old Etruscan vases</li>
+      <li>Old Dutch inlaid table, containing writing desk, chess board, etc.</li>
+      <li>Three ribbons of the Order of the Legion of Honor, worn constantly by Napoleon, and afterwards given by him to his brother Jerome</li>
+      <li>Report, addressed to General Napoleon Bonaparte, Commander-in-chief, and containing his signature</li>
+      <li>Old ebony box, inlaid with ivory, and representing mythological subjects</li>
+      <li>Head of scepter of an Etruscan high priest, very rare, from a tomb at Corneto</li>
+      <li>Etruscan bronze specular mirror, very fine, from tomb at Orvieto</li>
+      <li>String of Etruscan beads, from tomb at Chiusi, near Naples</li>
+      <li>Bronze bracelet from same tomb</li>
+      <li>Two old Grecian capitals</li>
+      <li>Silver frontlet—antique—tomb at Corneto</li>
+      <li>Set of necklace and armlets, from same tomb. Of great interest and value.</li>
+      <li>Pair of ear rings, from tomb at Orvieto</li>
+      <li>Pair of Venitian ear rings, (A. D. 1550.)</li>
+      <li>Carved wooden chair, from San Donato palace</li>
+      <li>Case of small jewelry, found in tombs at Orvieto, Sarteano and Chiusi</li>
+      <li>Ancient Roman comb, for hair ornament</li>
+      <li>Pair of ear-rings from Sarteano, with marks of fire on them, the corpse having been burned</li>
+      <li>Bronze rings from Chiusi</li>
+      <li>Writing desk, in gold and silver gilt, given by the Queen of Westphalia to her husband, King Jerome, brother of Napoleon Bonaparte. In the center are the initials J. N., with the royal crown, and are also on the other parts of the desk. There are secret springs which open places where the king kept many private papers.</li>
+      <li>Marble bas relief, A. D. 1550. Subject: Faun, satyr, etc.</li>
+      <li>Terra cotta bas relief, of old Florentine school Jupiter</li>
+      <li>Two old rebel flags [a local researcher claims these are from Fort Sumter]</li>
+      <li>Embroidered picture, very valuable.</li>
+      <li>Knives, spoon, and fork, gold; belonged to Marie Antoinette</li>
+      <li>Two pieces of Persian metal work.</li>
+      <li>Stiletto, belonged to Corsini de Medici, A. D. 1540, with the arms of the Medici family engraved on one side and the initials of Corsini on the other. The sheath is silver mounted. The knife itself is hollow, and serves as a sheath to a very fine stilletto, with a notched point for poison, to which the great duke used to treat (?) his friends when he wished to quietly dispose of them. The silver chain was worn around the waist and attached to the belt by a large silver clasp, on which are the head of Jupiter and the arms of the Medici in high relief.</li>
+      <li>Jeweled box, with the eagle of France and the arms of Westphalia and Wurtemburg in gold. Belonged to Catharine of Wurtemburg, Queen of Westphalia</li>
+      <li>Knife, fork, and spoon (silver) used by Napoleon at Elba</li>
+      <li>Music stand, designed by Louis XVI, when Dauphin, for Marie Antoinette, with monogram in the center.</li>
+      <li>Silver and gilt chalice, ornamented with medalions which represent the portraits of Peter the Great, Catharine and Alexis, the Russian eagle and two inscriptions, (Russian)</li>
+      <li>Hexagonal tea caddy</li>
+      <li>Pair of Japanese bronze candle-sticks</li>
+      <li>Crown of Madonna in silver</li>
+      <li>Tankard, silver and gilt (1707)</li>
+      <li>Tankard, silver (1705)</li>
+      <li>Tankard, Russian work. On the cover the head of Peter the Great, around the tankard, a subject from the Old Testament, Isaac and Rebecca.</li>
+      <li>Tankard, German work of the seventh century</li>
+      <li>Tankard, Holland.</li>
+      <li>Vase, with portrait and arms of Napoleon, presented to him by his brother</li>
+  </ul>
+
+  <div class="section">
+    <p>The competition between the "north" and "south" branches of the Coleman family's Iron Dynasty (Cornwall and Lebanon) is legendary. Ownership of the various 1/96<sup>th</sup> shares of Cornwall Ore Bank and fights over who was taking how much iron to their respective furnaces were occasionally argued in the local courts. One could imagine the writers of those fictional TV series "Dallas" and "Dynasty" taking their scripts from the Coleman family archives.</p>
+    <p>Yet both branches were known for their beneficence; many fine churches, buildings and hospitals still stand in this county thanks to them. So not to be out-done, Mrs. G.D. Coleman of the Lebanon branch contributed her share of finery to the Dauphin County celebration.</p>
+  </div>
+
+  <figure class="plate" style="max-width:340px; margin-left:auto; margin-right:auto;">
+    <img src="images/profound-possessions/fig2-mrs-coleman-portrait.jpg" alt="Portrait of Mrs. G. Dawson Coleman">
+    <figcaption><span class="fig-no">FIG. 2 </span>Mrs. G. Dawson Coleman, of the Lebanon branch of the family.</figcaption>
+  </figure>
+
+  <h3 class="ledger">Coleman, Mrs. G. Dawson &mdash; Lebanon</h3>
+  <ul class="manifest">
+      <li>Tea pot, a specimen of the earliest English plated ware. Part of Captain George Dawson's camp outfit in the Revolution</li>
+      <li>Repeating watch in blue enamel. The figures on the face strike the bells every hour</li>
+      <li>Very old Swiss watch</li>
+      <li>Antique enameled watch. The chatelaine a rooster with its tail of rubies, diamonds, and emeralds, and the body formed of one large pearl</li>
+      <li>Antique enameled watch in an enameled stand. Italian.</li>
+      <li>Old enameled pendant. Italian.</li>
+      <li>Order of St. George. English.</li>
+      <li>Old enameled Venetian ear rings</li>
+      <li>Tankard of 1700</li>
+      <li>Pair old silver beer mugs</li>
+      <li>Pair old silver goblets</li>
+      <li>Pair silver drinking cups, from Russia</li>
+      <li>Old silver baptismal cup from Norway</li>
+      <li>Silver rose water sprinkler from Constantinople</li>
+      <li>Scissors of Damascus steel, inlaid with gold, from Damascus</li>
+      <li>Silver necklace from India</li>
+      <li>Silver necklace from Algiers</li>
+      <li>Silver lamp from the Holy Sepulchre at Jerusalem</li>
+      <li>Gold sugar bowl and spoon and cream pitcher from Russia</li>
+      <li>Two large spoons, in gold and enamel, from Russia</li>
+      <li>Pair old silver coasters for decanters. English</li>
+      <li>Nubian necklace set with uncut stones</li>
+      <li>Pearl shell from the Red Sea, carved at Bethlehem, in the Holy Land</li>
+      <li>Book of pressed flowers gathered in various parts of the Holy Land and bound in Jerusalem in olive wood from the Mt. of Olives</li>
+      <li>Antique lamp. Rome</li>
+      <li>Ornament cut from Jade, the holy stone of China</li>
+      <li>Picture painted on a cobweb</li>
+      <li>Old silver lamp made in Jerusalem</li>
+      <li>Presse papier, ornamented with the various stones 'of Russia</li>
+      <li>Very old plate. Vienna</li>
+      <li>Old Delph china ornaments set in silver</li>
+      <li>Screen of very old Chinese tiles</li>
+      <li>Antique fan of 1780</li>
+      <li>Antique cloisonne ornaments—various colors. Chinese</li>
+      <li>Specimen of the first china made near Philadelphia</li>
+      <li>Specimen of glass cut at Pittsburgh early in this century</li>
+      <li>Antique bellows of the sixteenth century. Venice</li>
+      <li>Very old bronze knocker. Italian</li>
+      <li>Silk dress, embroidered by hand, and worn at the Court of Queen Anne-1706</li>
+      <li>Antique medicine case, in sections, of gold and lacquer. Chinese</li>
+      <li>Six antique spoons, marked in Hebrew. Jerusalem</li>
+      <li>Two large antique Apostle spoons.</li>
+      <li>Four very old spoons from Holland.</li>
+      <li>Antique Swiss spoon of the Canton Berne</li>
+      <li>Twelve very old silver Apostle spoons</li>
+      <li>Six gold tea spoons, enameled with views, very old. Russia</li>
+      <li>Eight gold tea spoons, enameled in colors. Russia</li>
+      <li>Two very old Apostle spoons, with bowls of wood</li>
+      <li>Three silver Nubian bangles</li>
+      <li>Silver necklace from an Arab Sheik</li>
+      <li>Silver ornament worn by the women of Bethlehem on the top of the head</li>
+      <li>Silver ornament worn by the Bethlehem women under the chin, and fastened to the head piece</li>
+      <li>Dutch spoon marked 1590</li>
+      <li>Pair of silver ornaments worn by horses in Arabia</li>
+      <li>Saddle cloth used by an Arab Sheik</li>
+      <li>Specimen of very old India embroidery</li>
+      <li>Old Russian embroidery</li>
+      <li>Two pieces of silk woven with gold thread at Damascus</li>
+      <li>Two silk sashes woven with gold thread at Damascus, Syria</li>
+      <li>Silk sash worn by Arab runners at Cairo, Egypt</li>
+      <li>Two pieces of old embroidery from Cairo, Egypt</li>
+      <li>Piece of ancient embroidery from Bethlehem in the Holy Land</li>
+      <li>Turkish towel embroidered in gold</li>
+      <li>Old bouquet holder. Chinese</li>
+      <li>Antique set of enamel</li>
+      <li>Articles dug from the ruins of Pompeii</li>
+      <li>Very old Turkish silver coffee set from Constantinople</li>
+      <li>Pair antique bracelets, in silver and enamel, from Syria</li>
+      <li>Pair old English spoons</li>
+      <li>A very old English spoon, with a coin in the bowl</li>
+      <li>Antique vinaigrette in enamel. Italian</li>
+      <li>Old spoon from Norway</li>
+      <li>Silk pieces worn by Arabs wound around the fez</li>
+      <li>Holy Bible, illustrated-1690</li>
+      <li>Two books printed by Benjamin Franklin in 1742</li>
+      <li>Book printed by Benjamin Franklin in 1755</li>
+      <li>Book printed by Benjamin Franklin in 1757</li>
+      <li>Book printed by Benjamin Franklin in 1764</li>
+      <li>History of York, printed at York, in 1834</li>
+      <li>Book published by John Wyeth, at Harrisburg, in 1811</li>
+      <li>The conduct of the Paxtang men—1764</li>
+      <li>New England Rarities—1672</li>
+      <li>The Chronicles, written in Latin and illustrated</li>
+      <li>Book by Dr. Martin Luther, printed at Jena, 1562</li>
+      <li>Pennsylvania Chronicle and Universal Advertiser, printed in Philadelphia, 1768</li>
+      <li>New Discovery of a Vast Country in America, extending about 4,000 miles between New France and New Mexico. Printed in London, 1698</li>
+      <li>Principall Navigations, Voiages and Discoveries of the English Nation. London-1589</li>
+  </ul>
+
+  <div class="section" style="margin-top:2.5rem;">
+    <p>It boggles the mind to consider that such riches found their home here in sleepy Cornwall and also North Lebanon. Although the mansions that housed them are long gone the question is, "Where are these treasures today?"</p>
+  </div>
+
+  <div class="credits">
+    Source: Wm. Henry Egle's account of the Dauphin County Centenary Exhibition (1886). Originally published on LebTown, March 8, 2022.
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

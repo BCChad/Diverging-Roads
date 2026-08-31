@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More on Restoring Millwood's Former Glory — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  .series-nav{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1rem 0;
+    margin-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .series-nav a{ color:var(--rust); text-decoration:none; }
+  .series-nav a:hover{ color:var(--iron); }
+  .series-nav .disabled{ color:#b5a887; }
+  .series-nav .current{ color:var(--slate); text-align:center; }
+
+  main.article{ padding:1rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 007 &middot; Coleman Family</div>
+    <h1>More on Restoring Millwood's Former Glory</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published November 30, 2022</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <div class="series-nav">
+    <a href="restoring-millwoods-former-glory.html">&larr; Part One</a>
+    <span class="current">Part 2 of 2</span>
+    <span class="disabled">End of series</span>
+  </div>
+
+  <p class="lead">Progress is a daily constant for Harvey Turner's "Millwood" restoration project in Cornwall Borough. Much of the exterior work has been finished and buttoned up for the cold season now upon us in Lebanon County.</p>
+
+  <div class="section">
+    <p>With the public interest and excitement being created by this ongoing work, Turner wishes everyone to be patient, as the hazards of the construction site are too great to allow any public access for the time being.</p>
+
+    <figure class="plate">
+      <img src="images/millwood-pt2/fig1-model-front-view.jpg" alt="Front view of Dick Williams' HO-scale Millwood model">
+      <figcaption><span class="fig-no">FIG. 1</span>Front view of Williams' "Millwood" model.</figcaption>
+    </figure>
+
+    <p>However, in the meantime one local resident has been busy constructing for everyone's enjoyment an HO-scale model of Millwood, which is expected to be displayed inside Millwood at a future date. Model-builder Dick Williams has provided these pictures that for now may be an enticement to stay tuned for further developments.</p>
+    <p>Williams has captured brilliantly some of the fine details of Stanford White's artistic embellishments, such as the second story display to the right of the entrance. This unique, arched stucco panel is adorned with embedded glass bottles.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/millwood-pt2/fig2-stucco-panel-front.jpg" alt="Close-up of the decorative stucco panel on the front of the mansion model">
+        <figcaption><span class="fig-no">FIG. 2</span>Details of the decorative stucco panel on the front of the mansion.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/millwood-pt2/fig3-model-rear-view.jpg" alt="Rear view of the Millwood model">
+        <figcaption><span class="fig-no">FIG. 3</span>Rear view of the "Millwood" model.</figcaption>
+      </figure>
+    </div>
+
+    <figure class="plate">
+      <img src="images/millwood-pt2/fig4-stucco-panel-rear.jpg" alt="Close-up of the decorative stucco panel on the rear of the mansion model">
+      <figcaption><span class="fig-no">FIG. 4</span>Details of the decorative stucco panel on the rear of the mansion.</figcaption>
+    </figure>
+
+    <p>Another unique stucco art panel appears on the back of the mansion. Above it, the cupola porch on the third floor attaches to the butler's quarters, where he was provided a view of approaching carriages coming up the hill. The driveway wraps around the mansion to afford visitors a view of all aspects of the mansion's grand design.</p>
+    <p>The most remarkable feature of the mansion exterior is the bank of 10 stained-glass windows that adorn the 2&frac12; story grand ballroom.</p>
+
+    <figure class="plate">
+      <img src="images/millwood-pt2/fig5-stained-glass-windows.jpg" alt="Side view of the model showing the stained glass ballroom windows">
+      <figcaption><span class="fig-no">FIG. 5</span>Side view, capturing the stained-glass entrance to the grand ball room.</figcaption>
+    </figure>
+
+    <p>A resident of Cornwall Manor, Williams is known by many for his wonderful models of historic Cornwall that are part of the Cornwall Manor Railroad Club's display. He has built models of the Cornwall Iron Furnace and its out-buildings, the historic buildings of Cornwall Manor, the Ore crusher of the Cornwall Ore Bank, features of Mt. Gretna, and most recently Lebanon.</p>
+
+    <figure class="plate" style="max-width:340px; margin-left:auto; margin-right:auto;">
+      <img src="images/millwood-pt2/fig6-dick-williams-workshop.jpg" alt="Dick Williams in his model workshop">
+      <figcaption><span class="fig-no">FIG. 6</span>Dick Williams in his workshop.</figcaption>
+    </figure>
+
+    <p>By pleasant coincidence, the railroad layout and all of its models are on public display this coming Saturday, Dec. 3, as the Cornwall Iron Furnace and Cornwall Manor hold <a href="https://lebtown.com/2022/11/16/friends-of-cornwall-iron-furnace-to-host-christmas-at-cornwall-event-on-dec-3/" target="_blank" rel="noopener">a joint open house "Christmas at Cornwall."</a> The railroad display will only be open from 10 a.m. to 1 p.m.</p>
+
+    <figure class="plate">
+      <img src="images/millwood-pt2/fig7-model-railroad-layout.jpg" alt="Model train passing a scale-model Cornwall building on the railroad club's layout">
+      <figcaption><span class="fig-no">FIG. 7</span>The Cornwall Manor Railroad Club's layout, featuring Williams' scale-model buildings.</figcaption>
+    </figure>
+
+    <p>The railroad layout was featured in <a href="https://www.youtube.com/watch?v=PMmEy5EXb2E" target="_blank" rel="noopener">a 2020 "Christmas at Cornwall" video</a> when the COVID pandemic had shut down public access to virtually everything. Now that the opportunity presents itself, you'll want to come enjoy this display in-person!</p>
+    <p>Stay tuned for more Millwood details. Based on the views shown above, 2023 promises to be an exciting year.</p>
+
+    <figure class="plate">
+      <img src="images/millwood-pt2/fig8-coming-in-2023.jpg" alt="Historic photo of Millwood mansion with a Coming in 2023! banner">
+      <figcaption><span class="fig-no">FIG. 8</span>Coming in 2023!</figcaption>
+    </figure>
+  </div>
+
+  <div class="credits">
+    <p>Originally published on LebTown, November 30, 2022.</p>
+  </div>
+
+  <div class="series-nav" style="margin-top:2rem; border-top:1px solid rgba(43,36,29,0.18); border-bottom:none; padding-top:1.5rem;">
+    <a href="restoring-millwoods-former-glory.html">&larr; Part One</a>
+    <span class="current">Part 2 of 2</span>
+    <span class="disabled">End of series</span>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

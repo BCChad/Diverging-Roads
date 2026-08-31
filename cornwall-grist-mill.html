@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cornwall Grist Mill — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .quote-block{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    line-height:1.6;
+    color:var(--iron);
+    border-left:3px solid var(--brass);
+    padding:.5rem 0 .5rem 1.5rem;
+    margin:1.5rem 0;
+    max-width:60ch;
+  }
+  .quote-block .cite{
+    display:block;
+    font-family:'Special Elite', monospace;
+    font-size:.68rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-top:.6rem;
+    font-style:normal;
+  }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 010 &middot; Cornwall Furnace</div>
+    <h1>The Cornwall Grist Mill</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published July 18, 2023</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <p class="lead">If you enjoy walking the Lebanon Valley Rail Trail through Cornwall and were intrigued by <a href="the-cornwall-manor-pools.html">last year's story about the hidden pools</a>, get ready for another surprise. As you walk south from the "Root Beer Barrel" you will pass the old railroad station (now the Borough Police) and step onto the iron railroad trestle. Look off into the trees on your left and try to imagine the noise of industry of the early 1800s&hellip;</p>
+
+  <div class="section">
+    <figure class="plate">
+      <img src="images/grist-mill/fig1-mill-c1900.jpg" alt="The Cornwall Grist Mill, a large four-story stone building, c. 1900">
+      <figcaption><span class="fig-no">FIG. 1</span>The Cornwall Grist Mill, c. 1900. (Grittinger, collection of Michael A. Trump)</figcaption>
+    </figure>
+
+    <p>One of the features of the 18th century Cornwall Iron plantation that sustained a community of miners and furnace workers exists today only in photographs and old maps. All that remains are traces of a mill stream, yet what a story that can be told!</p>
+    <p>Located on the overgrown western edge of now Cornwall Manor property, this mill was built by the Grubb family in the mid-1700s, and taken over when the estate was acquired by Robert Coleman. It had fallen into disrepair sometime before World War II but remained standing at the time the estate became the Methodist Church Home, now known as Cornwall Manor. Beyond repair and posing safety risks to curious local teenagers, the structure was razed in 1960.</p>
+    <p>To clarify, <em>a</em> mill existed on this location for an unknown period of time before it was replaced as early as 1798 by the large mill depicted in Figure 1. Records at the Cornwall Iron Furnace mention a mill in 1765, at a time when Pennsylvania was still a British colony. Cornwall Manor's Gateway Library features an intriguing drawing (Figure 2, dating to the very early 1800s) of Robert Coleman's Cornwall estate. In addition to his Elizabeth furnace estate in Brickerville and another in Colebrook, he had acquired Cornwall in the late 1790s.</p>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig2-estate-sketch-c1800.jpg" alt="Annotated sketch of Robert Coleman's Cornwall estate, c. 1800, marking the Cornwall Grist Mill and Mill Stream">
+      <figcaption><span class="fig-no">FIG. 2</span>Robert Coleman's Cornwall Estate, c. 1800, annotated by the author. (Cornwall Manor archives)</figcaption>
+    </figure>
+
+    <p>Just as the sketch shows features of the "Buckingham" mansion and Cornwall Iron Furnace, which were changed by later renovations, the depiction of the mill (Figure 3) suggests a much smaller structure, consistent with 18th century mills. The newer building was roughly 75 feet wide and 35 feet deep and four stories tall. The original building appears to be smaller, with 1-1/2 to 2 stories, and an exterior water wheel.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/grist-mill/fig3-mill-detail-c1800.jpg" alt="Close detail from the c. 1800 sketch showing the smaller original mill building">
+      <figcaption><span class="fig-no">FIG. 3</span>Cornwall Grist Mill, c. 1800.</figcaption>
+    </figure>
+
+    <p>Beginning around the 1840s the Coleman family was investing in upgrades to the Iron Furnace, the iron master's mansion and other structures. The reconstruction of the grist mill may have occurred then, if not several decades before. One 1803 source mentions there was also a sawmill. Records at the Lebanon County Historical Society include "grain books" dating to 1826. These books show detailed accounts of individuals, itemizing the grain (wheat, rye, corn, oats) they had delivered, as well as flour and other commodities (including bacon at 8 cents a pound!) received. Such details suggest a larger operation had been established.</p>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig4-mill-late-1800s.jpg" alt="The Cornwall Grist Mill in the late 1800s, with a horse-drawn wagon out front">
+      <figcaption><span class="fig-no">FIG. 4</span>The Cornwall Grist Mill, late 1800s. (Michael A. Trump)</figcaption>
+    </figure>
+
+    <p>The large format of the newer mill as shown in these various photographs appears to be one of the new "automated mills" designed by American inventor Oliver Evans. Evans had designed his automated mill in Newport, Delaware in the 1780s and continued to improve it over several years, receiving patents from several states. When the U.S. Patent Office was established in 1790 his was one of three inventions patented (<a href="https://history-computer.com/oliver-evans-complete-biography/" target="_blank" rel="noopener">history-computer.com</a>). He published his designs in an extensive, exhaustively-illustrated 476-page book "The Young Mill-Wright and Miller's Guide" first published in 1795, followed by 14 subsequent editions.</p>
+    <p>The four-story structure contained elevators, conveyors and various machinery that together took various types of grain from local farmers and produced flour. In the above picture, barrels of grain were received at the left end of the building, assisted by the hoist at the top floor. According to Evans' design (Figures 5 and 6 below), the grain was hoisted to the second floor where it was gravity-fed to elevators on the first floor and raised to the top floor where it was conveyed into various storage bins. The miller would control directing various jobs to the millstones for grinding and subsequent sifting machines to finish the flour.</p>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig5-evans-automated-mill.jpg" alt="Illustrations of Oliver Evans's automated mill design">
+      <figcaption><span class="fig-no">FIG. 5</span>Illustrations of Evans' "Automated Mill."</figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig6-evans-milling-process.jpg" alt="Diagram of Evans's automated milling process">
+      <figcaption><span class="fig-no">FIG. 6</span>Evans' Automated Milling process.</figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig7-milling-process-summary.jpg" alt="Simplified diagram summarizing the milling process, from Mount Vernon's website">
+      <figcaption><span class="fig-no">FIG. 7</span>Summarized milling process. (Source: mountvernon.org)</figcaption>
+    </figure>
+
+    <p>The milling process is simplified by the above figure, which comes from the <a href="https://www.mountvernon.org/the-estate-gardens/gristmill/" target="_blank" rel="noopener">Mount Vernon website</a> describing George Washington's grist mill. Videos of operating historic mill machinery there provide insight to the likely operation of the Cornwall Grist Mill. Washington's mill was first constructed in 1770, and improved in 1791 using Evans' automated design. Robert Coleman was known to associate with George Washington, making it possible that Coleman had been influenced in the 1790s to upgrade his mill.</p>
+  </div>
+
+  <div class="section">
+    <h2>The Mill Stream</h2>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig8-millrace-stamped-1910.jpg" alt="A section of red sandstone mill race, stamped with the number 1910">
+      <figcaption><span class="fig-no">FIG. 8</span>A portion of the mill race, stamped "1910." (Bruce Chadbourne)</figcaption>
+    </figure>
+
+    <p>All that remains today of the grist mill is the red sandstone channel of the mill stream or head-race to the mill, the "upstream" portion that was diverted from Furnace Creek, which runs straight through the Cornwall Manor meadow.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/grist-mill/fig9-mill-stream-gardens.jpg" alt="The mill stream winding through the Buckingham gardens, with a small footbridge">
+        <figcaption><span class="fig-no">FIG. 9</span>Mill stream through the "Buckingham" gardens. (Cornwall Manor archives)</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/grist-mill/fig10-mill-stream-meadow.jpg" alt="The mill stream passing through the meadow, c. 1900">
+        <figcaption><span class="fig-no">FIG. 10</span>The mill stream passing through the Meadow, c. 1900. (Cornwall Manor archives)</figcaption>
+      </figure>
+    </div>
+
+    <p>The inscription on the back of this photo (Figure 10) from the Cornwall Manor archives reads:</p>
+
+    <div class="quote-block">
+      "Picturesque view of the Mill Race between the Cornwall mansion gardens and the meadow below on the left, where Revolutionary cannon were tested. Continuing on this path would have brought you to the Cornwall Grist Mill. &hellip; When a prominent visitor would come to the estate, Mrs. Buckingham would send a messenger down to the Cornwall Store to fetch fresh hamburger. Visitors were in awe to see the water boil with trout when the meat was tossed into the race."
+    </div>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig11-aerial-mill-stream-1940.jpg" alt="Aerial view of the mill stream, c. 1940">
+      <figcaption><span class="fig-no">FIG. 11</span>Aerial view of the Mill stream, c. 1940.</figcaption>
+    </figure>
+  </div>
+
+  <div class="section">
+    <h2>Steam Power</h2>
+    <p>Beginning in the 1840s the Cornwall Iron Furnace was undergoing improvements to its blast apparatus including the addition of a steam engine to supplement and then replace its water wheel. A brief article in the York Gazette, Tuesday August 28, 1855 titled "Garner's Steam Engine" confirms that the Cornwall Grist Mill was likewise improved.</p>
+
+    <div class="quote-block">
+      "We are gratified to learn that the Oscillating Steam Engine of our ingenious townsman, Morris J. Gardner, is rapidly winning favor. It has been successfully tried, in various operation, and had fully met the most sanguine expectations of the inventor. From the first small engine sent from the manufactory, (which we believe, is that used in the extensive printing establishment of Fielding Lucas, Esq., of Baltimore) down to the last, which is of 25 horse power, all have proven entirely successful. Messrs. Spring, Hess &amp; Co., of Philadelphia, with whom Mr. Garner has an agreement authorizing that firm to use his invention, have recently built one of 25 horse power for Robert Coleman, Esq., to be used at Cornwall Furnace, Lebanon county, in driving a grist and saw mill&hellip;"
+      <span class="cite">York Gazette, August 28, 1855</span>
+    </div>
+
+    <p>As with the Iron Furnace, the operation of the Grist Mill was made much more reliable with the addition of steam power. As shown in the previous photographs the white, wooden structure was added to the east side of the mill, supplementing and presumably eventually replacing the water wheel. The York Gazette article confirms that a sawmill was also present in the operation. The sawmill possibly is illustrated as one of the outbuildings in the map below.</p>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig12-map-1875.jpg" alt="Early map depicting the Cornwall Grist Mill and outbuildings, c. 1875">
+      <figcaption><span class="fig-no">FIG. 12</span>Early map depicting the Cornwall Grist Mill, c. 1875.</figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig13-steam-plant-from-furnace.jpg" alt="View from the Burd Coleman Furnace showing the Grist Mill steam plant in operation, smoke rising from its stack">
+      <figcaption><span class="fig-no">FIG. 13</span>Taken from the Burd Coleman Furnace, showing the Grist Mill steam plant in operation. (Michael A. Trump)</figcaption>
+    </figure>
+  </div>
+
+  <div class="section">
+    <h2>Railroads</h2>
+    <p>Eventually the Cornwall Grist Mill was serviced by one and then a second railroad, with grades passing close by the west and then the east sides of the building. First to appear, as shown in Figure 12, was the Cornwall Railroad (c. 1850) from North Lebanon, proceeding south through Cornwall and Minersvillage to Penryn, as well as a spur that serviced the Cornwall Mine. Beneath this spur and adjacent to the mill were chutes and storage bins for receiving the coal for the steam plant.</p>
+    <p>Though the tracks are long-removed, parts of the rail support remain in the woods, and the embankment for this line still exists at the corner of Burd Coleman and Rexmont Roads by the Cornwall Borough Maintenance garage, across the street from the old miller's house at 101 Burd Coleman Road.</p>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig14-topo-map-1885.jpg" alt="Topographic map from 1885 showing the rail lines around the Grist Mill">
+      <figcaption><span class="fig-no">FIG. 14</span>Topographic Map, c. 1885.</figcaption>
+    </figure>
+
+    <p>When Robert H. Coleman built his competing Cornwall &amp; Lebanon railroad (c. 1883) southwest across the iron trestle to Mt. Gretna and beyond, he included a spur, now known as the extension of Gatehouse Lane, that serviced the Cornwall Mine (see Figure 14). The elevated grade of that rail bed remains among the others along Rexmont Road that remind us of the former industry in Cornwall.</p>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig15-two-railroads-in-action.jpg" alt="A day-in-the-life photo showing two railroad lines passing the mill, with a passenger train overhead">
+      <figcaption><span class="fig-no">FIG. 15</span>Two Railroads in Action. (Michael A. Trump)</figcaption>
+    </figure>
+
+    <p>This delightful "day-in-the-life" action photo (Figure 15) shows two lines of the Cornwall Railroad passing next to the mill, the line on the right enabling delivery of coal to the mill. A now overgrown road on the right has an "old" car approaching the mill. The iron trestle stands in the background right, and the stone arch in background left, with a pedestrian passing through. Passing overhead on the Cornwall &amp; Lebanon Railroad is a passenger train headed to Mt. Gretna.</p>
+  </div>
+
+  <div class="section">
+    <h2>The End of an Era</h2>
+
+    <figure class="plate">
+      <img src="images/grist-mill/fig16-empty-shell-1945.jpg" alt="The Cornwall Grist Mill in ruins, roofless and decaying, covered in snow, 1945">
+      <figcaption><span class="fig-no">FIG. 16</span>An empty shell, 1945. (Michael A. Trump)</figcaption>
+    </figure>
+
+    <p>By 1945 the Cornwall Grist Mill, long out of operation, had suffered serious decay as shown in the above photo, yet it stood for 15 more years before its demolition in 1960. The mill had survived, barely, during Cornwall Manor's first decade, appearing like one of the bombed-out structures of war-torn European cities. Small wonder that it needed to be razed. How grateful we can be that other treasured structures remain to tell us Cornwall's history.</p>
+  </div>
+
+  <div class="section">
+    <h2>Changing Ownership</h2>
+    <p>Though we may idealize historic structures like the Cornwall Iron Furnace and the Grist Mill as being in the public domain, the ownership of the mill changed hands with increasing frequency. Like the furnace, it had belonged to the Grubbs in the 1700's and to the Colemans in the 1800's. With the death of Robert Coleman's grandson R.W. Coleman in 1864, ownership of various assets was formalized by establishing the company "R.W. Coleman Heirs." Under great-grandson Robert H. Coleman, it transferred to the Cornwall Iron Company, Ltd. in 1886. In 1901 Lackawanna Iron &amp; Steel Company acquired a 4/24<sup>th</sup> shared interest, which sold to the Bethlehem Steel Company on August 31, 1917.</p>
+    <p>A trust of which Bethlehem Steel was a party later divested its interest in this and other properties, and so the Grist Mill changed hands several more times. Included in the trust were notable Cornwall families, including the Freemans, John Percy Alden and his relatives the Derbys. One notable participant was Ethel Roosevelt Derby, daughter of Theodore Roosevelt. In October 1947 they sold the mill for $600 to Dewey R. &amp; Elizabeth Bernard; Dewey a notable Bethlehem Steel employee and local surveyor. In April 1948 he sold it to his wife's relative George D. Binner of Womelsdorf for $1, apparently with thoughts of turning the mill building into a garment factory. In August it sold two more times, first to Richard Bucher and then to Curtis R. and Kathryn S. Batdorf (some records refer to it as the "Batdorf Mill"). The mill having been demolished in 1960, the Batdorfs sold the property to the Methodist Church Home (Cornwall Manor) in 1966.</p>
+  </div>
+
+  <div class="section">
+    <h2>Other Mills</h2>
+    <p>Research on this impressive Cornwall landmark will continue, as each fascinating discovery seems to lead to several more. Certainly there have been numerous mills in the region, even in the immediate area. There were Zinn's Mill on the north side of Bismarck/Quentin, and Bowman's Mill on North Cornwall Road, both long gone. Horst Mill still stands in Rexmont. <a href="https://lebtown.com/2019/02/04/colebrook-mill-deemed-at-risk-by-pa-preservation-nonprofit/" target="_blank" rel="noopener">The other Coleman mill still stands in Colebrook, longing for restoration.</a></p>
+    <p>Those whose interest has been piqued will enjoy visiting <a href="https://resslermill.com/" target="_blank" rel="noopener">Ressler's Mill</a> on Newport Road in Ronks, PA. It dates to 1760 and remains a museum of living mill history.</p>
+  </div>
+
+  <div class="credits">
+    <p>The author gratefully acknowledges Michael Emery, Site Administrator of the Cornwall Iron Furnace, for his expertise, many ideas and sounding-board during this research.</p>
+    <p>Much gratitude also to Michael Trump, co-author of the book series "The Communities of Cornwall Across Time," for his seemingly inexhaustible supply of photographs. Additionally he researched the history of owners of the mill property.</p>
+    <p>Originally published on LebTown, July 18, 2023.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>See You in 150 Years — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  .plate-row-3{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:1rem;
+  }
+  @media (max-width:600px){
+    .plate-row, .plate-row-3{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+    .plate-med {
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+  .closing-line{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--rust);
+    text-align:center;
+    margin:2rem 0 1rem;
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 015 &middot; Coleman Family</div>
+    <h1>See You in 150 Years</h1>
+    <div class="subtitle">A Time Capsule at Coleman Memorial Chapel</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published August 27 &ndash; September 18, 2024</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <div class="plate-row">
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig1a-bell-tower.jpg" alt="The bell tower of Coleman Memorial Chapel">
+      <figcaption><span class="fig-no">FIG. 1</span>Coleman Memorial Chapel's bell tower&hellip;</figcaption>
+    </figure>
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig1b-chapel-150-sign.jpg" alt="Sign outside Coleman Memorial Chapel reading Come Celebrate 150 Years">
+      <figcaption><span class="fig-no">FIG. 1</span>&hellip;and its roadside sign, August 2024.</figcaption>
+    </figure>
+  </div>
+
+  <p class="lead">On Saturday and Sunday, August 24&ndash;25, 2024 Coleman Memorial Chapel in Brickerville celebrated its 150th anniversary with events on the grounds of the chapel on Saturday and additional events and tours of Elizabeth Furnace on Sunday.</p>
+
+  <div class="section">
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig2-1870s-baseballers.jpg" alt="Men dressed as 1870s baseball players, playing a game on the chapel grounds">
+      <figcaption><span class="fig-no">FIG. 2</span>Among the outdoor events, men emerged from Coleman's cornfield as "1870s baseballers" to play a spirited game before an appreciative crowd.</figcaption>
+    </figure>
+
+    <p>At 3pm Saturday church members and the public gathered in the chapel for a special worship service for the opening of the capsule that had been sealed in the church walls 150 years ago.</p>
+
+    <div class="plate-row-3">
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig3c-james-coleman-stock.jpg" alt="Stock photograph representing James Coleman">
+        <figcaption><span class="fig-no">FIG. 3</span>James Coleman&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig3b-g-dawson-coleman.jpg" alt="Portrait of G. Dawson Coleman">
+        <figcaption><span class="fig-no">FIG. 3</span>&hellip;his father G. Dawson&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig3a-deborah-coleman.jpg" alt="Portrait of Deborah Coleman">
+        <figcaption><span class="fig-no">FIG. 3</span>&hellip;and mother Deborah.</figcaption>
+      </figure>
+    </div>
+
+    <p>The cornerstone of the chapel had been laid on Wednesday, August 26th of 1874 to commemorate the tragic death of 14-year-old James Coleman, who fell from a horse on March 3rd, 1874. He was the eldest son of G. Dawson and Deborah Coleman. The chapel was completed two years later in 1877 and G. Dawson Coleman died the following year.</p>
+    <p>As reported at that time by Lebanon Daily News, the cornerstone contained an 8x12 inch leaden box, in which were placed coins, currency, copies of newspapers from Lebanon, New York, Philadelphia, and Boston. Additionally were photographs, including one of James Coleman (his photo above is a stock photo), lists of parishioners and a history of the Elizabeth Farms Sabbath school.</p>
+  </div>
+
+  <div class="section">
+    <h2>A Service of Remembrance and Celebration</h2>
+    <p>The 1874 dedication service had included hymns, scripture readings and prayers. On this Sunday, the 3pm service repeated the same order, singing "Come Thou Almighty King," "Christ is Our Cornerstone," and "Glorious Things of Thee are Spoken." Ken Maurer, Council President, spoke words of welcome. Ralph Hirner appeared in costume, representing G. Dawson Coleman, and Sheila Kyle likewise as Deborah Coleman, offering the prayer. Hugh Benedict sang a solo, "Humble Heart," an old Shaker hymn.</p>
+
+    <figure class="plate plate-med">
+      <img src="images/coleman-chapel/fig4-1874-dedication-program.jpg" style="width: 100%; height: auto;" alt="The 1874 dedication service program">
+      <figcaption><span class="fig-no">FIG. 4</span>The service program from 1874.</figcaption>
+    </figure>
+
+    <h2>Surprise Ending</h2>
+    <p>Pastor Karen Bachman provided remarks to precede the opening of the time capsule. She "confessed" to those assembled that the time capsule had already been opened several days prior, to assess its contents and prepare them for display.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig5-decayed-capsule-contents.jpg" alt="Fragments of decayed paper documents displayed on a red surface">
+      <figcaption><span class="fig-no">FIG. 5</span>Given the anticipation and suspense of a time capsule opening, the surprising and disappointing outcome was that nearly all of the paper documents had been reduced to dust, with the exception of a few legible fragments.</figcaption>
+    </figure>
+
+    <p>These fragments were arranged for display in a glass case. Mostly discernible were selections from a hymnal. About 15 coins were displayed in a similar case, along with the now-empty leaden box.</p>
+    <p>Rev. Bachman said that over the next few weeks the congregation would deliberate what items they wished placed back into the cornerstone for another 150 years. Stay tuned!</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig6b-cornerstone-after.jpg" alt="The cornerstone before the opening, showing its inscribed date">
+        <figcaption><span class="fig-no">FIG. 6a</span>Cornerstone, before&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig6a-cornerstone-before.jpg" alt="The cornerstone after the opening">
+        <figcaption><span class="fig-no">FIG. 6b</span>&hellip;and after the opening.</figcaption>
+      </figure>
+    </div>
+
+    <p>A 34-page commemorative booklet was featured at the event; copies are still available for purchase at Coleman Memorial Chapel.</p>
+
+    <figure class="plate plate-med">
+      <img src="images/coleman-chapel/fig7-commemorative-booklet.jpg" alt="Cover of the 34-page commemorative booklet">
+      <figcaption><span class="fig-no">FIG. 7</span>The commemorative booklet.</figcaption>
+    </figure>
+  </div>
+
+  <div class="section">
+    <h2>Touring the Grounds of Historic Elizabeth Furnace</h2>
+    <p>On Sunday a large crowd turned out at Elizabeth Furnace to attend three lectures held in the stable venue and to tour the historic grounds. Featured on the grounds were tours of the first floor of the private mansion, opened on this special occasion.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig8-coleman-stiegel-mansion.jpg" alt="The Coleman and Stiegel Mansion at Elizabeth Furnace">
+      <figcaption><span class="fig-no">FIG. 8</span>Coleman / Stiegel Mansion at Elizabeth Furnace.</figcaption>
+    </figure>
+
+    <p>James Polczynski, author of "Souls of Iron" (2022), spoke on the history of the Coleman family and their iron dynasty. Dan Snyder, known for his broad historic interests in Lancaster, Manheim and Cornwall, provided details and findings of the on-going archaeological dig that has been in progress on the grounds for the last 20 years. Lititz historian Cory Van Brookhoven provided an entertaining presentation, "Mysterious Lititz Ghosts, True Crime, UFOs and More."</p>
+
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig9-huber-house.jpg" alt="The historic Huber House at Elizabeth Furnace">
+      <figcaption><span class="fig-no">FIG. 9</span>Visitors were able to visit the site of the old Elizabeth furnace, subject of the archaeological dig, and also toured the old Huber house, which contained artifacts from the dig.</figcaption>
+    </figure>
+
+    <p>Today the Coleman Memorial Chapel has an active congregation that holds weekly Sunday worship services, special events like a car show and Christmas bazaar, and several fund raisers throughout the year. The Christmas candlelight service is truly a walk back in time when the kerosene lanterns are lighted. Elizabeth Furnace is operated by Craig Coleman as an elegant and picturesque event and wedding venue.</p>
+
+    <div class="plate-row-3">
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig10b-chapel-today-2.jpg" alt="Coleman Memorial Chapel today">
+        <figcaption><span class="fig-no">FIG. 10a</span>The chapel today&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig10a-chapel-today-1.jpg" alt="Coleman Memorial Chapel today, another view">
+        <figcaption><span class="fig-no">FIG. 10b</span>&hellip;and grounds&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig10c-elizabeth-furnace-venue.jpg" alt="Elizabeth Furnace as an event venue">
+        <figcaption><span class="fig-no">FIG. 10c</span>&hellip;and Elizabeth Furnace as a venue.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What Would You Put in a Time Capsule?</h2>
+    <p>That's some planning ahead! So, what would <em>you</em> put into a time capsule to be left for the next 150 years? That's the question members of Coleman Memorial Chapel wrestled with in the three weeks following their 150th anniversary celebration.</p>
+    <p>Given the Coleman history of the 19th century and how things have changed since then, we can only wonder, "what property, structures and people will even exist 150 years from now?" What documents and trinkets will give a meaningful sense of what kind of people and culture we are?</p>
+    <p>Practically speaking, given that the paper items didn't survive 150 years, consideration was also given to how to prepare and preserve the items for this next time. Will digital media on USB drives be any more effective in surviving the coming years? Would it be better to carve memories in stone, as has been done for millennia?</p>
+
+    <h2>Preparation and Commitment</h2>
+    <p>Foremost, credit is due to the pastor and congregation of Coleman Memorial Chapel for the faith they express in themselves, in society and in their Lord that there will be something to celebrate in 2174.</p>
+    <p>On Sunday, September 15th, the congregation held a service and committed the selected items to a new metal box with a proper gasket for sealing out the elements. Items selected were some coins, an old baseball, paper accounts of the 150th anniversary, the history of James Coleman, and the marble angel baptismal font that had been created in his memory. This time the items were placed in plastic sleeves and zip-lock plastic bags. Digital backup copies of the documents were included on USB memory sticks. The new box was then placed inside the original 150-year-old lead box and soldered shut.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/coleman-chapel/fig11b-cornerstone-hole.jpg" alt="The stone cornerstone block with its rectangular cavity for the time capsule box">
+      <figcaption><span class="fig-no">FIG. 11</span>The cornerstone's cavity, ready to receive the resealed box.</figcaption>
+    </figure>
+
+    <p>On Tuesday morning, in an informal ceremony, the box was placed back in the cornerstone and the chapel foundation was restored by stone masons.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig12b-stone-masons-at-work.jpg" alt="Craig Coleman placing the lead box back into the cornerstone">
+        <figcaption><span class="fig-no">FIG. 12a</span>Craig Coleman places the lead box in place&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/coleman-chapel/fig12a-craig-coleman-placing-box.jpg" alt="Stone masons restoring the chapel foundation">
+        <figcaption><span class="fig-no">FIG. 12b</span>&hellip;and the stone masons get to work.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Sister Chapels and the Angel</h2>
+    <p>When the Lebanon Daily News reported the laying of the first capsule in August 1874, the work of Debbie and G. Dawson Coleman was explained in great detail. Their son James had died tragically in March of 1874, and over several months' time they committed to building the chapel in his memory.</p>
+
+    <figure class="plate plate-med">
+      <img src="images/coleman-chapel/fig13-1874-newspaper-clipping.jpg" alt="Close-up of the 1874 Lebanon Daily News newspaper article">
+      <figcaption><span class="fig-no">FIG. 13</span>The 1874 Lebanon Daily News account.</figcaption>
+    </figure>
+
+    <p>The Colemans lived on their estate "Mount Lebanon" (now known as <a href="https://www.friendsofcmp.org/our-story" target="_blank" rel="noopener">Coleman Memorial Park</a> on West Maple Street) near their furnaces in north Lebanon, as well as maintaining the Elizabeth furnace and farm in Brickerville.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig14-coleman-memorial-park-sign.jpg" alt="Sign for Coleman Memorial Park">
+      <figcaption><span class="fig-no">FIG. 14</span>Coleman Memorial Park, West Maple Street, Lebanon.</figcaption>
+    </figure>
+
+    <p>In 1856 they had begun a Sunday school for their furnace workers and families. By 1870 the school flourished and they laid the cornerstone of Christ Chapel, which in a few years became Christ Presbyterian Church.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig15-christ-presbyterian-furnace-homes.jpg" alt="Christ Presbyterian Church shown adjacent to the North Lebanon Furnace workers' homes">
+      <figcaption><span class="fig-no">FIG. 15</span>Christ Presbyterian, shown adjacent to the North Lebanon Furnace workers' homes.</figcaption>
+    </figure>
+
+    <p>Within 36 months of its opening, the Colemans were building a new chapel in Brickerville, near the place their son had died. The exteriors of the two buildings differ in various aspects but the interior architectures seem quite similar.</p>
+    <p>The history in Brickerville shared similar characteristics with North Lebanon. According to the history in the 1874 Lebanon Daily News article, the first building had been erected in Brickerville by Mrs. Harriet Coleman (residing at Elizabeth Furnace) in 1848, for the families of the Elizabeth furnace workers as a place of worship and for Sunday school. In 1871, the year after Christ Chapel was established, this was continued by her daughter-in-law Mrs. G. D. ("Debbie") Coleman, who supplied books and hymnals from Christ Chapel. The pastor of Christ Chapel frequently made the 14-mile journey after his own services, to preach there. Members of Christ Chapel turned out in number to support the dedication of the new Memorial Chapel in 1874.</p>
+
+    <h2>The James Coleman Angel</h2>
+    <p>In addition to building the chapel in Brickerville, a few years later the Colemans commissioned a baptismal font &mdash; a marble sculpture of an angel &mdash; to adorn their own Christ Chapel in memory of their son James.</p>
+    <p>The statue, by Richard Greenough from his studio in Rome, Italy, was carved of marble from the Carrara quarries, world-famous for its pure white marble. The angel holds a shell for the baptismal font; the shell is both the symbol of the disciple James and the early Christian symbol of baptism. The base of the pedestal reads "In Memoriam." It is said that the facial features are those of James, taken from a photograph.</p>
+
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig16-james-coleman-angel-statue.jpg" alt="The James Coleman Angel, a marble baptismal font sculpture">
+      <figcaption><span class="fig-no">FIG. 16</span>The James Coleman Angel.</figcaption>
+    </figure>
+
+    <p>The story of the angel has taken on a life of its own. It remained a treasure of Christ Presbyterian Church for almost 140 years, until it closed its doors in 2020. The baptismal font has since been moved to <a href="cold-springs-water-supply.html">St. Luke's Episcopal Church</a> in Lebanon, and appropriately so.</p>
+    <p>The Coleman family is known for a long history of supporting many churches in greater Lebanon. George Dawson Coleman had been on the vestry of St. Luke's since 1861, helping to ensure completion of its building project in 1863. Given outstanding construction debts, the church could not be consecrated until paid for in full. The day was saved when the deficit was covered by George Dawson Coleman and his mother, Harriet Dawson Coleman.</p>
+    <p>The Angel has been temporarily placed, but according to Dr. Terry Heisey, Principal Organist and Director of Music, who provided these historical details, the Angel statue will be installed in the new glass-enclosed tower porch.</p>
+  </div>
+
+  <div class="section">
+    <figure class="plate">
+      <img src="images/coleman-chapel/fig17-chapel-exterior-closing.jpg" alt="Coleman Memorial Chapel exterior, full view">
+      <figcaption><span class="fig-no">FIG. 17</span>Coleman Memorial Chapel, sealed once more.</figcaption>
+    </figure>
+    <p class="closing-line">See you all in 150 years!</p>
+  </div>
+
+  <div class="credits">
+    <p>Thanks to Rev. Karen Bachman and the committee of Coleman Memorial Chapel, Mr. Craig Coleman for his assistance with this article, Mrs. Carol Holt of Christ Presbyterian Church, and Dr. Terry Heisey of St. Luke's Episcopal Church.</p>
+    <p>Originally published as two dispatches on LebTown, August 27 and September 18, 2024.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

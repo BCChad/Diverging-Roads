@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cornwall's National Guard Riot of 1887 — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .definition{
+    margin-bottom:1.5rem;
+  }
+  .definition .term{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--rust);
+  }
+  .definition .phon{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    color:var(--slate);
+    font-size:.95rem;
+    margin-left:.5rem;
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:2rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+
+  .plate-pending{
+    margin:2rem 0;
+    border:1px dashed var(--brass);
+    background:rgba(171,124,52,0.07);
+    padding:1.1rem 1.25rem;
+  }
+  .plate-pending .pending-label{
+    font-family:'Special Elite', monospace;
+    font-size:.66rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--rust);
+    display:block;
+    margin-bottom:.5rem;
+  }
+  .plate-pending .pending-caption{
+    font-size:.88rem;
+    color:var(--slate);
+    font-style:italic;
+    line-height:1.5;
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.75rem;
+    line-height:1.7;
+    color:var(--slate);
+  }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 004 &middot; Coleman Family</div>
+    <h1>Cornwall's National Guard Riot of 1887</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published May 3, 2022</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig1-icons.png" alt="Monopoly railroad icons set the stage for this story">
+  </figure>
+  
+  <div class="definition">
+    <span class="term">Iconic</span><span class="phon">/&#299;&#712;k&#228;nik/</span>
+  </div>
+
+  <p class="lead">A word overused in today's media-centric world but apt description of the tokens from the board game many of us grew up with. The Reading and Pennsylvania railroads, along with the Short Line and B&amp;O (Baltimore &amp; Ohio), were real railroads that Robert Coleman grew up with. Railroad competition was a serious matter; in the following episode, a near outbreak of war in 1887 erupted between two competing lines.</p>
+
+  <div class="section">
+    <h2>A Tale of Two Railroads</h2>
+
+    <div class="plate-pending">
+      <span class="pending-label">Fig. 2 &mdash; Photo pending</span>
+      <span class="pending-caption">No caption given on the source page.</span>
+    </div>
+
+    <p>The Reading, which began in the 1830s, and the Pennsylvania, starting in the 1840s, crisscrossed Pennsylvania and neighboring states. Chartered in 1833, the "Philadelphia and Reading" served a regional purpose bringing coal from Pottstown down the Schuylkill back to the cities. The portion that served Lebanon remains an active line today, still running east-west through the middle of Lebanon out to Harrisburg.</p>
+    <p>The state chartered the Pennsylvania Railroad in 1846 connecting Harrisburg to Pittsburgh, in part to compete with the Erie Canal up north, which had opened the Great Lakes to the Hudson River. The Pennsylvania railroad would eventually connect as far west as Michigan, Chicago, and St. Louis.</p>
+    <p>The Colemans were shipping their iron (and receiving their coal) via the north on the Reading, just as decades before they had hauled it up the plank road from Cornwall to the Union Canal. In 1880, in direct competition with the existing local Cornwall Railroad, Robert H. Coleman saw the need to move iron efficiently to the southwest as well and planned a connector from Lebanon to Elizabethtown to connect with the Pennsylvania Railroad and points west.</p>
+    <p>He had tried to buy out his aunts' interest in the Cornwall Railroad but they refused. The accounts of the history vary but the competition between Coleman's Cornwall &amp; Lebanon Railroad (C&amp;LRR) and his cousin William Freeman's Cornwall line was legendary, including high-speed locomotive races and fights over maintenance of track junctions. Coleman finally built the prominent iron bridge that still stands over the tiny Cornwall center to allow his railroad to proceed unhindered southwest to Mount Gretna and beyond.</p>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig3-two roads.jpg" alt="View of Cornwall's two railroads side-by-side">
+    <figcaption><span class="fig-no">FIG. 3 </span>View of Cornwall to the southwest, the Cornwall Railroad tracks in the foreground, and the elevated C&amp;LRR tracks to the left, proceeding to the iron bridge. Notice the Cornwall Store, back right, and the stacks of the Burd Coleman Furnace center/left. A sharp eye may also detect the Cornwall Mill to the left of the locomotive. (Cornwall Iron Furnace)</figcaption>
+  </figure>
+  
+    <figure class="plate">
+    <img src="images/national guard riot/fig4-CLRR bridge.jpeg" alt="View of Cornwall & Lebanon train on the bridge, over Cornwall RR tracks">
+    <figcaption><span class="fig-no">FIG. 4 </span>Another view of the C&amp;LRR iron bridge complete with a C&amp;L train, with the Cornwall RR tracks in the foreground, leading to the Ore bank and points south. Notice the Cornwall Mill to the right. (Michael Trump)</figcaption>
+  </figure>
+
+
+    <p>Cornwall center sported therefore not one but two competing rail stations in close proximity. In addition to rail service, they provided telegraph services &mdash; a telegram to most places cost 25 cents. Each also had its own competing delivery services, akin to our modern UPS and FedEx parcel services. If you wanted something shipped out of town on Coleman's C&amp;LRR you paid the agent of "Adams Express Company," or with the Cornwall Railroad it was the "United States Express Company." A small package sent to Washington, D.C., Philadelphia, or New York cost less than 50 cents; you might run a tab and settle up at the end of the month. If you ordered clothing or other items from New York or Philadelphia, that merchant would send it by rail using the express company; you would pay the freight upon receipt, or sometimes the entire price of the item, "cash on delivery (COD)." The U.S. Post Office was in the Cornwall station.</p>
+	
+	    <figure class="plate">
+    <img src="images/national guard riot/fig5-CLRR stn.jpeg" alt="View of Cornwall & Lebanon train station in Cornwall">
+    <figcaption><span class="fig-no">FIG. 5 </span>A later photo of Cornwall's C&amp;L RR Station, with a powered trolley "Gretna" that shuttled passengers. Note the competing Cornwall track in the foreground. In the background is the gatehouse to the Freeman/Buckingham property (now Cornwall Manor). The station building was destroyed by fire and is now the site of the "Root Beer Barrel" parking area on the Lebanon Valley Rail Trail. (Cornwall Iron Furnace)</figcaption>
+  </figure>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig6-CRR stn.jpeg" alt="View of Cornwall RR train station in Cornwall">
+    <figcaption><span class="fig-no">FIG. 6 </span>The Cornwall Railroad Station in its prime. The building still stands and houses the Cornwall Police Department. (Cornwall Iron Furnace)</figcaption>
+  </figure>
+
+    <p>In other words, railroads were a tidy and essential business, one more way for Cornwall's wealthy family to diversify and support their iron and farming businesses. Mount Gretna historians are also quite familiar with this story, as Robert H. Coleman ran his railroad through his southern hills he built one of the stops near the intersection of Pinch Road, imagining a pleasant wooded recreation area, another commercial use of his railroad. By spring of 1884 it was common for groups such as church Sunday schools and Lebanon High alumni to travel there on the new railroad for relaxing picnics.</p>
+  </div>
+
+  <div class="section">
+    <h2>The Scene</h2>
+    <p>Though the Pennsylvania National Guard had first used the location known as Camp Hancock for an encampment in 1885, the week-long encampment of 1887 was a grand affair, drawing 8,000 troops, 438 horses, many senior officers and dignitaries (including Lt. Gen. Philip Sheridan), and newly elected Pennsylvania Governor James Beaver, himself a four-times wounded Civil War hero.</p>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig7-Beaver.jpeg" alt="James Beaver, Governor 1887-1891">
+    <figcaption><span class="fig-no">FIG. 7 </span>James Beaver, governor of Pennsylvania 1887&ndash;1891.</figcaption>
+  </figure>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig8-Sheridan.png" alt="Philip Sheridan, General-in-Chief of the Army following Gen. William T. Sherman.">
+    <figcaption><span class="fig-no">FIG. 8 </span>Philip Sheridan, General-in-Chief of the Army following Gen. William T. Sherman.</figcaption>
+  </figure>
+
+    <p>The commonwealth of Pennsylvania was grateful to Robert H. Coleman for rolling out the red carpet for the event at a personal expense of about $60,000 (just under $2 million in today's dollars) and permitting free use of the land. The encampment still cost the state $125,000, representing a savings of $20,000 over the previous year. Coleman had also offered the state reduced transportation cost for the troops at 2 cents per mile, round trip. He had also borne the cost of erecting infrastructure including a 1,600-yard infantry range with permanent targets. But Coleman profited in other ways.</p>
+    <p>He directed his personal secretary B.F. Hean, also a Civil war veteran, to negotiate contracts to supply provisions to the state, shipped by his Adams Express Co. (which opened an office at the encampment). Some 5,000 quarts of milk were distributed each day, contracted from Lebanon county farmer Aaron Brubaker ("all the cows in Lebanon county will be taxed to their uttermost capacity" reported the Philadelphia Times). 40,000 pounds of fresh beef were shipped from Chicago, as well as a trainload of local potatoes, and onions, white beans, and tomatoes. Also, 8,000 loaves of fresh bread (per day), 18,000 pounds of hard-tack and 4,300 pounds of coffee beans and 7,900 pounds of sugar. Lebanon County furthermore provided 15,000 candles and other supplies.</p>
+    <p>Of course the horses had to eat, too; there were 50,000 pounds of hay and 56,000 pounds of oats.</p>
+    <p>Tons of shot and shell were stacked next to Coleman's railroad tracks.</p>
+    <p>The encampment spanned the week of Aug. 7, with some initial set up in the days preceding. In addition to the thousands of troops, even greater numbers of civilians showed up beginning on the first weekend. Even today Mount Gretna sports a population of about 200 to 2000 people depending on when you count them. On that Sunday in 1887, 20,000 spectators showed up on Mount Gretna's grounds. The numbers swelled further to 35,000 within a few days. A one-way ticket from Lebanon to Cornwall cost about a dime, a bit more to Mount Gretna, good money for the railroad's proprietor.</p>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig9-Encampment.jpg" alt="Soldiers outside tent">
+    <figcaption><span class="fig-no">FIG. 9 </span>At the Mount Gretna National Guard encampment in 1912. (Library of Congress)</figcaption>
+
+    <p>With the Civil War a recent memory of 20 to 25 years, the spectacle of thousands of troops parading, marching, drilling, practice shooting rifles and cannon, and engaging in mock battles drew the throngs. They needed to eat as well.</p>
+    <p>The troops were warned to avoid the "picnic atmosphere" of Mount Gretna afforded by so many spectators. There were plenty of peddlers and hawkers drawn to the spectacle. Consequently beer and liquor were found among the soldiers, some of it smuggled inside a barrel of vegetables, until the officers rid the camp of it. To discourage the soldiers' access to liquor and women, barbed wire was erected to separate Camp Hancock from Mount Gretna.</p>
+    <p>With the great numbers there was fear also of crooks and pick-pockets and so a force of Pinkerton detectives were sent for. <em>(Editor's note: A year later, Robert Coleman sought the help of the Pinkerton agency for a problem at his own stable &mdash; <a href="the-pinkerton-cornwall-caper.html">read the Pinkerton Cornwall Caper here</a>.)</em></p>
+  </div>
+
+  <div class="section">
+    <h2>Did Someone Mention a Riot&hellip; in Cornwall?</h2>
+    <p>Overall the encampment was a great success, to be repeated in subsequent years, with visits by noted dignitaries and great coverage by the newspapers from Harrisburg, Reading, Philadelphia, and points beyond. However the onset of the encampment was another story, which threatened the outcome of the entire affair.</p>
+    <p>An advance guard of several hundred men and supplies under the command of General Townsend left Philadelphia by train at 7 o'clock Thursday morning, Aug. 4.</p>
+    <p>"At Bridgeport, Pottstown, Phoenixville, Reading and Lebanon big crowds gathered to see the soldier boys," said one newspaper. "All along the line men left their work in the big iron foundries to watch the train. Girls in the factories waved their handkerchiefs, aprons and sun bonnets."</p>
+    <p>The men were to arrive at Mount Gretna by 11 o'clock but it wasn't until six hours later that they started trickling into camp&hellip; on foot.</p>
+    <p>What the papers referred to for several succeeding days as "the Railroad War at Cornwall," began as Townsend's train approached Lebanon. The local Cornwall Railroad was allied with the (Philadelphia and) Reading and the local Cornwall &amp; Lebanon partnered with the Pennsylvania. Per previous agreement, the Reading train was to stop in Lebanon and transfer its cargo to Coleman's railroad, the Cornwall &amp; Lebanon line, for the trip to Mount Gretna. However, a previous contract with the Reading Railroad specified carrying passengers to Cornwall on the Cornwall Railroad. The conductor therefore allowed the train to proceed on to Cornwall on the wrong line.</p>
+    <p>On arrival in Cornwall, the train stopped as the Cornwall Railroad does not go to Mount Gretna but to points south. Townsend's seemingly reasonable solution was to disembark the men and material in Cornwall and transfer them to a train, assuming one became available, on the adjacent Cornwall &amp; Lebanon line, a distance of 10 feet. Superintendent Irish, of Coleman's railroad refused this at Coleman's instructions. He insisted that the train of at least 10 cars (carrying men, gun trucks, caissons and baggage) be backed up to Lebanon to the C&amp;L station and put on the proper track.</p>
+    <p>Coleman stuck to his proverbial guns and eventually won the war, but for six hours the train sat in Cornwall, and not quietly.</p>
+    <p>Several soldiers in the detail were train engineers and attempted to switch the train onto the C&amp;L track until they were warned off by a monkey wrench-wielding engineer of the Reading railroad, warning them "keep off my train!" Word of the conflict spread publicly and crowds of spectators flocked to Cornwall to see what the troops were going to do.</p>
+    <p>Townsend telegraphed word to his superiors already in Mount Gretna asking "shall I take the train by force and proceed on?" There erupted a dissent among senior officers at Gretna, one saying "No," but another insisting the National Guard had a right to take forceable possession. When the trainmen heard of this they uncoupled their engine from the train and moved it off to safety, parking it on the local turntable.</p>
+    <p>Brigadier General Gobin, upset that his battery was being held up, threatened he would get his equipment to camp "if he had to shell the county." As it turns out, of course no shots were fired and they didn't get to camp until 10 o'clock that evening after a dead march of five miles over a rough mountainous road.</p>
+    <p>Meanwhile Coleman's trains to Mount Gretna continued running all day through Cornwall on the C&amp;L line. Superintendent Irish issued orders not to sell tickets to men in uniform and the trainmen were ordered to put off any soldier who attempted to board the train. "There was a scene of wild confusion every time a train came along for Mt. Gretna," reported the Philadelphia Times. Only one man succeeded, an officer surgeon of the First Brigade.</p>
+    <p>When this officer reported to his superiors in Mount Gretna they began telegraphing to management of the Reading railroad, who then contacted Superintendent Neff of the Cornwall Railroad, to back the train up to Lebanon and break the standoff. This time Neff refused; he had done what he had been contracted and paid to do.</p>
+    <p>The men were frustrated, hungry, and tired, and considered taking action of their own until Brigadier General Snowden ordered them from the train and to march to camp. Imagine several hundred soldiers marching what is now the Lebanon Valley Rail Trail from Cornwall to Mount Gretna. These days some of us have done it on foot, but mostly on bicycles. They didn't have macadam pavement or smooth cinders to walk on, and with their equipment &mdash; it was a railroad bed, with wooden ties and slag ballast underfoot.</p>
+    <p>Off they straggled. The first arrivals reached camp about 6 o'clock in the evening. A few had broken into one of the railroad's tool houses, stole a hand-car and about 25 men propelled themselves to camp up a heavy grade, only later to be disciplined for the theft.</p>
+    <p>The Philadelphia paper reported: "Among the country people there is a good deal of excitement over today's lively scenes. Both railroads claim that they have won the fight." At 5 p.m. the Reading railroad manager was still meeting in Lebanon with one of the generals to get the train moving.</p>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig10-Phila frontpage.png" alt="Frontpage story of riot">
+    <figcaption><span class="fig-no">FIG. 10 </span>A dispute between Mr. Coleman and his aunts almost causes Civil War," read the headline on the front page of the Aug. 5, 1887, edition of the Philadelphia Times.</figcaption>
+  </figure>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig11-Hburg frontpage.png" alt="Frontpage story of riot">
+    <figcaption><span class="fig-no">FIG. 11 </span>"Railroad rivals at war," exclaimed the headline of a front page story in the Aug. 5, 1887, edition of the Harrisburg Independent.</figcaption>
+  </figure>
+
+    <p>Once the troubles of Thursday evening settled down, preparations at Camp Hancock resumed and throughout the weekend and ensuring week, the newspapers wrote glowing stories of the parades and events of the encampment. The Patriot of Harrisburg on Saturday wrote "the settlement of the railroad war is regarded as a victory for Mr. Coleman, as all the soldiers will now be carried over his road from Lebanon." All's well for them but the issue remained that excursion tickets for the general public sold by the Reading railroad to Cornwall will leave them facing the same long hike that the soldiers had taken to the encampment; Mr. Coleman insisted he will only accept through traffic from those who boarded his train in Lebanon. To ensure that passengers did not transfer from the Cornwall Railroad in Cornwall to his Mount Gretna train, a high fence had been hastily erected on Friday, separating the two railroads.</p>
+    <p>The newspaper feared the reaction of those of the public on Sunday morning "who have not kept themselves posted" of the day's conflict. Nevertheless at least 20,000 spectators arrived in Mount Gretna for the events of the day, and all seemed forgotten.</p>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig12-Hartranft.png" style="max-width: 400px; height: auto;" alt="Photo portrait of Gen'l Hartranft">
+    <figcaption><span class="fig-no">FIG. 12 </span>General John F. Hartranft, during his later years commanding the Pennsylvania guard. A Medal of Honor recipient, he served at Bull Run and Antietam, and also as Pennsylvania's 17th governor in the 1870s. A statue of him mounted on his horse stands outside the state Capitol. (Public domain)</figcaption>
+  </figure>
+
+    <p>According to the accounts Coleman was present most days of the encampment. On Wednesday he and his wife attended formal ceremonies, sitting next to General Sheridan along with Generals (Gov.) Beaver and Hartranft. Coleman was widely recognized and respected not only as host of the encampment but for his reputation as the millionaire businessman who continued to bring prosperity to Lebanon.</p>
+    <p>In a final anecdote, he had driven up to visit the Governor for the afternoon, and a young sentinel named Samuel Wright was ordered to hold Coleman's horse. Having sheathed his sabre he took hold of the horse's bridle and stood at attention in the sunlight for two hours. Later, Coleman readied to leave, tossing a silver quarter to the sentinel "supposing him an ordinary orderly." The story got around headquarters quickly, earning Wright some uncomfortable attention, but he got to keep the quarter "as a souvenir of the first money he ever earned."</p>
+
+  <figure class="plate">
+    <img src="images/national guard riot/fig13-Coleman carriage.jpg" alt="Robert H. Coleman's carriage, soldiers nearby">
+    <figcaption><span class="fig-no">FIG. 13 </span>Robert H. Coleman in attendance of the occasion.</figcaption>
+  </figure>
+
+    <p>Of late the residents of Lebanon County have been intrigued by the ground-shaking booms of the National Guard artillery at Fort Indiantown Gap. May these echoes remind us of the ghosts of the General who would have shelled this county and the war between two railroads which are no more.</p>
+  </div>
+
+  <div class="credits">
+    The author credits contemporary coverage by a number of newspapers for being instrumental in putting together this narrative, including The Scranton Truth, The Reading Times, The Philadelphia Times, Philadelphia Record, and The Patriot. Originally published on LebTown, May 3, 2022.
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

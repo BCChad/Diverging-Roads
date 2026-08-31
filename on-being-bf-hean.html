@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Being B.F. Hean — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .part-label{
+    font-family:'Special Elite', monospace;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin:2.5rem 0 .3rem;
+  }
+  .part-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:1.7rem;
+    color:var(--iron);
+    margin-bottom:1.25rem;
+    padding-bottom:.75rem;
+    border-bottom:2px solid var(--brass);
+  }
+
+  .definition{ margin: 1.75rem 0; }
+  .definition .term{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--rust);
+  }
+  .definition .phon{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    color:var(--slate);
+    font-size:.95rem;
+    margin-left:.5rem;
+  }
+  .definition p{ margin-top:.5rem; font-size:.95rem; max-width:66ch; }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .day-marker{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin:1.75rem 0 .5rem;
+    padding-bottom:.35rem;
+    border-bottom:1px dotted rgba(43,36,29,0.35);
+  }
+
+  .aside-note{
+    font-style:italic;
+    color:var(--slate);
+    font-size:.92rem;
+    max-width:66ch;
+    margin-bottom:1rem;
+  }
+
+  .scripture{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.15rem;
+    line-height:1.6;
+    color:var(--iron);
+    border-left:3px solid var(--brass);
+    padding:.5rem 0 .5rem 1.5rem;
+    margin:1.75rem 0;
+    max-width:58ch;
+  }
+  .scripture .cite{
+    display:block;
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-top:.6rem;
+    font-style:normal;
+  }
+
+  .fiction-note{
+    font-family:'Special Elite', monospace;
+    font-size:.75rem;
+    letter-spacing:.03em;
+    color:var(--rust);
+    background:rgba(154,74,46,0.08);
+    border:1px dashed var(--rust);
+    padding:.85rem 1.1rem;
+    margin:1.5rem 0;
+    line-height:1.6;
+  }
+
+  .fiction-scene{
+    font-family:'Source Serif 4', serif;
+    font-size:1.02rem;
+  }
+  .fiction-scene p{ margin-bottom:1rem; max-width:64ch; }
+
+  .dedication{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--rust);
+    text-align:center;
+    margin:2rem 0;
+  }
+
+  .resource-note{
+    background:var(--paper-dark);
+    border-left:3px solid var(--rust);
+    padding:1rem 1.25rem;
+    margin:1.75rem 0;
+    font-size:.92rem;
+    line-height:1.6;
+  }
+  .resource-note strong{ color:var(--rust); }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:340px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 005 &middot; Coleman Family</div>
+    <h1>On Being B.F. Hean</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published as a two-part series on LebTown, July 26 &ndash; August 2, 2022</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <div class="part-label">Part 1</div>
+  <div class="part-title">"The Man Tempted"</div>
+
+  <p class="lead">In 1990 local historian Jack Bitner reached into the dark soil of an old Cornwall privy, pulling out shards of a broken shaving mug, thrown there 100 years previously, perhaps by the housekeeper of Robert H. Coleman, master of the great Coleman estate of Cornwall.</p>
+
+  <div class="section">
+    <figure class="plate plate-sm">
+      <img src="images/hean/fig1-shaving-mug.jpg" alt="Reassembled B.F. Hean shaving mug">
+      <figcaption><span class="fig-no">FIG. 1</span>B. F. Hean shaving mug discovered by Jack Bitner, later presented to Michael Trump.</figcaption>
+    </figure>
+
+    <p>With meticulous care Jack cleaned and reassembled the mug. The name "B. Frank Hean" materialized before his eyes but as the name meant nothing to him, he wasn't troubled that he had not found the last piece to complete the artifact. Jack Bitner put the curiosity aside, figuring as historians do that someday it would fit neatly into another historian's mystery. Little would one expect it involved the discovery of a gunshot victim not in Lebanon, Pennsylvania but Melbourne, Australia on New Year's Day, 1896.</p>
+    <p>The reader may recognize the name "Hean" from <a href="the-pinkerton-cornwall-caper.html">a recent story involving an undercover Pinkerton agent</a> investigating trouble in Robert H. Coleman's Cornwall stables. Capt. Hean served an unassuming role in that story as Coleman's personal secretary and manager of various affairs of the estate. The bookends of Hean's life preceding and following that period bring to full color the tale of an interesting and troubled man.</p>
+    <p>Benjamin Franklin Hean was born in 1842, to John and Eliza (Goodyear) Hean. John was a superintendent of the Union Canal from Middletown to Lebanon. Hean's grandfather John Hean, Sr. came from County Cornwall, England to build the tunnel at Westmont near Lebanon.</p>
+
+    <figure class="plate">
+      <img src="images/hean/fig2-union-canal-tunnel.jpg" alt="Union Canal Tunnel">
+      <figcaption><span class="fig-no">FIG. 2</span>Union Canal Tunnel. (Michael Trump)</figcaption>
+    </figure>
+
+    <p>A millworker as a young man, Benjamin took up arms in the Civil War, enlisting on September 21, 1861 in the Pennsylvania 93rd regiment as a private. He was quickly promoted to sergeant and a year later to 1st Lieutenant.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/hean/fig3-early-photo-hean.jpg" alt="Early photo of B.F. Hean">
+      <figcaption><span class="fig-no">FIG. 3</span>Early photo of B.F. Hean.</figcaption>
+    </figure>
+
+    <p>In May 1863 he was wounded at Chancellorsville, the battle considered to be Robert E. Lee's greatest victory (and the death of Stonewall Jackson). A few months later when the victorious Lee confronted the Union army at Gettysburg Hean was still recovering from his wound in hospital. But two years later in April 1865 he was recognized for meritorious action at the "Breakthrough" Battle at Petersburg (Lee surrendered to Grant one week later). Hean was discharged in June of 1865 and though later brevetted Major in recognition of his service, he was often known as "Captain" B. F. Hean. In 1884 he would take part in the design and dedication of his regiment's monument at Gettysburg.</p>
+
+    <figure class="plate">
+      <img src="images/hean/fig4-93rd-monument-dedication.jpg" alt="Dedication of the Pennsylvania 93rd Monument at Gettysburg, 1884">
+      <figcaption><span class="fig-no">FIG. 4</span>Dedication of the Pennsylvania 93rd Monument, 1884. (Michael Trump)</figcaption>
+    </figure>
+
+    <p>In one relevant detail concerning his military service, Hean had his arm tattooed with an American flag and his name, providing means of identification in case of being wounded.</p>
+    <p>Returning home, he apparently returned to work at the Union Waterworks and by 1869 was living on Cumberland Street and listed in the city register in various professions as salesman, clerk, and by 1875 employed at Lemberger's apothecary on old Market Square opposite the Lebanon National Bank. By 1879 he shows up in historical records as living in Cornwall with the Wm. Boyd family and serving in various roles as Robert Coleman's clerk, secretary, and farm manager. He spent the 1880's as Robert Coleman's trusted agent, assisting him with <a href="cornwalls-national-guard-riot-of-1887.html">the National Guard Encampment of 1887</a> and <a href="the-pinkerton-cornwall-caper.html">the Pinkerton affair at Coleman's stables in 1888</a>. By 1890 according to the Lebanon Courier he was serving as Coleman's manager of the "new" Colebrook furnace in Lebanon, the Anthracite Furnace at Cornwall, and the Lochiel furnace in Harrisburg.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/hean/fig5-lembergers-receipt.jpg" alt="1891 sales receipt from Lemberger's Apothecary">
+        <figcaption><span class="fig-no">FIG. 5</span>Sales receipt, 1891, Lemberger's Apothecary. (Cornwall Manor Library collection)</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/hean/fig6-building-c1910.jpg" alt="Building photo circa 1910">
+        <figcaption><span class="fig-no">FIG. 6</span>Building photo c. 1910. (Michael Trump)</figcaption>
+      </figure>
+    </div>
+
+    <p>The 1890's marked a new chapter for Hean. He left Robert H. Coleman's employ. He was described in the press as one of the most prominent and popular men in the city and county. Hean lived in relative luxury at the Lebanon Valley House at N. 8th and Scull Streets across from the train depot.</p>
+
+    <figure class="plate">
+      <img src="images/hean/fig7-lebanon-valley-house.jpg" alt="Lebanon Valley House, N. 8th Street">
+      <figcaption><span class="fig-no">FIG. 7</span>Lebanon Valley House, N. 8th Street. (Michael Trump)</figcaption>
+    </figure>
+
+    <p>Hean was elected to a term as prothonotary in 1892. When Christian Bomberger replaced him in 1895, Hean became his appointed deputy (Hean had also been elected chairman of the county Republican Party). Soon after, Bomberger had become seriously ill and deputy Hean stepped up to assume his duties.</p>
+
+    <div class="definition">
+      <span class="term">Prothonotary</span><span class="phon">/pr&#333;-&#712;th&#228;-n&#601;-&#716;ter-&#275;/</span>
+      <p>This author now understands but still struggles to correctly pronounce the word "prothonotary," which in Pennsylvania is the chief clerk and recordkeeper for all civil cases of the court system. Most states have instead a Clerk of the County Court of Common Pleas. "Prothonotary" is Latin for "first notary." According to Lebanon County's Department website, the prothonotary is the chief filing office for the Court of Common Pleas of Lebanon County in civil, family, protection from abuse, judgment, and lien matters.</p>
+    </div>
+
+    <p>On October 31, 1895 the Daily News carried a story expressing growing concern about the absence of Lebanon's deputy prothonotary. Nine days earlier on the evening of October 22nd, Hean had received a telegram, and upon reading it nonchalantly tucked it in his pocket and remarked to E. M. Boltz, proprietor of the hotel that he must leave immediately for Pittsburg that evening on a business matter that would keep him away several days. Within the hour he came back downstairs from his room carrying a small satchel, his departure witnessed by Lizzie, a hotel employee, and local citizen George Kreitzer. He crossed the street to the Pennsylvania and Reading depot and left town on the 11:20pm westbound train.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/hean/fig8-lebanon-county-courthouse.jpg" alt="Lebanon County Courthouse">
+        <figcaption><span class="fig-no">FIG. 8</span>Lebanon County Courthouse. (Michael Trump)</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/hean/fig9-peoples-bank.jpg" alt="Peoples Bank of Lebanon">
+        <figcaption><span class="fig-no">FIG. 9</span>Peoples Bank of Lebanon. (Michael Trump)</figcaption>
+      </figure>
+    </div>
+
+    <p>Little notice was taken until the following Monday, October 28 when the Lebanon County Court issued an order to release payment in connection with a recent settlement of $2,727. With Hean's absence several attorneys proceeded directly to the People's bank to arrange withdrawal of the funds. Imagine everyone's surprise when the cashier discovered there were no funds on deposit, funds which Hean presumably had deposited almost two years prior in January 1894.</p>
+    <p>Gossip regarding missing funds and Hean's unexplained disappearance mounted quickly. The newspaper characterized Hean, previously as one of the town's esteemed citizens, as a desperate man sitting atop a volcano that had finally erupted, though apparently with Hean now safely away from harm.</p>
+    <p>Suspicions led to further investigations and disclosures, which made clear the deputy prothonotary had been scheming for an extended period and had indeed left town a refugee from justice. Two other cases of fraudulent behavior were identified amounting to a total of nearly $5,000 missing over two years. When Hean stepped aboard the train, he was likely carrying about $2,500 in his satchel. Later tallies put the amount embezzled in excess of $10,000. Based on inflation that would be worth over $360,000 today.</p>
+    <p>Friends and citizenry wondered how Hean, with an $800 yearly salary had fallen to such temptation. As the newspaper reported, Hean previously enjoyed great credit and confidence of many, and had little difficulty getting endorsements. Indeed, one attorney said "if Major Hean had gone into business and needed money I would have been willing to endorse him for $20,000."</p>
+    <p>As one expects, talk grew &mdash; that he had been living too extravagantly, "too fast," well beyond his income, even as an unmarried man. Some speculated that he had debts from investing in the Moldoc (California) gold mine. His friends felt utterly betrayed.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/hean/fig10-hean-golden-years.jpg" alt="Newspaper image of Hean in his later years">
+      <figcaption><span class="fig-no">FIG. 10</span>Newspaper image of Hean in his "golden years."</figcaption>
+    </figure>
+
+    <p>We might speculate as well. Imagine a poor young boy, sent off to war, distinguishing himself with heroism, wounded in battle, perhaps suffering what we now call post-traumatic stress, returning home, enjoying the confidence of the region's wealthiest man. Was he unable to sustain his extravagant lifestyle after leaving Coleman's employ? Did that relationship end abruptly, triggering resentment and jealousy? Did Coleman's own demise and departure in 1893 disappoint him? Had Hean's taste of success and power in local politics corrupted him?</p>
+    <p>The newspapers never resolved those questions, but they were busy with another "Hean Story" a few months later.</p>
+  </div>
+
+  <div class="part-label">Part 2</div>
+  <div class="part-title">"On the Run"</div>
+
+  <div class="section">
+    <figure class="plate">
+      <img src="images/hean/fig11-lebanon-london-melbourne-map.jpg" alt="Map tracing Hean's route from Lebanon to London to Melbourne">
+      <figcaption><span class="fig-no">FIG. 11</span>From Lebanon&hellip; to London&hellip; to Melbourne.</figcaption>
+    </figure>
+
+    <p>When Hean left Lebanon he actually might have travelled westward to Pittsburg as he told witnesses, but then reversed direction almost immediately to make his way to London. There he resided briefly at the Great Eastern Hotel. Somewhere along the way he had acquired a trunk and a complete wardrobe of gentleman's accessories. From there he sailed to Melbourne, Australia. As he traveled, he identified himself to others as Frank Herne of Pittsburg, a manager of iron works. Given his tenure with Robert H. Coleman he thus represented himself most credibly.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/hean/fig12-great-eastern-hotel-london.jpg" alt="Postcard of the Great Eastern (Liverpool Street) Hotel, London">
+      <figcaption><span class="fig-no">FIG. 12</span>Hotel where Hean resided briefly while in London.</figcaption>
+    </figure>
+
+    <p>He arrived in Melbourne the 26th of December on the mail steamer "Orient" from London. He could not have stayed long in London given the transit time from America, and then perhaps at least five weeks from London to Australia.</p>
+
+    <figure class="plate">
+      <img src="images/hean/fig13-orient-steamer.jpg" alt="The mail steamer Orient">
+      <figcaption><span class="fig-no">FIG. 13</span>The ship that took Hean to Melbourne, Australia.</figcaption>
+    </figure>
+
+    <p>Whatever money he carried in his satchel from Lebanon did not last long because on the trip to Melbourne he borrowed $20 from John D. Campbell, a fellow traveler he had befriended, promising to repay when he received his remittance from Pittsburg. He had apparently kept enough for rail and steamer fare, but how he spent or disposed of the remaining money remains a mystery. The gold watch he had while on the steamer was not found among his personal effects, presumably pawned to provide his needs or to repay his travel companion.</p>
+    <p>In a few short days, the odd story of B. F. Hean took another bizarre twist. To the shock of citizens of Melbourne, and later to citizens of Lebanon, Pennsylvania, his body was discovered New Year's morning on St. Kilda beach, with a gunshot wound to the head.</p>
+
+    <figure class="plate">
+      <img src="images/hean/fig14-st-kilda-beach.jpg" alt="The beach at St. Kilda, Melbourne">
+      <figcaption><span class="fig-no">FIG. 14</span>The beach at St. Kilda, Melbourne, where Hean's body was found.</figcaption>
+    </figure>
+
+    <p>On that Wednesday morning, a warm New Year's day (Australian summertime), a gentleman named Thomas Jarvis walked the St. Kilda beach of greater Melbourne. Upon finding a body on a bluff, Jarvis located a constable.</p>
+    <p>The initial report described the body as very stout in build, dressed in black paget coat and vest, striped tweed trousers, white cotton drawers, white canvas shoes, black cotton socks with red stripes, white straw hat with red and blue band, white shirt with the initials B. F. H. on cuffs, Smith, Gray &amp; Co. New York and Brooklyn on band of shirt, and white cotton ringlet.</p>
+    <p>The left forearm of the body was tattooed in red and blue Indian ink with the figure of an American soldier holding the American flag, underneath was printed the name "B. P. Hean" (the amateur quality of his civil war tattoo having left the middle initial in doubt).</p>
+    <p>Property found on the deceased included a silver mounted pipe, a cigar holder, a nickel match box, folding scissors, a pocket knife, pocket comb, pocket corkscrew, 2 small keys, 1 pince-nez eye glass, 4 Brummagem shirt studs, 2 solitaires, and seven pence farthing in coppers and a three-penny bit.</p>
+    <p>Given further investigation by the constable, the body was identified as "Frank Herne of Pittsburg" by the several men who had met him. Dr. Richard Youl, coroner, and Senior-Constable Davidson conducted an inquest on the sixth of January, from which the following timeline is reconstructed.</p>
+  </div>
+
+  <div class="section">
+    <h2>His Last Few Days</h2>
+
+    <div class="day-marker">Thursday, 26 December</div>
+    <p>As reported by John Campbell, his new friend on the Orient steamer, they arrived Thursday in Melbourne. Both checked into the elegant Grand Hotel (now the Hotel Windsor) on Spring Street. Both men stayed through the weekend.</p>
+
+    <figure class="plate">
+      <img src="images/hean/fig15-grand-hotel-melbourne.jpg" alt="The Grand Hotel, Melbourne">
+      <figcaption><span class="fig-no">FIG. 15</span>The Grand Hotel, Melbourne.</figcaption>
+    </figure>
+
+    <div class="day-marker">Monday, 30 December</div>
+    <p>Both men checked out and went their separate ways; Campbell to the Piccadilly Hotel and "Herne" to Her Majesty's Hotel. They met twice at the post office, apparently Hean appearing to make good on his debt. Campbell testified that when they parted at 8:30pm Herne was "sober." "I never again saw him alive; the revolver now produced belonged to him; he wore a gold watch; I have not seen it for three weeks."</p>
+    <p>Frederick Pollock, the manager of Her Majesty's hotel stated that on checking in, "Herne" went to his room and having received his baggage he locked the door. Later he left, "I never saw him again alive; he never returned to his room so far as I know; on Wednesday [1 January] I reported him missing to the police. On the next day Senior-Constable Davidson told me he thought the man was in the morgue; I went to the morgue and identified him; he had never slept in the bed."</p>
+
+    <figure class="plate">
+      <img src="images/hean/fig16-her-majestys-hotel.jpg" alt="Her Majesty's Hotel, Swanston St, Melbourne">
+      <figcaption><span class="fig-no">FIG. 16</span>Her Majesty's Hotel, Swanston St. Melbourne.</figcaption>
+    </figure>
+
+    <div class="day-marker">Tuesday, 31 December</div>
+    <p>A gardener residing at St. Kilda, Frederick Sefton testified that "Herne" was seen in the afternoon of this day at the Marine Parade [the road parallel to the beach]. He had two tarts and a bottle of ginger ale. They saw each other again that evening on the Marine Parade and discussed the fact that Sefton was going fishing in the bay. When asked the time, Herne replied he did not have the time on him but wished Sefton "to catch more fish than he could carry." When Sefton returned later that evening, Herne was sitting on a bluff, the same as where his body was found the next morning. That kind wish may have been Hean's last conversation with another human being.</p>
+
+    <div class="day-marker">Wednesday, 1 January</div>
+    <p>A gentleman of St. Kilda, Thomas Jarvis was walking the beach at 6:30am near the foot of Dickens Street and would have missed him until a man on a bicycle called his attention to a body lying on the beach. He appeared dead from a head wound, with a revolver in his right hand.</p>
+    <p>Responding to the call, police constable Patrick Keaney investigated the scene and confirmed Jarvis's report. The body had a pipe and "other trifles" including ten pence farthing, but no watch. He noted the tattoo "B. P. Hean."</p>
+
+    <div class="day-marker">Monday, 6 January</div>
+    <p>The inquest performed by Richard Youl, coroner concluded based on the testimony that "Frank Hern" shot himself, "there being no evidence to show the state of his mind." The Melbourne Herald-Standard reported the story of a man who "died with the year," having premeditated suicide "for he hovered at the site for nearly twenty-four hours."</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/hean/fig17-herald-standard-frontpage.jpg" alt="Front page of the Melbourne Herald Standard, January 1, 1896">
+      <figcaption><span class="fig-no">FIG. 17</span>A front page story in the Evening Edition of Melbourne Herald Standard, January 1, 1896.</figcaption>
+    </figure>
+
+    <p>The effects belonging to the deceased were all handed over to the curator of the intestate estates of deceased persons. The body of deceased was buried in the Melbourne general cemetery as a pauper. The value of the estate was not more than a few pounds sterling. One remarkable thing in connection with the deceased and his effects when searched was that no papers whatever were found. One large traveling trunk bears the label "Frank Hearn, Great Eastern Hotel, London."</p>
+    <p>In addition to the property found on the body the following items were found in his room at Her Majesty's hotel: one box, containing dressing gown, 2 felt hats, dress suit, 6 white shirts, 13 pair cuffs, 29 collars, 17 cotton handkerchiefs, 1 silk handkerchief, 1 silk scarf. Small brown leather bag, containing 4 cricketing shirts, 5 pair drawers, 12 pair socks. Brown leather bag, containing menthol inhaler, nail brush, 4 pipes, overcoat, 2 gold platinum studs, 4 gold wash studs, 14 foreign silver coins, enameled scarf pin (scarf-pattern).</p>
+    <p>The story lingered a few more months. Based on initial correspondence to Pittsburg regarding "Frank Herne" the coroner began receiving correspondence from several authorities and citizens of Lebanon who had been trying to locate Hean. The Daily News of Lebanon was more than proactive in the investigation, having sent the drawing of Hean to the coroner, which confirmed his ultimate identification as B. F. Hean. The News proudly and repeatedly informed its readers how diligently they had been pursuing the matter.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/hean/fig18-heans-picture-sent.jpg" alt="Drawing of Hean sent by the Daily News to Coroner Youl">
+      <figcaption><span class="fig-no">FIG. 18</span>Hean's picture, as sent by the Daily News of Lebanon to assist Coroner Youl in identifying Hean's body.</figcaption>
+    </figure>
+
+    <p>In a letter to the proprietors of the Daily News, "Messrs. Schropp, Light &amp; Schropp, 24 South Eighth Street, Lebanon U.S.A" Dr. Youl said he had not the slightest doubt that the deceased was "your Major B. F. Hean." ["The News" was the first daily paper of Lebanon issued ever since its establishment, in 1872, by the Smith Bros. In 1876 Reinhard and Sharp bought out the original proprietors, who subsequently in 1892 were bought out by Schropp, Light and Schropp (per Rev. P. C. Croll, 1909).]</p>
+    <p>On a lighter note, when Senior-Constable Davidson had contacted Pittsburg, Dr. Youl received a batch of correspondence addressed to "Mr. Richard Soule, Osborne, Australia." The Melbourne paper wryly reported: "Dr. Youl, the veteran city coroner, might well have exclaimed 'And is this fame?' &hellip; The letters turned out to be communications from America&mdash;where it is evident the authorities are not experts in calligraphy &hellip;"</p>
+
+    <figure class="plate">
+      <img src="images/hean/fig19-herald-standard-nameplate.jpg" alt="Nameplate of The Herald Standard, Melbourne, January 1, 1896">
+      <figcaption><span class="fig-no">FIG. 19</span>Nameplate of the Melbourne Herald Standard. (Source: Trove, National Library of Australia)</figcaption>
+    </figure>
+
+    <p>Getting more redundant inquiries in the mail than he could respond to, Dr. Youl chose to correspond only with the Daily News, asking them to relay information to the other parties in Lebanon. He sent along several Melbourne newspaper articles and requested that they reciprocate so that he would have the information for his files. Among the articles sent by the Daily News was the drawing that aided Hean's identification. The Herald Standard published its final account of the story on the 28th of May, confirming "Hearn" as Hean.</p>
+  </div>
+
+  <div class="section">
+    <h2>Epilog &mdash; 27 January 1898</h2>
+    <p>Two years later the Daily News checked in on the Hean story one more time. In 1889 through the agency of George N. Reynolds of Lancaster, Hean had taken a $2,000 life insurance policy with Northwestern Mutual. The News reminded its readers of the story, in which Hean had been found dead in "Osborne, Australia."</p>
+    <p>Although Major Hean's creditors had rather quickly seized that insurance policy it took two more years to settle, the insurance company refusing to pay until identification could be made positive. Furthermore, Northwestern Mutual required the creditors to continue paying premiums on the policy, refundable on settlement. On this date the creditors had some satisfaction upon receiving the proceeds of the policy.</p>
+  </div>
+
+  <div class="section">
+    <h2>Afterword</h2>
+    <p>Slow down for a minute, turn off your busy 21st century mind and come alongside a 19th century man. For a few minutes, be Benjamin Franklin Hean. A man who grew up too quickly in a nation at war with itself. Who paid the price with wounds to his body yet rose to acts of heroism. Who served honorable jobs as an apothecary clerk, and trusted aid to Robert H. Coleman, one of the most successful young men of the 1880's. A manager of a furnace during the emerging age of steel. A respected citizen of Lebanon in the gay 90's. A clerk of the court, tempted by ill-gotten gain. Discovered for his foolish crime. The rhythm of the rails beneath him as he fled to perceived safety, ashamed of his fallen state. The days at sea before arriving in London. Rebuilding his life and possessions in a hotel and choosing as others had to emigrate to Australia. For five weeks during his passage to Melbourne he saw sights never experienced or imagined before in his life. A new world of Portugal, Gibraltar, Spain, Italy, Greece, Egypt, India.</p>
+    <p>A diary of another traveler on the Orient records the happy days at sea, amusements on deck, the daily hymns, Scriptures and uplifting church services afforded the passengers. Hope, on arrival in Melbourne, as this traveler wrote, "I am a 'New Chum' to the friends here, but I am certain already that the good feeling, disposition, and kind hospitality evinced by the Victorians will soon make me feel an 'Old Chum.'"</p>
+    <p>Not so for B. F. Hean as he sat alone on the beach for 24 hours, sipping ginger ale and reflecting on life. Although the answer he sought had been very near on the ship, he missed the opportunity to find personal redemption and return home. Hope eluded the man who had sought peace half-way around the world.</p>
+
+    <div class="scripture">
+      "Where can I go from Your Spirit? Or where can I flee from Your presence? &hellip; If I dwell in the remotest part of the sea, even there Your hand will lead me, and Your right hand will lay hold of me."
+      <span class="cite">Psalm 139</span>
+    </div>
+  </div>
+
+  <div class="part-label">Part 3</div>
+  <div class="part-title">"On Saving B. F. Hean"</div>
+
+  <div class="section">
+    <figure class="plate">
+      <img src="images/hean/fig20-melbourne-cemetery.jpg" alt="Melbourne General Cemetery circa 1900, with a portrait of B.F. Hean superimposed">
+      <figcaption><span class="fig-no">FIG. 20</span>Melbourne General Cemetery c. 1900, where B. F. Hean's remains rest in a pauper's grave.</figcaption>
+    </figure>
+
+    <p><em>New Year's Day 1896, St. Kilda Beach, Melbourne, Australia. On viewing the body lying in the sand, police constable Patrick Keaney noticed a curious set of footprints and a faint trail of blood proceeding directly away down the beach into the surf. A thought to be certain to write that into his report slipped from his mind as he turned to determine the man's identity&hellip;</em></p>
+
+    <div class="fiction-note">The following account is fiction &mdash; the author having imagined an ending to B. F. Hean's story that offers hope.</div>
+
+    <figure class="plate">
+      <img src="images/hean/fig21-marine-parade-st-kilda.jpg" alt="Marine Parade, St. Kilda, Melbourne, 1905">
+      <figcaption><span class="fig-no">FIG. 21</span>Marine Parade, St. Kilda, Melbourne (1905). (Source: Internet)</figcaption>
+    </figure>
+
+    <div class="fiction-scene">
+      <p>As it turns out Hean did not sit alone on that warm St. Kilda beach for those last hours of December 1895. Late in the day, as he gazed into the waves reflecting on his circumstances a man walked up the bluff and quietly sat beside him. "I've been looking for you Frank&hellip;" he murmured.</p>
+      <p>Sipping from his ginger ale, Hean scowled at the man. For a moment he thought he recognized the eyes, "Do I know you?"</p>
+      <p>The man waited for recognition before speaking. "I held that bloody bandage against your wound in Chancellorsville. Your life almost slipped through my fingers."</p>
+      <p>"I thought maybe I'd seen you at Petersburg with Lee's army," Hean replied.</p>
+      <p>"Yeah &mdash; that's where you shot me with that revolver of yours."</p>
+      <p>The weary, 53-year-old Hean noticed the moist blood stain but didn't react, not in the mood for much talk. For the longest time he just sat in the warm sand and gazing into the blue water, a gentle breeze cooling his face. The stranger sat quietly with him.</p>
+      <p>"<em>What</em> am I doing here!" Hean finally erupted. "These aren't my people. The iron business here has failed. I'd have to be a sheep rancher."</p>
+      <p>"It's a noble profession."</p>
+      <p>"Well, I can't start all over &mdash; I've got no money."</p>
+      <p>They sat quite a while as the evening sun dipped into Port Phillip Bay. Looking down he saw the last of the two tarts he had bought with his remaining coins. With a grunt, he shifted in the sand and picked it up. "Here, you must be hungry."</p>
+      <p>Giving thanks, Jesus took it, broke it and handed a piece back to Hean. A brief smile passed Hean's lips. He stole a glance at the stranger before returning to squint into the fading sun. Together, they chewed silently, enjoying a last meal.</p>
+      <p>"You're a good man, Frank Hean." "No, I'm not &mdash; I've done some &hellip;things."</p>
+      <p>"I know &mdash; but back in London you showed that beggar such kindness, feeding him and giving him your satchel."</p>
+      <p>"That was you, too I suppose?" "Mm-mmm. And I heard you calling me from the deck of the ship."</p>
+      <p>More silence, then "Where did I go wrong?"</p>
+      <p>"You let temptation get the better of you."</p>
+      <p>"After all of &mdash; (sighing with exasperation) this life, I just wanted <em>something</em> for myself," he confessed. "Was that so wrong?"</p>
+      <p>More time passed, "Here&hellip;" Hean chuckled, handing over the bottle of ginger ale. His friend took it with ceremony, holding it up to the beauty of sky and sea. A passing gull called out. Taking a deep draft he sighed and handed the rest back to Hean, who polished it off and laid the empty bottle in the sand.</p>
+      <p>Later that evening they watched the clear night sky as the planets and stars began to shine. The southern lights shimmered like a heavenly veil.</p>
+      <p>"Thanks for being, for coming here I mean&hellip; I've wasted everything. I have no one."</p>
+      <p>"You have John Campbell. He took kindly to you on the Orient."</p>
+      <p>"No, I just took him for a fool and took his money."</p>
+      <p>"I know John, he spoke to me about you. He's concerned &mdash; He's walking the Marine Parade right now hoping to find you."</p>
+      <p>"No use, I can't pay him back."</p>
+      <p>"John doesn't mind; he's glad to help. &hellip;And, he needed a companion on that ship as much as you did. You were kind to him."</p>
+      <p>Church bells tolled at midnight, then the sound of firecrackers and cheering voices wafted over the bluff.</p>
+      <p>"Frank, it's time you went home to Lebanon," Jesus said to the prodigal.</p>
+      <p>"I can't&hellip; I have no money"</p>
+      <p>"I know the rector at that church, tell him your story and he will gladly get you home."</p>
+      <p>"I can't &hellip;, the folks in Lebanon &hellip; I'm sure to go to jail."</p>
+      <p>"More than likely&hellip;"</p>
+      <p>"I'll never have the life I had."</p>
+      <p>"You're right, it will be a different one&hellip; but a new one."</p>
+      <p>"I can't&hellip; too ashamed&hellip;"</p>
+      <p>Much later still, the night sky began to glow ever so slightly. The colors of the beach warmed.</p>
+      <p>Frank stole a sideways glance at his companion. Picking up the revolver, "I just can't&hellip;"</p>
+      <p>"Frank, don't." But with a flash Frank was gone.</p>
+      <p>Jesus wept.</p>
+      <p>He stood, lifted Frank's soul in his arms and walked down to the water.</p>
+    </div>
+
+    <figure class="plate plate-sm">
+      <img src="images/hean/fig22-shaving-mug-portrait-closing.jpg" alt="The reassembled shaving mug with a portrait of B.F. Hean superimposed">
+      <figcaption><span class="fig-no">FIG. 22</span></figcaption>
+    </figure>
+
+    <div class="scripture">
+      John 3:17, 19 &mdash; God sent Jesus into the world not to condemn, but to save&hellip; Light has come into the world, but people choose darkness instead of light.
+    </div>
+
+    <p class="dedication">For Frank, and Hugh, and Keith, and Brian, and &hellip;</p>
+
+    <div class="resource-note">
+      <strong>There is help, there is hope, and there are solutions.</strong> If you or someone you know is in immediate danger of harming themselves, call or text the 988 Suicide &amp; Crisis Lifeline, or reach Lebanon County Crisis Intervention at (717) 274-3363. <a href="https://communityhealthcouncil.com/suicide/additional-resources/" target="_blank" rel="noopener">Find more help in Lebanon County here.</a>
+    </div>
+  </div>
+
+  <div class="credits">
+    <p>The author gratefully acknowledges local historian and friend Michael Trump for much of the background material on B. F. Hean from newspaper archives, many photographs as well as the photo of B. F. Hean's shaving mug.</p>
+    <p>Details of Hean's military service were used by permission from Edward S. Alexander's article, "Tattooed in Lieu of Dog Tags: The Identity of Capt. B. Frank Hean," posted on the Emerging Civil War website, March 10, 2016.</p>
+    <p>The author faithfully spelled <a href="https://www.visitpittsburgh.com/things-to-do/arts-culture/history/the-pittsburgh-h/" target="_blank" rel="noopener">"Pittsburg"</a> as it was found in the Daily News and Melbourne papers in the 1890s.</p>
+    <p>Background on the origin of the name "St. Kilda": <a href="https://marvmelb.blogspot.com/2013/08/the-origin-of-names-st-kilda.html" target="_blank" rel="noopener">marvmelb.blogspot.com</a>.</p>
+    <p>Credit is also due for assistance from the Cornwall Iron Furnace, and James Polcynzski, president of the Cornwall Iron Furnace Associates and author of the book "Souls of Iron" (2022).</p>
+    <p>Originally published as a two-part series on LebTown, July 26 &ndash; August 2, 2022.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
