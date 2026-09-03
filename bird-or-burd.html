@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"Bird" or "Burd"? — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  .plate-row-3{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:1rem;
+  }
+  @media (max-width:600px){
+    .plate-row, .plate-row-3{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 020 &middot; Cornwall Furnace</div>
+    <h1>"Bird" or "Burd"?</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published April 2, 2025</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/bird-or-burd/fig1-burd-coleman-rd-sign.jpg" alt="Street sign reading Burd Coleman Rd">
+    <figcaption><span class="fig-no">FIG. 1</span>Burd Coleman Road, Cornwall.</figcaption>
+  </figure>
+
+  <p class="lead">Long-time residents of Cornwall know the name well: Burd Coleman Road, Burd Coleman Village, the old Burd Coleman Furnaces. Fewer know that for the better part of a century, it was spelled a different way entirely &mdash; "Bird."</p>
+
+  <div class="section">
+    <h2>The Coleman Family</h2>
+    <p>Robert Coleman named his sons and grandsons with a recycling set of family names: Robert, William, Edward, Thomas, James, George. Among them, one name stands out as unusual: "Bird." His son Thomas Bird Coleman (1794&ndash;1864) carried it, and so, a generation later, did his grandson.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/bird-or-burd/fig2-robert-coleman-founder.jpg" alt="Portrait of Robert Coleman, family founder">
+      <figcaption><span class="fig-no">FIG. 2</span>Robert Coleman, family founder.</figcaption>
+    </figure>
+
+    <p>Why "Bird"? This author's working theory is that Robert Coleman named his son Thomas Bird in honor of a contemporary, Mark Bird &mdash; and that the affection ran deep enough to outlast a business rivalry, a war, and a bankruptcy. <em>(A poem written by this same Thomas Bird Coleman is the subject of a separate story, <a href="preserved-in-verse.html">"Anne Caroline Coleman, Preserved in Verse."</a>)</em></p>
+
+    <h2>The Bird Connection</h2>
+    <p>Mark Bird (1739&ndash;1816) was one of colonial Pennsylvania's great ironmasters, owner of the Hopewell and Cornwall-adjacent furnaces, and a colonel who armed the Continental Army almost single-handedly from his own forges during the Revolution &mdash; supplying cannon, cannonballs, and even building a small fleet of vessels at his own expense.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/bird-or-burd/fig4-mark-bird-portrait.jpg" alt="Portrait of Mark Bird">
+      <figcaption><span class="fig-no">FIG. 3</span>Mark Bird (1739&ndash;1816).</figcaption>
+    </figure>
+
+    <p>Bird and Robert Coleman were more than acquaintances &mdash; they were business partners and, for a time, competitors for the same ore. Coleman's own furnace ledgers record purchases of "Mark Bird's ore," suggesting Bird supplied raw material to Cornwall even as their own furnaces vied for regional dominance.</p>
+
+    <figure class="plate">
+      <img src="images/bird-or-burd/fig5-coleman-ledger-mark-birds-ore.jpg" alt="A page from Coleman's furnace ledger listing purchases of Mark Bird's ore">
+      <figcaption><span class="fig-no">FIG. 4</span>Coleman's ledger, recording purchases of "Mark Bird's ore."</figcaption>
+    </figure>
+
+    <h2>Bird's Plea for Help</h2>
+    <p>The war that made Bird's cannons essential also nearly ruined him. Having poured his own fortune into arming the Continental cause, Bird found himself deeply in debt by war's end, his estate at Hopewell mortgaged and his credit exhausted. Surviving correspondence shows him writing to Robert Coleman and other former associates, pleading for loans and patience from creditors.</p>
+    <p>Coleman, whose own fortune was by then well-established, appears to have extended what help he could, though it was not enough to save Bird from eventual financial collapse. By the 1780s, Bird had sold off much of his ironworks empire and relocated south, spending his final years in North Carolina, a diminished figure compared to the war hero he had been.</p>
+    <p>It was against this backdrop &mdash; a friendship forged in the charged partnership of wartime industry, tested by one man's financial ruin &mdash; that Robert Coleman is believed to have named his own son Thomas Bird Coleman, born in 1794, two decades after the two men first did business together.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/bird-or-burd/fig3-mark-bird-signature.jpg" alt="Mark Bird's handwritten signature">
+        <figcaption><span class="fig-no">FIG. 5</span>Mark Bird's signature.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/bird-or-burd/fig6-thomas-bird-coleman.jpg" alt="Portrait of Thomas Bird Coleman">
+        <figcaption><span class="fig-no">FIG. 6</span>Thomas Bird Coleman (1794&ndash;1864), his namesake.</figcaption>
+      </figure>
+    </div>
+
+    <h2>The Grubb and Burd Families</h2>
+    <p>Here the story takes its first turn toward confusion. Quite independently of the Coleman-Bird friendship, another prominent Pennsylvania iron family, the Grubbs of Hopewell and Mt. Hope, had their own connection to a man named Burd &mdash; spelled with a "u."</p>
+
+    <h2>Col. James Burd (1726&ndash;1793)</h2>
+    <p>Colonel James Burd, a Scottish-born surveyor and military officer, served in the French and Indian War and later became a prominent figure in Lancaster County society. His daughter married into the Grubb family, and the "Burd" name was carried forward by their descendants as a middle or given name &mdash; entirely unrelated, genealogically, to "Bird" Coleman.</p>
+
+    <figure class="plate">
+      <img src="images/bird-or-burd/fig8-burd-family-document.jpg" alt="A document referencing the Burd family">
+      <figcaption><span class="fig-no">FIG. 7</span>A record of the Burd family line.</figcaption>
+    </figure>
+
+    <h2>Burd 2.0</h2>
+    <p>The Grubb family's own fortunes intersected with the Colemans repeatedly over the generations through shared ownership interests in the Cornwall ore banks. Peter Grubb Jr., grandson of the mine's original discoverer, died of suicide, leaving his estate to two teenaged sons who would grow into prominent ironmasters in their own right. Their descendants carried the "Burd" name proudly through three generations.</p>
+
+    <div class="plate-row-3">
+      <figure class="plate">
+        <img src="images/bird-or-burd/fig7a-henry-bates-grubb.jpg" alt="Portrait of Henry Bates Grubb">
+        <figcaption><span class="fig-no">FIG. 8</span>Henry Bates Grubb&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/bird-or-burd/fig7b-edward-burd-grubb-sr.jpg" alt="Portrait of Edward Burd Grubb Sr.">
+        <figcaption><span class="fig-no">FIG. 8</span>&hellip;his son Edward Burd Grubb&hellip;</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/bird-or-burd/fig7c-edward-burd-grubb-jr.jpg" alt="Portrait of Edward Burd Grubb Jr. in Civil War uniform">
+        <figcaption><span class="fig-no">FIG. 8</span>&hellip;and grandson Edward Burd Grubb Jr., Civil War general.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Bird Coleman Furnaces / Burd Coleman Village / Burd Coleman Road</h2>
+    <p>When Robert Coleman's descendants built new furnaces at Cornwall in the mid-19th century, they named them for Thomas Bird Coleman &mdash; "Bird Coleman Furnaces," spelled just as his name had always been spelled, honoring Mark Bird. The surrounding worker housing became known as "Bird Coleman Village," and the road that served it, "Bird Coleman Road."</p>
+
+    <figure class="plate">
+      <img src="images/bird-or-burd/fig9-cornwall-furnace-aerial.jpg" alt="Aerial view of the Cornwall furnace complex">
+      <figcaption><span class="fig-no">FIG. 9</span>The furnace complex at Cornwall.</figcaption>
+    </figure>
+
+    <h2>"Bird" It Is (Or Is It?)</h2>
+    <p>For decades, maps, deeds, and newspapers alike spelled it "Bird." Then, sometime after Bethlehem Steel's acquisition of the Cornwall properties in the early 20th century, the spelling began to shift.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/bird-or-burd/fig10-newspaper-clipping-tall.jpg" alt="A newspaper clipping showing the spelling in transition">
+      <figcaption><span class="fig-no">FIG. 10</span>A newspaper clipping from the era of transition.</figcaption>
+    </figure>
+
+    <h2>The Grittinger Effect</h2>
+    <p>Henry Grittinger's early 20th-century histories of Lebanon County's iron industry &mdash; still a primary reference for local historians &mdash; consistently used "Burd," whether through his own error, a source's error, or a genuine belief that the name honored the Burd family rather than Mark Bird. Grittinger's influence on subsequent local histories was substantial, and later writers largely followed his spelling.</p>
+
+    <figure class="plate">
+      <img src="images/bird-or-burd/fig12-grittinger-book-page.jpg" alt="A page from Grittinger's history using the Burd spelling">
+      <figcaption><span class="fig-no">FIG. 11</span>Grittinger's history, using "Burd."</figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="images/bird-or-burd/fig11-bird-coleman-furnace-workers.jpg" alt="Workers at the Bird Coleman Furnace">
+      <figcaption><span class="fig-no">FIG. 12</span>Workers at the furnace, in the years the spelling was still contested.</figcaption>
+    </figure>
+
+    <h2>The Bethlehem Steel Effect</h2>
+    <p>Bethlehem Steel's own corporate records and correspondence, once they took over Cornwall operations, standardized on "Burd" &mdash; likely following Grittinger's already-established usage rather than any original Coleman-era documentation. Once printed on company letterhead, maps, and payroll records for long enough, "Burd" became the spelling of record, and it has remained so ever since on modern road signs and property deeds.</p>
+
+    <figure class="plate">
+      <img src="images/bird-or-burd/fig13-bethlehem-steel-document.jpg" alt="A Bethlehem Steel document using the Burd spelling">
+      <figcaption><span class="fig-no">FIG. 13</span>Bethlehem Steel correspondence, "Burd" now standard.</figcaption>
+    </figure>
+
+    <h2>Closing</h2>
+    <p>So which is correct? Genealogically, the honor belongs to Mark Bird, colonial ironmaster and Revolutionary War quartermaster of cannon &mdash; making "Bird" the historically faithful spelling. But a century of maps, deeds, and company records has settled the matter in practice, if not in etymology. Drive Burd Coleman Road today, and you'll find the street sign sides with Bethlehem Steel, not with Robert Coleman's original intent.</p>
+  </div>
+
+  <div class="credits">
+    <p>Originally published on LebTown, April 2, 2025.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2025&ndash;2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
