@@ -1,7 +1,6 @@
 August 31, 2026 - learned how to create a free webpage online using GitHub.
 
-The files are stored on my computer cloud drive:
-C:\Users\bruce\OneDrive\Documents\GitHub\Diverging-Roads
+The files are stored on my computer cloud drive, Documents\Github:
 
 The GitHub desktop app will sync these to my GitHub account.
 
