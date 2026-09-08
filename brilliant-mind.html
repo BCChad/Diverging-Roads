@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Brilliant Mind — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:1.1rem;
+    max-width:600px;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 022 &middot; Coleman Family</div>
+    <h1>A Brilliant Mind</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published June 24, 2025</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/brilliant-mind/fig1-booth-portrait-1845-mayall.jpg" alt="Portrait of James Curtis Booth, 1845, by Mayall">
+    <figcaption><span class="fig-no">FIG. 1</span>James Curtis Booth, 1845.</figcaption>
+  </figure>
+
+  <p class="lead">Lest the name "Booth" in the <a href="unsung-benevolence.html">last story</a> leave us remembering a villainous assassin, this installment restores the name's honor: chemist James Curtis Booth, whose brilliant mind and 1843 summer at Elizabeth Furnace sparked a lasting bond with the Coleman family.</p>
+
+  <div class="section">
+    <p>James Curtis Booth (1810&ndash;1888) was one of America's pioneering chemists, among the first Americans to study under the great chemists of Germany before returning home to help establish the discipline as a serious American science.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/brilliant-mind/fig2-booth-portrait-findagrave.jpg" alt="Portrait of James Curtis Booth">
+      <figcaption><span class="fig-no">FIG. 2</span>James Curtis Booth. (findagrave.com)</figcaption>
+    </figure>
+
+    <p>Booth had studied under Friedrich W&ouml;hler in Germany, one of the founders of organic chemistry, and returned to Philadelphia to establish his own laboratory and consultancy, offering chemical analysis services to the region's growing industries &mdash; among them, Pennsylvania's iron masters, eager to understand the composition of their ores.</p>
+
+    <figure class="plate">
+      <img src="images/brilliant-mind/fig3-franklin-institute-ad-1836.jpg" alt="1836 advertisement for the Franklin Institute">
+      <figcaption><span class="fig-no">FIG. 3</span>The Franklin Institute, 1836, where Booth taught and lectured.</figcaption>
+    </figure>
+
+    <p>He taught chemistry at the Franklin Institute in Philadelphia and later served as chief chemist and melter and refiner at the U.S. Mint, a position he held for over three decades. He was among the founding members of the American Chemical Society.</p>
+
+    <h2>The Pennsylvania Geological Survey</h2>
+    <p>Booth's reputation for rigorous analysis brought him into contact with the Coleman family through his work on the first Geological Survey of Pennsylvania, which included detailed chemical analysis of the state's iron ore deposits &mdash; Cornwall's among the most significant in the nation.</p>
+
+    <figure class="plate">
+      <img src="images/brilliant-mind/fig4-pa-geological-survey-1858.jpg" alt="Map from the 1858 Pennsylvania Geological Survey">
+      <figcaption><span class="fig-no">FIG. 4</span>The Pennsylvania Geological Survey, 1858.</figcaption>
+    </figure>
+
+    <p>In the summer of 1843, Booth spent time at Elizabeth Furnace, then under the direction of James Coleman and his wife Harriet Dawson Coleman, conducting chemical analysis of the furnace's ore and iron products.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/brilliant-mind/fig5-harriet-dawson-coleman-portrait.jpg" alt="Portrait of Harriet Dawson Coleman">
+        <figcaption><span class="fig-no">FIG. 5</span>Harriet Dawson Coleman. (Oliver Lay, 1888, after Sully/Eicholtz)</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/brilliant-mind/fig6-james-coleman-portrait-1884.jpg" alt="Portrait of James Coleman">
+        <figcaption><span class="fig-no">FIG. 6</span>James Coleman. (Oliver Lay, 1884)</figcaption>
+      </figure>
+    </div>
+
+    <p>The visit left a lasting impression on both sides. Booth's careful, methodical approach to his work impressed the Colemans, while Booth himself seems to have enjoyed genuine warmth from the family &mdash; correspondence between Booth and the Colemans continued for years afterward, addressing not just business matters but genuinely personal news.</p>
+
+    <figure class="plate">
+      <img src="images/brilliant-mind/fig7-letter-sideways-red-ink.jpg" alt="A letter written partly in red ink, crossed sideways over the original text to save paper">
+      <figcaption><span class="fig-no">FIG. 7</span>One of Booth's letters, written crosswise to save paper &mdash; a common practice of the era.</figcaption>
+    </figure>
+
+    <h2>A Continuing Relationship</h2>
+    <p>Booth's connection to the Coleman family did not end with the 1843 survey work. He continued to perform chemical analyses for various Coleman iron interests over the following decades, and his name appears in Coleman correspondence discussing everything from ore quality to the education of the family's <a href="coleman-coachman.html">younger sons as they came of age</a>.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/brilliant-mind/fig8-lecture-course-notice.jpg" alt="Notice for a chemistry lecture course">
+      <figcaption><span class="fig-no">FIG. 8</span>Notice for one of Booth's chemistry lecture courses.</figcaption>
+    </figure>
+
+    <p>In 1845, Booth was retained by the estate of the Bayard family to conduct a detailed mineralogical analysis of ore from the Chestnut Hill mine, a document that survives today as an example of his exacting scientific method &mdash; pages of careful measurements, comparisons and conclusions, all in service of determining a mine's true commercial value.</p>
+
+    <figure class="plate">
+      <img src="images/brilliant-mind/fig9-bayard-chestnut-hill-mine-doc.jpg" alt="Booth's mineralogical analysis document for the Bayard Chestnut Hill mine">
+      <figcaption><span class="fig-no">FIG. 9</span>Booth's analysis of the Chestnut Hill mine ore, prepared for the Bayard estate.</figcaption>
+    </figure>
+
+    <h2>An Enduring Legacy</h2>
+    <p>Booth co-authored, with Campbell Morfit, "The Encyclopedia of Chemistry, Practical and Theoretical," a monumental reference work that went through multiple editions and remained a standard resource for decades.</p>
+
+    <figure class="plate">
+      <img src="images/brilliant-mind/fig10-encyclopedia-chemistry.jpg" alt="Title page of Booth and Morfit's Encyclopedia of Chemistry">
+      <figcaption><span class="fig-no">FIG. 10</span>Booth &amp; Morfit's "Encyclopedia of Chemistry."</figcaption>
+    </figure>
+
+    <p>His chemical consultancy touched everyday commerce as well as heavy industry. A city newspaper advertisement from 1850 cites "analysis by Professor Booth" to certify the purity of a cider vinegar product &mdash; a small reminder that 19th-century chemistry sold soap and vinegar just as readily as it assayed iron ore.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/brilliant-mind/fig11-cider-vinegar-newspaper-ad.jpg" alt="1850 newspaper advertisement citing Professor Booth's analysis of cider vinegar">
+        <figcaption><span class="fig-no">FIG. 11</span>Booth's name lent credibility even to a bottle of vinegar, 1850.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/brilliant-mind/fig12-1853-chemistry-notice.jpg" alt="An 1853 notice regarding Booth's chemistry practice">
+        <figcaption><span class="fig-no">FIG. 12</span>An 1853 notice of Booth's practice.</figcaption>
+      </figure>
+    </div>
+
+    <p>Booth's career at the U.S. Mint intersected, however distantly, with another thread already covered in this collection: the Mint's melting and refining processes were precisely the sort of technical challenge Booth's training had prepared him to solve, at a time when the nation's currency, and its credibility, depended on getting the chemistry right.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/brilliant-mind/fig13-booth-1884-portrait-loc.jpg" alt="A later portrait of James Curtis Booth, 1884">
+      <figcaption><span class="fig-no">FIG. 13</span>Booth in later years, 1884. (Library of Congress)</figcaption>
+    </figure>
+
+    <p>James Curtis Booth died in Philadelphia in 1888, having spent nearly six decades at the forefront of American chemistry. His grave marker, understated for a man of such considerable achievement, simply records his name and dates &mdash; the "brilliant mind" behind it left to the historical record, and to those who, like the Colemans, had the good fortune to work alongside him.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/brilliant-mind/fig14-gravestone-inscription.jpg" alt="James Curtis Booth's gravestone inscription">
+      <figcaption><span class="fig-no">FIG. 14</span>Booth's gravestone.</figcaption>
+    </figure>
+
+    <p>The Elizabeth Furnace estate, subject of Craig Coleman's ongoing stewardship and the setting for so many of the Coleman family's chapters &mdash; including the mix-up unraveled in <a href="one-mystery-that-no-longer-lingers.html">"One Mystery That No Longer Lingers"</a> &mdash; holds among its papers this quieter thread: a scientist's friendship with an iron family, sustained across decades by mutual respect.</p>
+  </div>
+
+  <div class="credits">
+    <p>Craig Coleman, Elizabeth Furnace, for access to the correspondence and documents.</p>
+    <p>Originally published on LebTown, June 24, 2025.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2025&ndash;2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
