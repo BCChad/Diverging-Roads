@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
+
   :root{
     --paper: #e9dfc4;
     --paper-dark: #ddd0a8;
@@ -27,6 +28,7 @@
     html{ scroll-behavior:auto; }
     *{ animation:none !important; transition:none !important; }
   }
+
 
   body{
     background:var(--paper);
@@ -109,6 +111,8 @@
     flex-wrap:wrap;
     gap:.4rem 1.2rem;
   }
+ .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+ .plate-med{ max-width:400px; margin-left:auto; margin-right:auto; }
 
   /* ---------- ARTICLE BODY ---------- */
   main.article{ padding:3rem 0 2rem; }
@@ -141,6 +145,9 @@
     font-size:.95rem;
     max-width:66ch;
   }
+ .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+ .plate-med{ max-width:400px; margin-left:auto; margin-right:auto; }
+
 
   .pull{
     font-family:'Fraunces', serif;
@@ -214,6 +221,7 @@
   }
   .back-link:hover{ color:var(--iron); border-color:var(--iron); }
 
+
   /* ---------- FOOTER ---------- */
   footer{
     background:var(--iron);
@@ -257,7 +265,8 @@
 <main class="wrap article">
 
   <figure class="plate">
-    <img src="images/profound-possessions/fig1-coleman-mansion.jpg" alt="Robert Habersham Coleman inset beside a photo of the Coleman mansion in Cornwall">
+    <img src="images/profound-possessions/fig1-coleman-mansion.jpg"    style="width:600px; height:auto;" alt="Robert Habersham Coleman inset beside a photo of the Coleman mansion in Cornwall">
+  
     <figcaption><span class="fig-no">FIG. 1 </span>Robert Habersham Coleman (left inset) and his family would have furnished their long-gone mansion with innumerable treasures whose historical and artistic appeal are frankly hard to imagine. His mansion used to stand near the corner of Cornwall Road and Freeman Drive (Route 417) across from where the Cornwall Elementary School and Sacred Heart Church now stand.</figcaption>
   </figure>
 
@@ -346,11 +355,6 @@
     <figcaption><span class="fig-no">FIG. 2 </span>Mrs. G. Dawson Coleman, of the Lebanon branch of the family.</figcaption>
   </figure>
 
-  <figure class="plate" style="max-width:100px; margin-left:auto; margin-right:auto;">
-    <img src="images/profound-possessions/Fig3 Homestead side view.jpg" alt="the Coleman Homestead mansion">
-    <figcaption><span class="fig-no">FIG. 3 </span>The Homestead mansion in North Lebanon.</figcaption>
-  </figure>
-  
   <h3 class="ledger">Coleman, Mrs. G. Dawson &mdash; Lebanon</h3>
   <ul class="manifest">
       <li>Tea pot, a specimen of the earliest English plated ware. Part of Captain George Dawson's camp outfit in the Revolution</li>
@@ -445,6 +449,14 @@
   <div class="section" style="margin-top:2.5rem;">
     <p>It boggles the mind to consider that such riches found their home here in sleepy Cornwall and also North Lebanon. Although the mansions that housed them are long gone the question is, "Where are these treasures today?"</p>
   </div>
+
+
+
+<img src="images/profound-possessions/Fig3 Homestead side view.jpg"
+     alt="the Coleman Homestead mansion"
+     style="width:450px; height:auto;">
+    <figcaption><span class="fig-no">FIG. 3 </span>The Homestead mansion in North Lebanon.</figcaption>
+</figure>
 
   <div class="credits">
     Source: Wm. Henry Egle's account of the Dauphin County Centenary Exhibition (1886). Originally published on LebTown, March 8, 2022.

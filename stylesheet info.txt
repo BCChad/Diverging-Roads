@@ -1,0 +1,53 @@
+Here is how that Google Fonts link fits into the document, together with the external stylesheet we created earlier.Recommended <head> sectionhtml
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Document</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <!-- External stylesheet for the plate image sizes -->
+  <link rel="stylesheet" href="plates.css">
+</head>
+
+Optional: use the fonts in plates.css (or a main stylesheet)You can add rules like these to take advantage of the loaded fonts:css
+
+/* Base typography using the loaded fonts */
+body {
+  font-family: "Source Serif 4", serif;
+  font-weight: 400;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", serif;
+}
+
+/* Optional decorative / caption style */
+.caption,
+figcaption {
+  font-family: "Special Elite", cursive;
+}
+
+/* The three image size classes from before */
+.plate-small {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+
+.plate-medium {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+.plate-large {
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+}
+
+The font <link> and the stylesheet <link> both belong in the <head>. Order between them usually does not matter, though many people put font links first.
+

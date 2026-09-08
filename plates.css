@@ -1,0 +1,22 @@
+/* External stylesheet for image size classes */
+
+/* Small images */
+.plate-small {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+
+/* Medium images */
+.plate-medium {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+/* Large images */
+.plate-large {
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+}
