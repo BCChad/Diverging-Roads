@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Alden Villa — Garfield Connection — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+  .section p.closing-question{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--rust);
+  }
+
+  .quote-block{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    line-height:1.6;
+    color:var(--iron);
+    border-left:3px solid var(--brass);
+    padding:.5rem 0 .5rem 1.5rem;
+    margin:1.5rem 0;
+    max-width:60ch;
+  }
+  .quote-block .cite{
+    display:block;
+    font-family:'Special Elite', monospace;
+    font-size:.68rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-top:.6rem;
+    font-style:normal;
+  }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 024 &middot; Coleman Family</div>
+    <h1>The Alden Villa &mdash; Garfield Connection</h1>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published January 26, 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate plate-sm">
+    <img src="images/garfield-connection/fig1-james-a-garfield-portrait.jpg" alt="Official portrait of President James A. Garfield">
+    <figcaption><span class="fig-no">FIG. 1</span>James A. Garfield, the nation's 20th president.</figcaption>
+  </figure>
+
+  <p class="lead">The presidency of James Garfield has returned to the public eye with the recent Netflix mini-series "Death by Lightning," based on the 2011 book "Destiny of the Republic" by Candace Millard. These new offerings cast our nation's 20th president in a favorable light &mdash; a man whose term was cut short by an assassin's bullet and medical ignorance.</p>
+
+  <div class="section">
+    <p>Garfield suffered for 79 days, while the grieving nation was misled into believing he was growing stronger day by day. Newspapers across the country published frequent accounts, first of the shooting and then the stories of hopeful progress &mdash; including our own Lebanon Daily News.</p>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig2-alden-villa-restored.jpg" alt="Alden Villa, restored, with fountain and pond in the foreground">
+      <figcaption><span class="fig-no">FIG. 2</span>With a fascinating discovery at a local mansion, <a href="restoring-millwoods-former-glory.html">Alden Villa</a> offers fresh insight into an old story.</figcaption>
+    </figure>
+
+    <p>But other than through newspapers, <em>who knew</em> how the story touched the lives of everyday people here in Lebanon, as it apparently did across the nation? But for an act of senseless, juvenile vandalism at Cornwall's Alden Villa, we might not have known. Read on.</p>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig3-lebanon-daily-news-headlines-1881.jpg" alt="Collage of Lebanon Daily News headlines tracking Garfield's condition, 1881">
+      <figcaption><span class="fig-no">FIG. 3</span>Lebanon Daily News excerpts, July 2 to September 19, 1881.</figcaption>
+    </figure>
+
+    <h2>James A. Garfield</h2>
+
+    <p>In words meant to reassure his wife's concerns for his safety, James said, "Assassination can no more be guarded against than death by lightning &mdash; and it's best not to worry too much about either one."</p>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig4-garfield-inauguration-1881.jpg" alt="Photograph of Garfield's inauguration platform, March 4, 1881">
+      <figcaption><span class="fig-no">FIG. 4</span>Garfield's inauguration, March 4, 1881.</figcaption>
+    </figure>
+
+    <p>Other than the specific violence that ended his life, the profound tragedy is the cutting short of a brilliant man destined to achieve a great presidency, given his passionate vision of restoring the hopes and trust of the American people and healing a still-divided nation.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/garfield-connection/fig5-garfield-portrait-painting.jpg" alt="Painted portrait of James A. Garfield">
+      <figcaption><span class="fig-no">FIG. 5</span>James A. Garfield.</figcaption>
+    </figure>
+
+    <p>Before serving as a general in the Civil War, Garfield's life was a story of growing up in poverty, in a log cabin, much like our notion of young Abraham Lincoln. He possessed great intellect, read voraciously, graduated from Williams College, studied law, and served as a minister in the Restoration Movement of the Second Great Awakening. His military service won recognition that led to his election to Congress in 1862, where he served nine terms. His credentials and an impassioned speech led to his unintended nomination for president in 1880.</p>
+
+    <p>Yet Garfield is ranked, as our commentators are prone to do, among the lowest of the presidencies &mdash; not because of his policies, but because he was rendered ineffective by the shortening of his term. He was cut down in his fourth month and suffered another 79 days before expiring.</p>
+
+    <p>The early months of his presidency had been occupied by cabinet appointments, foremost the controversy that defused the influence of Roscoe Conkling in national political affairs. There was no constitutional mechanism yet for the transfer of power to Vice President Chester A. Arthur (the 25th Amendment was not established until 1965). Congress passed no major legislation, and Cabinet members ran the administration within the status quo.</p>
+
+    <p>During his candidacy he had shown great promise of restoring integrity to the government. He advocated civil rights for every American, and won the respect and support of African Americans.</p>
+
+    <p>The title of Candace Millard's book, "Destiny of the Republic," was a phrase Garfield used in his inaugural address on March 4, 1881. Speaking of the recent end of slavery and the reunification of the nation after the Civil War, he said:</p>
+
+    <div class="quote-block">
+      The elevation of the negro race from slavery to the full rights of citizenship is the most important political change we have known since the adoption of the Constitution of 1787.<br><br>
+      It has liberated the master as well as the slave from a degrading relationship. Under our Republic, all men being created equal, the nation has at last become a united people, and the destiny of the Republic is assured.
+      <span class="cite">James A. Garfield, Inaugural Address, March 4, 1881</span>
+    </div>
+
+    <p>For Garfield, the "destiny of the Republic" was to fulfill the vision of equality and healing after the Civil War. But for his assassination, the course of civil rights might have fared far better in the last century.</p>
+
+    <h2>A Tribute in Pencil</h2>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig6-alden-villa-fireplace-today.jpg" alt="The parlor fireplace at Alden Villa today, mirror removed">
+      <figcaption><span class="fig-no">FIG. 6</span>The parlor fireplace at Alden Villa today &mdash; its mirror long since broken.</figcaption>
+    </figure>
+
+    <p>Among local citizens who found themselves absorbed by the suffering of the ailing president were the craftsmen putting the finishing touches on the bridal mansion that Anne Coleman Alden had commissioned for her son and his bride.</p>
+
+    <p>Robert Percy Alden (1848&ndash;1909) and Mary Ida Warren (1852&ndash;1899) married in Paris on June 17, 1878. Construction began in 1880 and continued through 1881. Throughout the summer, when the assassination occurred on July 2nd, workers were busy carving and engraving the wooden moldings and other features of Stanford White's whimsical summer-cottage design.</p>
+
+    <p>As with citizens both local and nationwide, the workmen's hearts were buoyed and then cast down by alternating daily newspaper bulletins &mdash; first of Garfield's "improving condition," then his "reversals." In the first week of September, with his convalescence seeming assured, he was moved to Francklyn Cottage by the seashore at Elberon, Long Branch, New Jersey, on a special rail car that carried his bed. Workers had laid temporary rails to bring him right to the front porch, but it took a crowd of bystanders to push the railcar the final distance.</p>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig7-francklyn-cottage-railcar-1881.jpg" alt="Period engraving of crowds pushing Garfield's railcar toward Francklyn Cottage, 1881">
+      <figcaption><span class="fig-no">FIG. 7</span>Crowds push Garfield's railcar toward Francklyn Cottage, Elberon, New Jersey, September 1881.</figcaption>
+    </figure>
+
+    <p>Garfield enjoyed the fresh ocean air for two weeks with his wife beside him, before succumbing on the evening of September 19th, dead at age 49.</p>
+
+    <p>The following morning at Cornwall's Alden Villa, heavy-hearted from the news, one of Stanford White's workers was putting finishing touches to the elaborate woodwork over the parlor fireplace. He took the moment to commemorate Garfield's passing with a pencil inscription: "Sept 20th 1881 President Garfield Dead."</p>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig8-pencil-inscription-garfield-dead.jpg" alt="Close-up of the pencil inscription reading Sept 20th 1881 President Garfield Dead">
+      <figcaption><span class="fig-no">FIG. 8</span>"Sept 20th 1881 President Garfield Dead" &mdash; the inscription behind the mantel mirror.</figcaption>
+    </figure>
+
+    <p>Not long after, the mantel was finished with an exquisite, beveled mirror, covering the inscription for all posterity &mdash; much as stonework seals Garfield's remains in his memorial crypt in Lake View Cemetery, Cleveland.</p>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig9-parlor-mirror-intact-historic.jpg" alt="Historic photo of the Alden Villa parlor with the beveled mirror intact">
+      <figcaption><span class="fig-no">FIG. 9</span>A photograph taken about 25 years ago shows the mirror still intact.</figcaption>
+    </figure>
+
+    <p>The mirror and the fireplace graced the mansion's parlor for about 120 years. But then, senseless adolescents smashed the mirror in a spree of vandalism as they wreaked damage throughout the old mansion.</p>
+
+    <p>The inscription was rediscovered during the recent restoration of Alden Villa by owner Harvey Turner, and has since become an object of interest to visitors touring the mansion. Turner says he intends to preserve this bit of history behind a piece of protective glass.</p>
+
+    <h2>Some Odd Bits of History</h2>
+
+    <p>At least three familiar sub-plots of recognizable American history accompany the tragedy of Garfield's 79 days of suffering.</p>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig10-machinery-hall-centennial-1876.jpg" alt="Currier and Ives lithograph of Machinery Hall at the 1876 Centennial Exhibition">
+      <figcaption><span class="fig-no">FIG. 10</span>Machinery Hall, Centennial Exhibition, Fairmount Park, Philadelphia, 1876.</figcaption>
+    </figure>
+
+    <p>The orbits of Joseph Lister and Alexander Graham Bell passed in close proximity to Garfield and his family, all of whom attended the 1876 Centennial Exhibition in Philadelphia. This series previously described the <a href="florida-man.html">Coleman family's investment and presence</a> at that same historic venue.</p>
+
+    <h2>Joseph Lister</h2>
+
+    <figure class="plate plate-sm">
+      <img src="images/garfield-connection/fig11-joseph-lister-portrait.jpg" alt="Portrait of Joseph Lister">
+      <figcaption><span class="fig-no">FIG. 11</span>Joseph Lister, pioneer of antiseptic surgery.</figcaption>
+    </figure>
+
+    <p>British surgeon Joseph Lister had been studying bacteria based on the work of Louis Pasteur, and published several papers in the 1860s on the use of antiseptics to sterilize operating rooms and surgical instruments. He was met with controversy, accusations of plagiarism, and mostly disdain from a surgical community that rejected the notion of "invisible germs."</p>
+
+    <p>It took almost 25 years to win acceptance, but Lister is now considered by many to be "the father of modern surgery."</p>
+
+    <h2>Alexander Graham Bell</h2>
+
+    <p>At the Centennial Exhibition, during his two-year tour of North America promoting his theories, Lister had been given a small upstairs room, out of the way in the great hall, where he discussed his principles with those who sought him out.</p>
+
+    <figure class="plate">
+      <img src="images/garfield-connection/fig12-bell-induction-balance-garfield.jpg" alt="Period engraving of Alexander Graham Bell testing his induction balance device on Garfield">
+      <figcaption><span class="fig-no">FIG. 12</span>Bell tests his induction balance device on Garfield, searching for the bullet.</figcaption>
+    </figure>
+
+    <p>Downstairs in that same hall, meanwhile, crowds swarmed the exhibit where Alexander Graham Bell demonstrated his telephone.</p>
+
+    <p>Five years later, Bell would be working in a lab in Washington, D.C., following the daily news of Garfield's declining health. Doctors were obsessed with locating the bullet still lodged in the president's back.</p>
+
+    <p>His work with the telephone inspired him to create an "induction balance" that could locate metal objects (anyone who has used a modern metal detector at the beach might be amused by this early connection). Bell approached the White House doctors, offering to use his device to find the bullet. Through a series of attempts, hampered by interference from the chief surgeon, he was unsuccessful. Frustrated, he continued experimenting in his lab, but fell short of helping his president.</p>
+
+    <h2>Dr. D. Willard Bliss</h2>
+
+    <figure class="plate plate-sm">
+      <img src="images/garfield-connection/fig13-dr-d-willard-bliss-portrait.jpg" alt="Engraved portrait of Dr. D. Willard Bliss">
+      <figcaption><span class="fig-no">FIG. 13</span>Dr. D. Willard Bliss, Garfield's chief physician.</figcaption>
+    </figure>
+
+    <p>After Garfield was brought to the White House, a number of doctors assembled to lend assistance. Robert Todd Lincoln, Garfield's secretary of war, had witnessed the shooting first-hand. In the heat of the moment he recalled the doctor who had attended his own father sixteen years earlier, and summoned Dr. Bliss to Garfield's bedside.</p>
+
+    <p>Unlike Abraham Lincoln's wound, James Garfield's injury was not immediately life-threatening; the bullet had missed his major organs. Though his assassin was tried and eventually hanged for the crime, many accounts consider the actions of the chief surgeon the true cause of death.</p>
+
+    <p>Unfortunately, Robert had been unaware of Bliss's woeful reputation. His notoriety dated back almost thirty years, to selling quack medical cures, accepting bribes, and providing poor treatment to wounded soldiers at Bull Run.</p>
+
+    <p>With Lincoln's endorsement, Bliss managed to insert himself as chief surgeon and dismissed essentially all others, making himself the sole caregiver. He authored the optimistic daily reports to the press, with only occasional mention of "setbacks."</p>
+
+    <p>Giving him the benefit of the doubt, perhaps it was professional pride, or the chance to redeem a tarnished reputation, that drove him to labor tirelessly for months.</p>
+
+    <p>Accounts describe Bliss's daily attempts to locate the bullet by probing the president's wound with his unsanitary finger &mdash; almost certainly the source of the infection that eventually killed Garfield.</p>
+
+    <p class="closing-question">Had Bliss heeded Joseph Lister's techniques, or trusted Bell's induction balance to locate the bullet, our nation's history might read very differently.</p>
+  </div>
+
+  <div class="credits">
+    <p>Candace Millard's book "Destiny of the Republic" is recommended by this author, as are the numerous resources on this history found on the internet.</p>
+    <p>Harvey Turner and Alden Villa, for the discovery, preservation, and sharing of the pencil inscription that inspired this story.</p>
+    <p>Originally published on LebTown, January 26, 2026.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
