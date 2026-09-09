@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Robert Spring Affair — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+  .section p.closing-question{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--rust);
+  }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 023 &middot; Coleman Family</div>
+    <h1>The Robert Spring Affair</h1>
+    <div class="subtitle">Would You Trust This Man?</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published July 31, 2025</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate plate-sm">
+    <img src="images/robert-spring-affair/fig1-robert-spring-ai-rendering.jpg" alt="An AI-rendering of Robert Spring, a 19th-century book dealer and forger">
+    <figcaption><span class="fig-no">FIG. 1</span>An AI-rendering of Robert Spring &mdash; no genuine photograph of the forger is known to survive.</figcaption>
+  </figure>
+
+  <p class="lead">George Dawson Coleman did; and no, this isn't a photo of George Washington wishing for better dentures. It's an AI-rendering of pretender Robert Spring, a 19th-century book dealer who routinely forged Washington's signature to swindle collectors.</p>
+
+  <div class="section">
+    <p>A faked photo only seems fair &mdash; with no known images of Spring, this modern rendering befits a man whose scams duped many. Among his marks&mdash;or benefactors&mdash;was Lebanon, Pennsylvania's George Dawson Coleman. Was Coleman deceived by Spring's cunning, or did his aid arise from profound Christian charity?</p>
+
+    <p>The question haunts: did Coleman know Spring's criminal past, and if so, why trust a known forger? Read on.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/robert-spring-affair/fig2-george-dawson-coleman-portrait.jpg" alt="Portrait photograph of George Dawson Coleman">
+        <figcaption><span class="fig-no">FIG. 2</span>George Dawson Coleman (1825&ndash;1878).</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/robert-spring-affair/fig3-coleman-homestead-mansion.jpg" alt="Drawing of the Coleman Homestead mansion in North Lebanon">
+        <figcaption><span class="fig-no">FIG. 3</span>Coleman's "Homestead" mansion, North Lebanon.</figcaption>
+      </figure>
+    </div>
+
+    <p>This tale is another installment in summertime reading of the "Who Knew?" series exploring George Dawson Coleman (1825&ndash;1878), Lebanon's iron master raised at Elizabeth Furnace near Brickerville. His wealth from the North Lebanon furnaces and namesake Coleman Memorial Park marked his prominence. His story intertwines with Robert Spring, a bookseller whose forgeries brought riches and ruin, until Coleman's benevolence offered a lifeline&mdash;or a trap.</p>
+
+    <h2>An Innocent Beginning</h2>
+
+    <figure class="plate">
+      <img src="images/robert-spring-affair/fig4-springs-baltimore-offerings-1854.jpg" alt="1854 Baltimore newspaper advertisement for Robert Spring's book offerings">
+      <figcaption><span class="fig-no">FIG. 4</span>Spring's innocent offerings in Baltimore, May 1854.</figcaption>
+    </figure>
+
+    <p>British &eacute;migr&eacute; Robert Spring (1813&ndash;1876) arrived in America in the 1850s, setting up trade as a reputable bookseller in Baltimore and then Philadelphia.</p>
+
+    <p>It began honestly; he purchased a collection of books that had belonged to George Washington and sold them at a premium to an appreciative collector.</p>
+
+    <p>News spread of his successful transaction. Tempted, he turned rogue. He began offering his slower-moving inventory by assuring buyers that these had come from Washington's library.</p>
+
+    <p>He then discovered that signing the names of Washington and others inside the covers of his rare books made them even more desirable and valuable.</p>
+
+    <p>One success led to another. He forged other well-known signatures, then moved on to fabricating documents and letters using his blend of "antique" ink. He wrote on the blank liners cut from old books or aged the paper with stains.</p>
+
+    <p>In one famous forgery he signed Washington's name to a 1796 check for $306.17 drawn from a Baltimore account.</p>
+
+    <p>His first arrest came in 1858 in Philadelphia for receiving money under false pretenses, only to escape by fleeing to Canada.</p>
+
+    <p>Selling his forgeries abroad kept him safe from discovery, using newspaper advertisements and mail under the alias of Dr. James Hawley.</p>
+
+    <p>He also posed as the fictitious daughter of Stonewall Jackson. In this scam he appealed to sympathizers of the Confederate states in England and Canada. Spring forged "Jackson's" letters and documents, selling them to raise money for this "impoverished maiden."</p>
+
+    <p>But that caught up with him in 1869 when arrested for mail fraud. He went on trial in Philadelphia in early 1870, confessed and went to prison.</p>
+
+    <p>He would die in a Philadelphia charity hospital in 1876. His forgeries, ironically, remain collectible in recent years. In some cases modern fraudsters sell them as genuine, while honest brokers market them as curiosities.</p>
+
+    <p>Rather than re-tell all of Spring's colorful story as found readily on-line, presented here is a particular and original, first-hand account of the last years of his life. It is possible that history's negative view of Spring needs an update.</p>
+
+    <h2>Robert Spring Meets George Dawson Coleman</h2>
+
+    <p>In 1871 after his second imprisonment, Robert Spring, living on Philadelphia's South 22nd Street with his wife and children, appears to seek redemption. He needed capital to get back on his feet and to support his family.</p>
+
+    <p>Enter George Dawson Coleman, Lebanon's wealthy iron master who frequented Philadelphia, owning a mansion in its northwest part of the city.</p>
+
+    <figure class="plate">
+      <img src="images/robert-spring-affair/fig5-history-of-york-1834-book.jpg" alt="Cover and frontispiece of History of York County, 1834">
+      <figcaption><span class="fig-no">FIG. 5</span>The allure of an old book &mdash; the "History of York County" (1834), one of the volumes offered to Coleman.</figcaption>
+    </figure>
+
+    <p>How they met is not known. As a book collector, perhaps Coleman visited Spring's shop seeking additions to his mansion's library. Or, had Spring found a mark and set his sights on Coleman? Nonetheless, twenty letters from Spring to Coleman over an eight-month period in 1871&ndash;72 set the stage of a mystery.</p>
+
+    <p>In the first letter we learn they had already met and that Coleman rendered financial assistance. We ought not be surprised, as Coleman and his family are known for their charitable generosity to many, even to <a href="unsung-benevolence.html">Mary Todd Lincoln</a> a few years prior.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/robert-spring-affair/fig6-spring-letter-october-1871-p1.jpg" alt="Handwritten letter from Robert Spring to Coleman, dated October 24, 1871">
+        <figcaption><span class="fig-no">FIG. 6</span>Spring's letter to Coleman, October 24, 1871.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/robert-spring-affair/fig7-spring-letter-october-1871-p2.jpg" alt="Closing lines of Spring's October 1871 letter, signed Robert Spring">
+        <figcaption><span class="fig-no">FIG. 7</span>...the letter's close, "with humble grateful respect."</figcaption>
+      </figure>
+    </div>
+
+    <p>Late in October 1871, Spring writes, "Honored kind Sir, your more than generous&hellip; benevolent Christian kindness" has saved his family. He references Coleman's aid to "thousands of the West," likely the 100,000 displaced earlier that month by the Chicago Fire (October 8&ndash;10, 1871), a disaster that prompted nationwide relief efforts. Coleman's wealth and connections to <a href="coleman-coachman.html">President Grant</a> suggest he contributed funds, aligning with his family's well-known philanthropy.</p>
+
+    <p>In his letters Spring admits his "downward path," and laments his valuable book collections lost years ago. He tells of recently losing $12,000, a "pittance" compared to the strength of his business in prior years.</p>
+
+    <p>He requests "a mere trifle" to travel to New York and Boston on a book-buying expedition, promising Coleman first pick of rare finds.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/robert-spring-affair/fig8-mathew-carey-pamphlet-1795.jpg" alt="Title page of an 1795 pamphlet by Mathew Carey">
+      <figcaption><span class="fig-no">FIG. 8</span>1795 pamphlet by Philadelphia publisher and economist Mathew Carey.</figcaption>
+    </figure>
+
+    <p>He also intends to travel to the "old Quaker villages" around Mullica Hill, New Jersey, searching in attics for old books and pamphlets from the previous century. Enclosing his pawn tickets to prove his desperation, Spring secures an additional $300 from Coleman.</p>
+
+    <p>By November, he makes good, sending twenty books via Adams Express, valued at $118.50 (over the course of this relationship it seems that Coleman contributed far more than the value received in books).</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/robert-spring-affair/fig9-spring-letter-november-1871-shipment.jpg" alt="Title page of Annals of the Swedes on the Delaware, 1835">
+      <figcaption><span class="fig-no">FIG. 9</span>"Annals of the Swedes on the Delaware" (1835), one of the many volumes Spring shipped to Coleman.</figcaption>
+    </figure>
+
+    <p>That Coleman seems a discerning collector is evidenced by declining a 1794 Stedman's "History of the American War." He penciled in the margin of the letter, "I have."</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/robert-spring-affair/fig10-stedmans-history-american-war.jpg" alt="Close-up of Stedman's History of the American War, Dublin 1794">
+      <figcaption><span class="fig-no">FIG. 10</span>Coleman already owned a copy of Stedman's "History of the American War" (Dublin, 1794) &mdash; offered to him for $7.50; a used copy today runs about $3,750, plus shipping.</figcaption>
+    </figure>
+
+    <p>In December, Coleman again sends a $200 check, reissued when the first went missing (a reason for suspicion?), and yet books are received.</p>
+
+    <h2>Sincerity &hellip; or Scam?</h2>
+
+    <p>In today's digital age, rare book collectors and dealers are as scarce as their treasures (ironically, most of the books Spring offered to Coleman are freely available today online in digital form).</p>
+
+    <p>What is familiar to us, however, are the many scams perpetrated online by faceless thieves and scoundrels. We cannot but wonder and watch in horror: was Coleman being led on by Robert Spring's deception?</p>
+
+    <p>On one hand, Spring prostrated himself, pleading for mercy and profuse in his gratitude for Coleman's kindness.</p>
+
+    <p>He did good by sending books on approval, giving Coleman first right of refusal, and claiming to discount the prices he was charging, in gratitude for the trust and kindness extended to himself.</p>
+
+    <p>If a scam, it was not once-and-gone, but a drawn-out ruse. Was Spring leading Coleman along, building up to the ultimate deception?</p>
+
+    <p>In December there are four more letters in which Spring reports his activities, and no fewer than sixty books are shipped. Such books had to be genuine, as most of them at 500 pages each would not be forgeries.</p>
+
+    <p>Yet that same month, Spring made news in Philadelphia. One of his George Washington forgeries was discovered hanging in Independence Hall!</p>
+
+    <figure class="plate">
+      <img src="images/robert-spring-affair/fig11-independence-hall-forgery-1871.jpg" alt="Newspaper article about Robert Spring's forged Washington letter found in Independence Hall">
+      <figcaption><span class="fig-no">FIG. 11</span>Spring's forgery found in Independence Hall (December 15, 1871).</figcaption>
+    </figure>
+
+    <p>Spring confessed to that deception. We wonder again: could Coleman not be aware of Spring's criminal exploits?</p>
+
+    <p>What led him to choose compassion over caution? Was Coleman such an astute businessman that he trusted his own instincts and shrewdness in dealing with Spring, while building his personal library?</p>
+
+    <h2>Insights From Letters</h2>
+
+    <p>Perhaps what made Robert Spring successful in putting his clients at ease was his self-assured British charm. Or it may have been his obsequious flattery, acknowledging the "downward path" he had been on.</p>
+
+    <p>In one letter he assured Coleman of his long experience and expertise as a judge of rare books. In another he pled sympathy for his own poor health and his destitute family. He always appeals to Coleman's high position, that a "mere trifle" would get him back on his feet; Spring's goal being to have enough to rent a storefront and stock it with books that he might make an honest living.</p>
+
+    <h2>Coleman's Compassion &mdash; A Possible Explanation</h2>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/robert-spring-affair/fig12-pickwick-papers-cover.jpg" alt="Cover of The Pickwick Papers by Charles Dickens">
+        <figcaption><span class="fig-no">FIG. 12</span>Dickens's "The Pickwick Papers."</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/robert-spring-affair/fig13-knickerbocker-magazine-cover.jpg" alt="Cover of Knickerbocker Magazine">
+        <figcaption><span class="fig-no">FIG. 13</span>Knickerbocker Magazine, a periodical of Coleman's youth.</figcaption>
+      </figure>
+    </div>
+
+    <p>Twenty-four-year-old Charles Dickens got his start publishing a series of humorous stories, <em>The Posthumous Papers of the Pickwick Club</em>, between April 1836 and November 1837. The series (later becoming his first novel, "The Pickwick Papers") spread from England to the United States by 1838, at which time George Dawson Coleman (age 13) was likely enjoying and impressed by periodicals like Knickerbocker Magazine.</p>
+
+    <p>A few years later Dickens toured the country; both his work and copycat spinoffs became a cultural phenomenon. Very likely the affluent Coleman family, including young George, was affected by Dickens's social commentary.</p>
+
+    <figure class="plate">
+      <img src="images/robert-spring-affair/fig14-prune-street-debtors-jail.jpg" alt="Drawing of the Prune Street Debtors Jail in Philadelphia">
+      <figcaption><span class="fig-no">FIG. 14</span>Robert Spring spent time in Philadelphia's Prune Street debtors' jail, c. 1858. (Castner Scrapbooks, Free Library of Philadelphia)</figcaption>
+    </figure>
+
+    <p>One installment of Dickens's serial story tells of a man named Heyling whose mistakes landed him in debtors' prison. Already destitute, he is unable to support his family and soon loses them. His wife moved to a ramshackle apartment near the jail to be close to him. They watched their young son grow sick and die. She also dies in his arms while visiting the prison, the tragedy destroying him beyond what indebtedness could touch. No one had come to their rescue; worst of all, her own father had banished him to prison, doing nothing to support them and leaving them to perish.</p>
+
+    <p>The panic of 1819 had caused a rise in insolvency and heightened public social conscience for the injustice of debtor prisons. It was not until the mid-19th century that most states had abolished the practice of imprisonment for debt.</p>
+
+    <h2>Parental Influence</h2>
+
+    <p>And if it was not a young Charles Dickens that influenced George, certainly the example of his parents and grandfather Robert Coleman had schooled him well. Robert had shown benevolence first to glassmaker "Baron" Henry Stiegel, who fell from great social heights, going to prison, and losing everything in a sheriff's sale.</p>
+
+    <p>And there would be memories of how Robert Coleman had lent assistance to fellow <a href="bird-or-burd.html">iron master Mark Bird</a> when he had been bankrupted by Congress following the Revolutionary War.</p>
+
+    <p>Of course it was not debt but crime that earned Robert Spring imprisonment. But prison ruined him, leaving him severely indebted in the 1870s. It remains that he had a wife and children to support.</p>
+
+    <p>Recognizing his Christian duty, successful and aging George Dawson Coleman had compassion for a man twelve years his senior. Further compelling would be his wife Deborah Coleman, who felt sympathy for what Mrs. Spring must be suffering.</p>
+
+    <h2>An Uncertain Ending</h2>
+
+    <p>The last letter, in May 1872, leaves the story unfinished; we don't know the end of the mystery.</p>
+
+    <p>In the letter, Robert Spring has shipped yet more books by Adams Express. He expresses dismay at not finding enough, nor more rare volumes for his benefactor. He assures Coleman that these volumes of American history are among the "most difficult to obtain."</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/robert-spring-affair/fig15-last-shipment-letter-may-1872.jpg" alt="Itemized list of books shipped to Coleman, May 1872">
+      <figcaption><span class="fig-no">FIG. 15</span>The last known shipment of books of American history (May 9, 1872).</figcaption>
+    </figure>
+
+    <p>We don't know if there were more letters or how long the relationship continued. Coleman died in 1878, having only six more years to enjoy his treasures.</p>
+
+    <p>Questions remain: was Coleman content with his book collection? What happened to them after his passing in 1878? Several of them appear among Mrs. Coleman's <a href="profound-possessions.html">"Profound Possessions,"</a> including the "History of York" (1834) as was shown above in this story. Were the books still in the mansion when it was demolished in 1961?</p>
+
+    <p>Did Spring stay on the path of responsibility? He died about four years later, a resident of Philadelphia, and a poor man.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/robert-spring-affair/fig16-springs-final-letter-1872.jpg" alt="Closing lines of Robert Spring's final letter to Coleman, 1872">
+      <figcaption><span class="fig-no">FIG. 16</span>Spring's final letter to Coleman, closing with gratitude, 1872.</figcaption>
+    </figure>
+
+    <p>Spring closes his letter: "I can never forget your goodness to me. God bless you for it. My store is now paying and I feel easier in mind than I have for many years &mdash; to your generous goodness I owe it. With most grateful respect, I remain your Faithful, devoted Servant, Robert Spring."</p>
+
+    <p class="closing-question">Redemption?</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/robert-spring-affair/fig17-signed-bookplate-drawing.jpg" alt="Illustrated bookplate of a cherub holding a sign reading EIS PHAOS, signed George Bancroft">
+      <figcaption><span class="fig-no">FIG. 17</span>Signed book plates add value to old collectables.</figcaption>
+    </figure>
+  </div>
+
+  <div class="credits">
+    <p>Craig Coleman and the Cornwall Iron Furnace, for ongoing support of historical research.</p>
+    <p>Book images in the story are from those offered by Spring to Coleman, found on the internet. The "Profound Possessions" story referenced above was itself the second of what has grown into a series of over forty installments, begun three years earlier.</p>
+    <p>For summer reading, the author suggests searching Archive.org and Books.Google.com for the old volumes mentioned above.</p>
+    <p>Originally published on LebTown, July 31, 2025.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2025&ndash;2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
