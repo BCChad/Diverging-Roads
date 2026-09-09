@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jackson House, on the Road to Lebanon County — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+  .section p.closing-question{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--rust);
+  }
+
+  .callout{
+    background:var(--paper-dark);
+    border-left:3px solid var(--brass);
+    padding:1rem 1.25rem;
+    margin:1.75rem 0;
+    font-size:.95rem;
+  }
+  .callout strong{ color:var(--rust); }
+
+  .to-be-continued{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-top:2rem;
+    margin-bottom:.5rem;
+  }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 025 &middot; Cornwall Furnace</div>
+    <h1>Jackson House, on the Road to Lebanon County</h1>
+    <div class="subtitle">Part 1 of a Series</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published June 24, 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/jackson-house/fig1-jackson-house-cornwall-childrens-center.jpg" alt="Jackson House at 220 Boyd Street, Cornwall, in its later years as Cornwall Children's Center">
+    <figcaption><span class="fig-no">FIG. 1</span>Jackson House in its better days as Cornwall Children's Center.</figcaption>
+  </figure>
+
+  <p class="lead">The historic Jackson House at 220 Boyd Street, Cornwall, Pennsylvania, is within a few years of its 200th anniversary.</p>
+
+  <div class="section">
+    <p>The house is believed to date back to the 1830s, used as a tavern on the old road which had been completed in 1829. But parts of that story need closer examination &mdash; an examination which takes us on an interesting ride around Lebanon County.</p>
+
+    <h2>The Turnpikes</h2>
+
+    <p>In 1792 the Pennsylvania legislature approved the Downingtown turnpike, officially the "Philadelphia to Lancaster Turnpike," as part of efforts to improve roads and promote commerce. The midpoint of the 62-mile private toll road was Downingtown. The road later became "Lincoln Highway" and designated Route 30.</p>
+
+    <p>An extension, the Downingtown, Ephrata, and Harrisburg Turnpike, was chartered in 1803, forming what we know locally as Route 322. Over the years this route has extended diagonally southeast to northwest through Pennsylvania, connecting Cleveland, Ohio, to Atlantic City, New Jersey.</p>
+
+    <p>As this road passed westward through Lebanon County it acquired the name Horseshoe Pike. The road came up over South Mountain, passing right through Cornwall center on to Bismarck and points west. Several decades ago the road was improved, bypassing Cornwall by merging with Route 72 just south of Quentin, and is now referred to as 28th Division Highway.</p>
+
+    <div class="callout">
+      <strong>Across the state, Route 322 bears the name Pennsylvania 28th Division Highway</strong>, for the oldest division-sized unit in the U.S. Army, formed in 1879, with some of its components dating back to Benjamin Franklin's battalion, "The Pennsylvania Associators" (1747&ndash;1777). Like the highway, the Division continues in the service of its state and country today.
+    </div>
+
+    <p>Another road, the Cornwall Turnpike, joined with the Horseshoe Pike near Miners Village as a plank road to conduct commerce northward into Lebanon, up to the Union Canal, shipping tons of iron ore and pig iron.</p>
+
+    <p>With such roads it was common for taverns and roadhouses to spring up, and as believed, such was the house that later became known as "Jackson House" at 220 Boyd Street.</p>
+
+    <h2>Transition</h2>
+
+    <p>Several decades passed before the name Jackson became associated with this structure. According to the 1860s census, it seems to have transitioned to a boarding house; <a href="https://lebtown.com/2024/09/10/who-knew-wilhelm-an-intersection-with-lebanon-history/">Artemas Wilhelm</a> is listed as a resident, with his wife, two children, several household domestics, a hostler, a teamster, and two furnace clerks.</p>
+
+    <p>At the time Wilhelm was the manager of the Cornwall Iron Furnace. He had been lodging there since 1849, when he was first hired by R. W. Coleman to assist with the Anthracite Furnace. Later that decade, when Wilhelm had taken over as general manager of the R.W. Coleman Heirs estate, James Patterson Jackson was hired as manager of the Cornwall Iron Furnace (his obituary records the year as 1860).</p>
+
+    <h2>James Patterson "J. P." Jackson (1828&ndash;1903)</h2>
+
+    <figure class="plate">
+      <img src="images/jackson-house/fig2-earliest-photo-jackson-house-1885.jpg" alt="Earliest known photograph of Jackson House, circa 1885, framed by trees">
+      <figcaption><span class="fig-no">FIG. 2</span>Earliest known photo of Jackson House, c. 1885 (M. Trump).</figcaption>
+    </figure>
+
+    <p>The 1870s census shows Jackson living in the house with his sister Letitia, two furnace clerks, three domestics, and a laborer. The 1880 census reported similar occupancy.</p>
+
+    <p>He came from New London in Chester County, Pennsylvania, eldest son (b. 1828) of Hugh and Mary Jane Wilson Jackson, farmers. His sister Letitia, born 1837, joined him and over her life became known among Coleman women as an active supporter of their ladies' charities.</p>
+
+    <p>J. P. Jackson grew steadily as a trusted manager of Coleman affairs. By 1874 he is mentioned as the manager of the new <a href="bird-or-burd.html">Bird Coleman furnace</a> that had just been constructed. In that decade he had also become a director of the Cornwall Turnpike Company and Wm. Freeman's Cornwall Railroad.</p>
+
+    <p>In the following decade he is described as a manager for R.W. Coleman heirs, and a manager of the Ore Bank Company. He also worked several farms. On one occasion he assisted Edward C. Freeman in the breeding of cattle. By 1890 he shows up in reports as supervising William C. Freeman's farm.</p>
+
+    <p>With the Cornwall Railroad passing near his house, Jackson had an occasional attachment to Penryn Park just to the east. In 1890 the park was undergoing upgrades; Jackson is described as supervising the improvements to the baseball field, leveling the field with gravel and building an impressive grandstand.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/jackson-house/fig3-manager-jackson-resigns-clipping.jpg" alt="Newspaper clipping headlined Manager Jackson Resigns">
+        <figcaption><span class="fig-no">FIG. 3</span>"Manager Jackson Resigns," early 1892.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/jackson-house/fig4-removed-to-chester-county-clipping.jpg" alt="Newspaper clipping headlined Removed to Chester County">
+        <figcaption><span class="fig-no">FIG. 4</span>"Removed to Chester County," 1892.</figcaption>
+      </figure>
+    </div>
+
+    <p>Early in 1892, J. P. Jackson resigned from his various duties due to failing eyesight. He underwent surgery and then retired to his own family farm back in New London, soon joined by his sister.</p>
+
+    <figure class="plate">
+      <img src="images/jackson-house/fig5-will-repair-the-residence-clipping.jpg" alt="Newspaper clipping headlined Will Repair the Residence">
+      <figcaption><span class="fig-no">FIG. 5</span>"Will Repair the Residence," 1892.</figcaption>
+    </figure>
+
+    <p>That same year a newspaper report says the residence was under renovation by W. C. Freeman. A few months later Jackson's household goods went up for public auction in Lebanon. From that time on, the house presumably was held by Freeman (who died in 1903) and eventually sold to Bethlehem Steel around 1920.</p>
+
+    <figure class="plate">
+      <img src="images/jackson-house/fig6-james-p-jackson-death-notice.jpg" alt="Newspaper death notice for James P. Jackson">
+      <figcaption><span class="fig-no">FIG. 6</span>James P. Jackson's death notice, 1903.</figcaption>
+    </figure>
+
+    <p>Jackson returned to the area periodically, remaining a director of the turnpike company and assisting D. S. Hammond in settling the estate of Sarah Coleman. Jackson died in 1903.</p>
+
+    <h2>The "Jackson House" Since Then</h2>
+
+    <figure class="plate">
+      <img src="images/jackson-house/fig7-jackson-house-bethlehem-steel-era.jpg" alt="Jackson House in winter during its years as a Bethlehem Steel office building">
+      <figcaption><span class="fig-no">FIG. 7</span>Jackson House during its years as a Bethlehem Steel office.</figcaption>
+    </figure>
+
+    <p>As it is privately held by Cornwall Manor, little is known about the features of the interior of the house.</p>
+
+    <p>After Bethlehem Steel came to town and acquired the furnace properties and the ore banks c. 1920, the house became the office building for the company, eventually known as Bethlehem Steel Cornwall Division. An extension to the rear was added in the 1940s.</p>
+
+    <p>In the 1970s Bethlehem Steel was divesting its properties, and the house was purchased in 1978 by the Methodist Church Home, known now as Cornwall Manor, with the intention of providing apartments. Instead, it became Cornwall Children's Center, a day care operation for Cornwall Manor employees and local residents.</p>
+
+    <h2>A New Future?</h2>
+
+    <p>After the day care moved to the United Methodist Church of the Good Shepherd in 2014, the vacant building has been allowed to deteriorate for over a decade.</p>
+
+    <p>Hopefully new life and purpose can be breathed into this historic structure.</p>
+
+    <p class="to-be-continued">To be continued</p>
+    <p><em>Pulling the string on this story only seems to complicate matters, begging questions which this author intends to untangle in the next installment.</em></p>
+  </div>
+
+  <div class="credits">
+    <p>A special mention to the excellent history at <a href="https://en.wikipedia.org/wiki/U.S._Route_322_in_Pennsylvania">U.S. Route 322 in Pennsylvania</a> on Wikipedia.</p>
+    <p>Thanks to the "Friends of the Cornwall Iron Furnace," whose assistance has been invaluable.</p>
+    <p>Originally published on LebTown, June 24, 2026.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
