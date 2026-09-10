@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twists and Turns for the Horseshoe Pike — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:1rem 0 2rem; }
+
+  .series-nav{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1rem 0;
+    margin-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .series-nav a{ color:var(--rust); text-decoration:none; }
+  .series-nav a:hover{ color:var(--iron); }
+  .series-nav .disabled{ color:#b5a887; }
+  .series-nav .current{ color:var(--slate); text-align:center; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.15rem;
+    margin-bottom:.85rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem;
+  }
+  @media (max-width:600px){
+    .plate-row{ grid-template-columns:1fr; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 026 &middot; Cornwall Furnace</div>
+    <h1>Twists and Turns for the Horseshoe Pike</h1>
+    <div class="subtitle">Returning to the Jackson House for a second look at the Horseshoe Turnpike</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published July 14, 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <div class="series-nav">
+    <a href="jackson-house.html">&larr; Part One</a>
+    <span class="current">Part 2 of 3</span>
+    <span class="disabled">Part Three &rarr;</span>
+  </div>
+
+  <figure class="plate">
+    <img src="images/horseshoe-pike/fig1-jackson-house-horseshoe-pike-map.jpg" alt="Satellite map showing the location of Jackson House and nearby Route 322, with a historic photo of the house inset">
+    <figcaption><span class="fig-no">FIG. 1</span>Returning to the Jackson House for a second look at the Horseshoe Turnpike.</figcaption>
+  </figure>
+
+  <p class="lead">The first installment of this "On the Road to Lebanon County" series brought attention to this nearly-200-year-old structure, believed to have been a tavern on the old Horseshoe Turnpike that went through in 1803.</p>
+
+  <div class="section">
+    <p>Further discovery leads to a later map that doesn't show the turnpike very near Jackson House. Pulling on one string has seemed to unravel another, the kind of thing that keeps historians asking more questions: "Why don't the pieces fit together neatly?" Why build that great house in that location? The 1830s date is assumed, based on similar sandstone architecture of that time, but could it be older than that?</p>
+
+    <p>This installment examines those pieces.</p>
+
+    <p>The later story is well-known, about it being the Bethlehem Steel office and Cornwall Manor's daycare center. "<a href="jackson-house.html">Jackson House</a>" may have started as a roadhouse, but when it was built in the 1830s it was at least 250 yards away from the turnpike, separated by a stream bed &mdash; not a convenient roadside stop. More likely it could have been a village tavern on the old "Boyd Street."</p>
+
+    <p>It may have served a purpose related to the Cornwall Iron Furnace, the ore banks, and the "iron plantation" or community that also lie within that 250-yard radius. These were the center of the universe as Cornwall transitioned from the 18th to 19th century.</p>
+
+    <h2>A Picture and 1,000 Words Later&hellip;</h2>
+
+    <p>The best resource for telling that story is an original rendering of the enterprise that began as Cornwall.</p>
+
+    <p>Around 1800, just two decades after our nation's independence, Robert Coleman had acquired the Cornwall property from the Grubb family. It seems he commissioned an unknown artist who rendered the features of the property in a large drawing which now hangs in Cornwall Manor's Gateway library.</p>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig2-cornwall-estate-drawing-annotated.jpg" alt="Annotated excerpt of a circa-1800 drawing of the Cornwall estate, labeling the mill, Boyd Street, furnace, and mine">
+      <figcaption><span class="fig-no">FIG. 2</span>Excerpt from the old drawing of the Cornwall estate, with several annotations.</figcaption>
+    </figure>
+
+    <p>This oft-studied drawing depicts the estate with the mansion top-center, prior to its early industrial period renovation. Likewise, the Cornwall Iron Furnace is shown prior to its 1850s conversion to steam power. Missing entirely, of course, are the open pit mine and Miners' Lake (c. 1970).</p>
+
+    <p>Instead, the early mining activity was focused mostly on the surfaces of Big Hill, with significantly less activity on Middle Hill and Grassy Hill. Furnace Creek, a marshy stream, flows up to the furnace and then westward. Upstream a head race is faintly visible, feeding a mill pond, then carrying water by a flume to the furnace wheel-house.</p>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig3-cornwall-grist-mill-historic.jpg" alt="Historic photograph of the Cornwall Grist Mill with a horse-drawn wagon in front">
+      <figcaption><span class="fig-no">FIG. 3</span>The <a href="cornwall-grist-mill.html">Grist Mill</a>, which stood until 1960.</figcaption>
+    </figure>
+
+    <p>Another headrace is diverted downstream of the furnace, across the western side of the estate to the Grist Mill. The mill, surviving until 1960, is well-documented in various maps and photographs.</p>
+
+    <p>As shown in the drawing, the estate is dotted with orchards and fields, and a few buildings.</p>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig4-the-abattoir.jpg" alt="The Abattoir, a small Gothic-revival stone structure surrounded by trees">
+      <figcaption><span class="fig-no">FIG. 4</span>The Abattoir, one of the few structures on the estate that still survives.</figcaption>
+    </figure>
+
+    <p>Hard to distinguish in the drawing is the Abattoir, uphill from the furnace and just below Jackson House, used for slaughtering animals and smoking meats to feed the workers' families of the "iron plantation," as it was known.</p>
+
+    <p>The drawing pre-dates Jackson House, but other structures are shown that hint at a community that dwelt in the immediate area of the furnace and mining activity. Some of these are built on lower ground, sensibly placed near the creek.</p>
+
+    <p>Just below Jackson House on furnace property are several levels of terraced gardens, well above stream level. Higher ground suggests greater prestige for Jackson House, whereas lower ground near water would be for poorer residents and their garden plots, at the greater risk of mosquitos and flooding.</p>
+
+    <h2>Roads to Cornwall</h2>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig5-cornwall-estate-drawing-roads.jpg" alt="The same estate drawing, annotated with roads leading to Lebanon, Colebrook furnace, Lancaster, and Elizabeth furnace">
+      <figcaption><span class="fig-no">FIG. 5</span>Additional annotations highlighting roads to nearby destinations.</figcaption>
+    </figure>
+
+    <p>The other distinguishing feature of the old drawing are the roads of that day, which are the intended focus of this installment. Some have survived until the present, others have been transformed. To the lower left is the road traveling west to Coleman's Colebrook estate and furnace (built in 1791), known today in sections as Ironmaster Road and Old Mine Road. (Mount Gretna would not exist for almost another century.)</p>
+
+    <p>As modern motorists should agree, the roads from the mine to the other furnaces went over difficult, winding terrain &mdash; especially eastward (today's Route 322, 28th Division Highway), the road heading to Coleman's Elizabeth furnace estate, Speedwell Forge, and Grubb's Hopewell Forge. Back then it was two roads, as shown, that eventually converge going up the mountain.</p>
+
+    <p>Before Coleman, and Grubb before that, it was Jacob Huber who began transporting ore on the trail to Elizabeth (Brickerville) around 1750.</p>
+
+    <p>Heading southward was the road over South Mountain to Manheim and Lancaster. Both this and the road north to Lebanon will be featured in a later installment.</p>
+
+    <p>The road labeled "Boyd Street" was not known by that name until much later, after the retirement of J. Taylor Boyd (d. 1918), General Superintendent for the Cornwall Ore Bank Company.</p>
+
+    <p>With one exception, Boyd Street retains the same footprint today as back then. It rises from Cornwall "center" near the area of the mill, climbing over the slate ridge that extends westward along Freeman Drive to Alden Villa and Bismarck/Quentin. Eventually another generation of Colemans built the gatehouse, providing a more leisurely entrance with convenient access to Cornwall's train depot.</p>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig6-gatehouse-boyd-street.jpg" alt="The Cornwall estate gatehouse on Boyd Street">
+      <figcaption><span class="fig-no">FIG. 6</span>Gatehouse entrance to the Cornwall estate from Boyd Street as it stands today, across from the familiar "Root Beer Barrel" on the Lebanon Valley Rail Trail.</figcaption>
+    </figure>
+
+    <h2>Traveling Southeast</h2>
+
+    <p>Until the 19th-century improvements that led to the Union Canal and Lebanon as a transportation hub, the grand entrance to the mansion was &mdash; and perhaps still is &mdash; the lane that proceeds down to the furnace, and the roads beyond. That was the center of commercial activity for the iron trade. The cannon produced for the Navy in Philadelphia were shipped up that road.</p>
+
+    <p>As shown in the drawing, there are two roads heading in that direction, leaving us to ponder. They are separated initially by Furnace Creek and join further up the mountain.</p>
+
+    <p>A possible explanation is that transportation from colliers' charcoal operations on sites across the mountain led to the development of multiple roads, the most direct path to the furnace being the most sensible.</p>
+
+    <p>The easterly route extending from "Boyd Street" can be seen curving around the base of mining activity on Big Hill. It proceeds eastward to the area where Miners Village was later constructed by the Cornwall Ore Bank Company between 1867 and 1886. Prior to that, it passed closer to the area on the back of Big Hill that became known as "Elizabeth mine," so-named as being the source of ore for the Elizabeth furnace.</p>
+
+    <p>As shown in this 1947 aerial photo, Boyd Street used to proceed through Miners Village, directly up into the hill, and did not meet the Horseshoe Pike until the point where Boyd Street now terminates on the new Route 322, "28th Division Highway."</p>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig7-1947-aerial-boyd-street-horseshoe-pike.jpg" alt="1947 aerial photo showing Boyd Street, the Horseshoe Pike, Miners Village, and Big Hill">
+      <figcaption><span class="fig-no">FIG. 7</span>The houses of Miners Village are seen in the left-center. Boyd Street (pink) proceeded straight to the east and then up South Mountain. The Horseshoe Pike (green) and the Cornwall Railroad (removed 1964) run parallel, about 200 yards south. In the lower right, the roads converge, with Boyd Street and Horseshoe Pike splitting off to the east, and the railroad heading due south to Penryn. By the time of this 1947 photo, the Horseshoe Pike had been diverted due to the expansion of the open pit.</figcaption>
+    </figure>
+
+    <p>Well after Miners Village was built and Boyd Street was formally so-named, Boyd Street and Horseshoe Turnpike merged much further down the mountain, just south of the village. Today motorists speeding east through Miners Village come to a sharp right-hand turn that forces them to slow down.</p>
+
+    <p>This change diverted Boyd Street, joining the grade of the Horseshoe Pike, and the old Boyd Street faded into the woods. The road passed near the former "H&amp;K Materials" site, now occupied by PRL Industries and under development by Byler Holdings, LLC.</p>
+
+    <h2>Changes to the Landscape</h2>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig8-google-earth-boyd-street-turn.jpg" alt="Google Earth satellite image showing Boyd Street's hard turn to join the newer grade of the Horseshoe Turnpike">
+      <figcaption><span class="fig-no">FIG. 8</span>In a recent Google Earth image, Boyd Street is shown making a hard right turn out of Miners Village and joining up with the newer grade of the Horseshoe Turnpike, based on an 1873 map. Of recent interest, this land is being evaluated for a new housing subdivision.</figcaption>
+    </figure>
+
+    <h2>Undermined by Progress</h2>
+
+    <p>By the early 1960s, the expansion of the open pit disrupted the original path of the Horseshoe Pike and the Cornwall Railroad. Passenger service south to Penryn had ceased in 1929, given the advancements of automobile transportation. The expansion of the pit forced the removal of the rail lines over the mountain, which had been used for a while in support of logging operations.</p>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig9-cornwall-railroad-yard-open-pit.jpg" alt="Historic photograph of the Cornwall Railroad yard, later overtaken by the open pit mine">
+      <figcaption><span class="fig-no">FIG. 9</span>Looking to the west, this area, dense with tracks of the Cornwall Railroad yard, was completely overtaken by the open pit. Notice Middle Hill to the left, the Horseshoe Turnpike barely discernible. The Ore Bank superintendent's office and bell tower are on the right. (Credit: <em>Communities of Cornwall Across Time</em>, Trump &amp; Wentzel, used by permission.)</figcaption>
+    </figure>
+
+    <p>Moving the turnpike, joining it with Boyd Street, required the demolition of several magnificent structures that had survived since the 1860s, including the Ore Bank superintendent's office and home &mdash; of none other than J. Taylor Boyd (he had passed in 1918; the last resident was Sheldon Shale, manager of the Cornwall and Lebanon divisions of Bethlehem Steel).</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/horseshoe-pike/fig10-ore-bank-superintendents-office.jpg" alt="The Ore Bank superintendent's office with its distinctive bell tower">
+        <figcaption><span class="fig-no">FIG. 10</span>The superintendent's office, with its bell tower (Trump &amp; Wentzel).</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/horseshoe-pike/fig11-ore-bank-superintendents-mansion.jpg" alt="The Ore Bank superintendent's mansion">
+        <figcaption><span class="fig-no">FIG. 11</span>The superintendent's mansion (Trump &amp; Wentzel).</figcaption>
+      </figure>
+    </div>
+
+    <p>A striking feature of the office was the bell tower that could be seen looking straight down "Boyd Street" from Miners Village. It served to communicate and regulate the mine workers.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/horseshoe-pike/fig12-cornwall-mines-bell.jpg" alt="The Cornwall Mines bell on display at the Cornwall Iron Furnace">
+      <figcaption><span class="fig-no">FIG. 12</span>Thankfully the bell survives and is on display at the Cornwall Iron Furnace (another reason to come for a visit!).</figcaption>
+    </figure>
+
+    <h2>Traveling the Horseshoe Turnpike</h2>
+
+    <figure class="plate plate-sm">
+      <img src="images/horseshoe-pike/fig13-1875-map-horseshoe-turnpike.jpg" alt="1875 map showing the Horseshoe Turnpike, Store and Post Office, and Grist Mill">
+      <figcaption><span class="fig-no">FIG. 13</span>The Horseshoe Turnpike formed the thoroughfare through Cornwall (map, 1875). The Grist Mill was on the west corner of the Coleman Cornwall estate. The road and railway connected to the furnace and mining activity just to the southeast.</figcaption>
+    </figure>
+
+    <h3>East of Cornwall</h3>
+
+    <p>Prior to the 1970s improvements to Routes 72 and 322, the Horseshoe Turnpike passed right through Cornwall by the grist mill, proceeding on past the furnace and mining activity. A map from 100 years earlier shows it continuing southeast below the recently-erected Miners Village.</p>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig14-1873-cornwall-ore-bank-map.jpg" alt="1873 Cornwall Ore Bank map and sections, labeling Jackson House, the furnace, mule barn, Big Hill, Miners Village, and the Horseshoe Pike">
+      <figcaption><span class="fig-no">FIG. 14</span>This 1873 map raised the question about Jackson House as a "roadhouse" on Horseshoe Pike, because of the distance between them. It shows that although mining had expanded considerably, the 1803 Horseshoe Pike and 1850s Cornwall Railroad pass straight through, opposite the creek, bypassing Jackson House and Miners Village. (Credit: Mike Trump.)</figcaption>
+    </figure>
+
+    <p>After it merged with the road now called Boyd Street, the turnpike proceeded on a path over South Mountain probably coinciding with the current path of the 28th Division Highway. But remnants of the old "Boyd Street" road show a transition immediately to Mountain Lane. In the 18th century, it is possible that, given the terrain, wagons followed an easier path on relatively flatter ground, cutting over to what is called today Walnut Springs Road and joining up with the stream called Walnut Run. This joins up with Hammer Creek about where Route 322 now crosses near a trailhead, and proceeds down to Speedwell Forge.</p>
+
+    <figure class="plate">
+      <img src="images/horseshoe-pike/fig15-topo-map-south-mountain-routes.jpg" alt="Topographic map of South Mountain showing Boyd Street, a possible wagon route, and the Horseshoe Trail">
+      <figcaption><span class="fig-no">FIG. 15</span>Topographic view of South Mountain, with Boyd Street upper left, and a possible route (blue line) taken by wagons in the earlier days before the Horseshoe Pike was built. The Horseshoe Trail is highlighted in yellow.</figcaption>
+    </figure>
+
+    <p>Not coincidentally, there is a hiking trail in the region by the name <a href="https://cart.hstrail.org/home/">Horseshoe Trail</a>, not to be confused with the Horseshoe Turnpike. It is a 140-mile trail starting at Valley Forge National Historical Park, connecting to the Appalachian Trail, passing right through our Lebanon County on the way. It runs roughly parallel to the Horseshoe Turnpike, crossing it twice.</p>
+
+    <p>The trail is very popular, with the parking lot at Hammer Creek on Route 322 often full of cars.</p>
+
+    <h2>Traveling Westward on a Trail of History</h2>
+
+    <p>The Horseshoe Pike followed the trail traveled by settlers moving herds of animals westward (credit: <a href="https://visitlebanonvalley.com/">VisitLebanonValley.com</a>). One famous family's journey is mentioned in an account of Daniel Boone's biography. He was 16 when, in 1750, his family left their homestead in Berks County for Virginia, stopping at the home of their Quaker friend Conrad Weiser in Womelsdorf on their way to crossing the Susquehanna at "Harris' Ferry."</p>
+
+    <p>This journey would take them through Lebanon Valley, down "Route 419" through Schaefferstown to Cornwall, and west to Harrisburg.</p>
+
+    <p>Not until passing through Lebanon Valley did the Downingtown, Ephrata and Harrisburg Turnpike, chartered in 1803, acquire the name "Horseshoe Pike." The name seems to have originated from blacksmithing and wagon-repair businesses in Campbelltown, where the Boones may have stopped for lodging and repairs.</p>
+
+    <p>Old roads were often formed by trails made by deer or herding animals, and native American hunters. But it is not surprising that it also served the interests of the influential and wealthy iron master Robert Coleman. The iron from the furnace (under the Grubb family) served an important purpose in the War of Independence and would not be forgotten.</p>
+
+    <p>Coleman's service in Pennsylvania politics had begun in 1776 at the state constitutional convention, followed by the Pennsylvania legislature; later a presidential elector and confidant of George Washington, while also serving as an associate judge of Lancaster County for twenty years. In 1802 he began serving as a trustee of Dickinson College until his death in 1825.</p>
+
+    <h2>Next Time</h2>
+
+    <p>The short version of this story? Still looking for the roots of the Jackson House. Other than pointing to interesting features of our past, what we know for certain is that it was the home of some of our early citizens.</p>
+
+    <p><em>Stay tuned for more roads and surprises.</em></p>
+
+    <p>Your feedback and insights are welcome!</p>
+  </div>
+
+  <div class="credits">
+    <p>Local historian Mark Cain and his history of local railroads.</p>
+    <p>Friends of the Cornwall Iron Furnace for their constant assistance, including Mike Trump and Mike Weber.</p>
+    <p>Originally published on LebTown, July 14, 2026.</p>
+  </div>
+
+  <div class="series-nav" style="margin-top:2rem; border-top:1px solid rgba(43,36,29,0.18); border-bottom:none; padding-top:1.5rem;">
+    <a href="jackson-house.html">&larr; Part One</a>
+    <span class="current">Part 2 of 3</span>
+    <span class="disabled">Part Three &rarr;</span>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
