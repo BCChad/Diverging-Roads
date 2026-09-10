@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Roads, Diverging from an Iron Wood — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:1rem 0 2rem; }
+
+  .series-nav{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1rem 0;
+    margin-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .series-nav a{ color:var(--rust); text-decoration:none; }
+  .series-nav a:hover{ color:var(--iron); }
+  .series-nav .disabled{ color:#b5a887; }
+  .series-nav .current{ color:var(--slate); text-align:center; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+
+  .callout{
+    background:var(--paper-dark);
+    border-left:3px solid var(--brass);
+    padding:1rem 1.25rem;
+    margin:1.75rem 0;
+    font-size:.95rem;
+  }
+  .callout strong{ color:var(--rust); }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:flex;
+    gap:1.25rem;
+  }
+  .plate-row > .plate{ flex:1; margin-top:0; margin-bottom:0; min-width:0; }
+  .plate-row-3{
+    display:flex;
+    gap:1rem;
+  }
+  .plate-row-3 > .plate{ flex:1; margin-top:0; margin-bottom:0; min-width:0; }
+  @media (max-width:600px){
+    .plate-row{ flex-direction:column; }
+    .plate-row-3{ flex-direction:column; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 027 &middot; Cornwall Furnace</div>
+    <h1>Two Roads, Diverging from an Iron Wood</h1>
+    <div class="subtitle">The Cornwall Turnpike, a plank road from the mines to the Union Canal</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published August 5, 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <div class="series-nav">
+    <a href="horseshoe-pike.html">&larr; Part Two</a>
+    <span class="current">Part 3 of 3</span>
+    <span class="disabled">End of series</span>
+  </div>
+
+  <figure class="plate">
+    <img src="images/two-roads-diverging/fig1-1873-map-cornwall-turnpike-mile-marker.jpg" alt="1873 map of Cornwall with the Cornwall Turnpike circled, inset with a photo of a mile marker">
+    <figcaption><span class="fig-no">FIG. 1</span>The Cornwall Turnpike, a plank road originating at the mines by the Horseshoe Pike, connecting to the Union Canal in Lebanon.</figcaption>
+  </figure>
+
+  <p class="lead">Seat-belts fastened? In this installment we time-travel the Cornwall turnpike.</p>
+
+  <div class="section">
+    <p>Amid the daily hustle along one of two north-south routes connecting Cornwall and Lebanon, one no longer recognizes its former importance. The Cornwall road connected iron commerce to the Union Canal, leading to the industrialization of Lebanon.</p>
+
+    <p>Other than the road itself, so little of that remains. Instead, increasing traffic serves medical offices, condominium developments, and the county fairgrounds. Try imagining instead the slow-and-steady clop-clop of hooves on wooden planks, the whistle of a steam engine, and possibly the subtle roar of blast furnaces in the distance.</p>
+
+    <p>In <a href="horseshoe-pike.html">Part 2</a>, we had left off describing the "twists and turns" of the Horseshoe Pike, chartered in 1802 and completed in 1829, passing nearby <a href="jackson-house.html">Cornwall's Jackson House</a> and serving the local iron industry. With Part 3 we ready ourselves at the point where the two roads diverge (apologizing to Robert Frost) and consider the northward route departing from the Cornwall mines.</p>
+
+    <p>Motorists traveling north out of Cornwall on aptly named Cornwall Road would be surprised to learn that the journey does not start at that confusing corner at Cornwall center by the school, church, and Miner's statue. No, it starts further south, a bit past the Cornwall Iron Furnace at the mines, below the hill where Jackson House sits.</p>
+
+    <p>Motorists might be further surprised to learn that the familiar route up Cornwall Road past the Bluebird Inn isn't the way things were back in the day; two points to ponder as we start our journey.</p>
+
+    <p>To the first point, the 1873 map from the previous installment showed the Horseshoe passing in between the Cornwall mines. This time, take note of the Cornwall turnpike (circled in the image above), known today as "Cornwall Road."</p>
+
+    <p>The two roads ran together, forming today's "Rexmont Road," passing the fire station, the Borough offices, the former Grist mill, miller's house, and Stone Arch. As the Horseshoe Turnpike departed, heading west on Alden Street, the Cornwall turnpike continued up through Cornwall, bending around the shale formation by the Grist mill, past the Cornwall Inn, the iron bridge, and the train station (Borough Police) to points north.</p>
+
+    <p>Of course, in the 1850s, other than the Grist mill and house, none of those features existed.</p>
+
+    <p>Later, constant reorientation of railroad grades to serve the expansion of mining, and the construction of the <a href="bird-or-burd.html">Bird Coleman furnaces</a> in the 1870s, changed the landscape to what we recognize today.</p>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig2-1852-survey-north-lebanon-railroad.jpg" alt="1852 survey of Cornwall for the planned North Lebanon railroad">
+      <figcaption><span class="fig-no">FIG. 2</span>An 1852 survey of Cornwall for the then-planned North Lebanon railroad (Horseshoe Turnpike in green, Cornwall turnpike/plank road in pink). Interesting to note is that the original path of the railroad had intended to head east to Rexmont, then turning north by Rexmont Road.</figcaption>
+    </figure>
+
+    <p>No mention of the Stone Arch would be needed, because that feature, along with the iron railroad bridge, was not built until the 1880s.</p>
+
+    <p>The Cornwall turnpike was built in 1852 to transport ore and iron products from the mines and furnace to the "new" Union Canal. But transportation modes were evolving rapidly in the mid-19th century. The Union Canal would be closed in the early 1880s.</p>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig3-1860-bridgens-map-lebanon-county.jpg" alt="Colorful 1860 Bridgens map of Lebanon County showing the Horseshoe Pike through Big Iron Hill and Middle Iron Hill">
+      <figcaption><span class="fig-no">FIG. 3</span>A colorful 1860 map of Lebanon County by Bridgens confirms the story &mdash; the Horseshoe Pike entering from the mountain, lower right, passing through the Cornwall Mines at "Big Iron Hill" and "Middle Iron Hill," proceeding west to Eby's Corner (for Eby's Hotel and General Store), which became known as Bismarck soon after, and then Quentin in 1920.</figcaption>
+    </figure>
+
+    <p>The Cornwall railroad had begun servicing the mines after 1855. The plank road is shown originating just above "Middle Iron Hill," roughly where the Cornwall Borough Fire Department is located today.</p>
+
+    <p>The plank road, drawn with hash marks representing the planks, proceeded due north to Lebanon and followed the east side of the Wm. Coleman estate in Cornwall. This same estate became the 198-acre "Freeman Trust," <a href="https://lebtown.com/2026/07/20/cornwall-historical-alliance-unveils-vision-for-historic-freeman-farm-property/">of recent interest in Borough public meetings</a>.</p>
+
+    <p>But the earlier road out of Cornwall was originally today's "North Cornwall Road" that bent westward to intersect Zinns Mill, then proceeded north into Lebanon at 9th Street. The original road passed across the property of William Coleman, father of <a href="florida-man.html">Robert H. Coleman</a> and <a href="anne-of-cornwall.html">Anne Caroline Coleman Rogers</a>. The road passed by their "Cornwall Cottage" (Anne's birthplace) and the old barn, and the adjacent farm further up, which still stands.</p>
+
+    <p>The road turned slightly to the west, following the path of Snitz Creek, up "North Cornwall Road," proceeding over to Zinns Mill.</p>
+
+    <div class="callout">
+      Since the mill was demolished around 1949, these days folks think of Zinns Mill as the road rather than a destination. Zinns Mill Road heads north out of Quentin, passes behind Fairview Golf Course, and heads east through Midway over to State Road. The mill operated adjacent to Snitz Creek. In the years since the mill's demise, the <strong>Zinns Mill Homestead</strong>, a 200-year-old stone house, has operated as a bed and breakfast, and a gazebo stands at the site of the mill.
+    </div>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig4-1816-map-zinns-mill.jpg" alt="Excerpt of an 1816 map showing Zinns Mill and corresponding roads">
+      <figcaption><span class="fig-no">FIG. 4</span>Excerpt of an 1816 map, showing Zinns Mill (center) and corresponding roads. Courtesy of the Pennsylvania Historical and Museum Commission, Pennsylvania State Archives.</figcaption>
+    </figure>
+
+    <p>An 1816 map of Lebanon County adds confirmation. The "9th Street" road heads due south to Zinns Mill. Colebrook road splits off to the west. At Zinns Mill, the road splits again: one heads down to Manheim, the other down "North Cornwall Road" to Cornwall.</p>
+
+    <p>When the plank road was built in 1852, for practical and economic reasons they chose a more direct route connecting 10th Street at Lights Landing south to Cornwall and down to the mine.</p>
+
+    <p>The existence of road markers confirms that new path.</p>
+
+    <h2>10th Street Landmark</h2>
+
+    <div class="plate-row-3">
+      <figure class="plate">
+        <img src="images/two-roads-diverging/fig5a-mile-marker-5-miles-cornwall.jpg" alt="Mile marker reading C. 5 M. embedded at a building corner in Lebanon">
+        <figcaption><span class="fig-no">FIG. 5</span>"5 miles to Cornwall."</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/two-roads-diverging/fig5b-mile-marker-3-miles-lebanon.jpg" alt="Mile marker announcing 3 miles to Lebanon, standing north of Cornwall">
+        <figcaption><span class="fig-no">FIG. 6</span>"3 miles to Lebanon."</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/two-roads-diverging/fig5c-mile-marker-third-missing.jpg" alt="A third mile marker, no longer standing">
+        <figcaption><span class="fig-no">FIG. 7</span>A third no longer stands (photo: Mike Trump).</figcaption>
+      </figure>
+    </div>
+
+    <p>The road company installed markers at every mile. At least two remain, testifying to the presence of the former plank road. One survives, embedded in concrete at the intersection of 10th and Chestnut Streets, a visible reminder in the 21st century.</p>
+
+    <p>Another marker still stands just south of Zinns Mill Road at the edge of a cornfield. Several others are known to have been removed to private property. The marker proves the new path south from Lebanon, passing <a href="https://lebtown.com/2024/09/10/who-knew-wilhelm-an-intersection-with-lebanon-history/">Artemas Wilhelm's farm</a>, down past the fairgrounds (first held 1957), crossing Zinns Mill Road, past the Bluebird Inn (built several years later in 1859), past North Cornwall Road, Toy Town, to the center of Cornwall.</p>
+
+    <h2>The Union Canal</h2>
+
+    <p>The Union Canal had been envisioned by William Penn in the late 17th century, one hundred years before its inception. Its history is well-told in resources from the Lebanon County Historical Society, which still operates the canal boat tour by the Tunnel Park.</p>
+
+    <p>Construction began in 1792, but due to financial difficulties it took until 1828 to open. When opened, it created a new path of transportation for ore and pig iron from Cornwall.</p>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig6-ai-rendering-ore-wagon-canal.jpg" alt="AI-rendered image of a horse-drawn ore wagon arriving at a canal boat landing">
+      <figcaption><span class="fig-no">FIG. 8</span>An inaccurate AI-rendering of an ore wagon completing the trip from Cornwall to the Union Canal.</figcaption>
+    </figure>
+
+    <p>For the twenty years before 1852, wagons carried their load of iron products and ore northward from Cornwall, past the Cornwall mill, then Zinns Mill, and through Lebanon on 10th Street to Lights Landing. From there, boats on the Union Canal floated the heavy load through its system of locks either east to Reading or west to Middletown.</p>
+
+    <p>In Lebanon the canal passed between today's Guilford and Maple streets.</p>
+
+    <p>Various historical sources mention the difficulties of heavy-laden wagons passing along muddy roads, cutting ever deeper tracks in the old thoroughfares.</p>
+
+    <h2>The Manheim and Lebanon Plank and Turnpike Road Company</h2>
+
+    <p>Plank roads were becoming popular in Pennsylvania, and after twenty years of difficult passage to the canal, the idea of a plank road to Lebanon began in 1848, when the Pennsylvania legislature authorized the charter for the North and South Lebanon Road Company.</p>
+
+    <p>The legislature had been busy issuing charters for as many as 300 such roads in Pennsylvania. The issuing of stock with the promise of profit was like another form of gold rush for the region.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/two-roads-diverging/fig7-cornwall-turnpike-stock-certificate.jpg" alt="Cornwall Turnpike Company stock certificate, shares $25 each">
+      <figcaption><span class="fig-no">FIG. 9</span>The Cornwall Turnpike Company was capitalized with the issue of $28,150 in stock.</figcaption>
+    </figure>
+
+    <p>Lancaster lays claim to a slightly earlier plank road heading north through East Petersburg and up to Manheim. It was described as a plank path built along the existing highway. The planks were 10 feet wide, 2 inches thick, and laid upon stringers. Occasional turnouts provided the means to avoid collisions.</p>
+
+    <p>Pedestrians liked the plank road because it kept them from getting their shoes dirty, until a buggy would come racing along, forcing them to jump off into the mud. Avid horsemen enjoyed racing one another on the road, the "clatter of hooves" resounding on the wooden surface.</p>
+
+    <p>The success of the Lancaster road prompted interest in extending the road from Manheim up to Mt. Hope and the mines at Cornwall.</p>
+
+    <p>Also escalating the demand was the establishment of Cornwall's Anthracite Furnace by 1849 (curiously, the North Lebanon Railroad company also formed in 1850 for the same purpose of speeding the shipment of ore from Cornwall).</p>
+
+    <p>The name of the Lebanon road is a subject of some confusion, as in 1851 the legislature first chartered the Manheim and Lebanon Plank and Turnpike Road Company, setting the tolls at 4 cents per ton per mile. Then, in February 1852, Clement Grubb and his directors formed the Lebanon and Cornwall Plank Road Company.</p>
+
+    <p>The plank road took several years to develop. A May 28, 1852, newspaper reported the laying of planks had begun.</p>
+
+    <p>By November of 1852, an account announced that (in six months' time) a half-mile of the plank road had been laid southward towards Cornwall, with hopes of reaching the Horseshoe Pike by winter: "If the weather continues, a single track will be completed &mdash; for a more awful road than there is from here to the Horseshoe Pike in wintertime, we wouldn't desire to see, let alone travel."</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/two-roads-diverging/fig8-plank-road-depot-advertisement.jpg" alt="Plank Road Depot advertisement for a new cash store opposite Moyer's Hotel">
+      <figcaption><span class="fig-no">FIG. 10</span>One of many advertisements appearing in Lebanon papers citing the draw of the plank road.</figcaption>
+    </figure>
+
+    <p>Even so, in that same month, business establishments in Lebanon were advertising their location on, or proximity to, the plank road, which was North 10th Street (long before it became the present southbound thoroughfare).</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/two-roads-diverging/fig9-farmers-hotel-washington-house.jpg" alt="The former Farmer's Hotel, more recently the Washington House Restaurant">
+      <figcaption><span class="fig-no">FIG. 11</span>An earlier view of the former Farmer's Hotel, known more recently as Washington House Restaurant.</figcaption>
+    </figure>
+
+    <p>Another famous landmark, which remains at 10th and Cumberland, is the Farmer's Hotel. It was erected in 1760, and local legends claim Washington had stayed here when inspecting progress of the Union Canal.</p>
+
+    <p>Those legends emphasized the hotel's location as "at the corner of Cumberland Street and the Cornwall Plank Road."</p>
+
+    <h2>The New Road Opens</h2>
+
+    <p>Miraculously, the first week of January 1853 saw the opening of the road, one track, five miles long to Cornwall and ready to establish gates for collecting tolls. The newspaper account celebrated the valiant efforts of Samuel D. Krauser, who "has been indefatigable in his efforts to have the road finished before winter should set in." Present at the celebratory dinner were also the presidents of the Lancaster and Manheim road companies, making clear the intention of joining their roads to Lebanon's.</p>
+
+    <p>The article mentioned the importance of giving farmers a better means of getting their produce to market, while lamenting the absence of a railroad (which would not exist for at least two more years). However, it may be that the railroad "got there first," before the entire plank road had been realized.</p>
+
+    <p>By April 1853, the newspapers were describing business on the road as "brisk," so much so that the demand for ore exceeded the availability of teamsters to haul it. A wagon load was charged $1 per ton for the five-mile trip, about five times what the legislature had envisioned two years before.</p>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig10-plank-road-accident-newspaper.jpg" alt="Newspaper clipping reporting an accident on the plank road, a teamster's foot crushed by a wagon wheel">
+      <figcaption><span class="fig-no">FIG. 12</span>And within a few months, a human tragedy occurred on the plank road &mdash; a wagon carrying four tons of ore crushed a man's foot.</figcaption>
+    </figure>
+
+    <h2>Improvements</h2>
+
+    <p>The decade of the 1850s marked rapid changes, suggesting a "plank road bubble" for the investors who sought fortune from the toll road income.</p>
+
+    <p>The North Lebanon Railroad opened in 1855 (its name would change to the Cornwall Railroad in 1870), competing with the shipments of iron to the Union Canal. A flood caused severe damage to the canal in 1862. By 1885 it closed, as the east-west Lebanon Valley Railroad had been outperforming it since opening in 1857.</p>
+
+    <p>In 1860 the plank road changed its name briefly to the North Lebanon and Mount Hope Plank and Turnpike Road Company, and then to the Cornwall Turnpike Company in 1861.</p>
+
+    <p>Plank roads required frequent maintenance and replacement of the planks. The road was described as worn-out in 1860. George Weidel, a well-known citizen of Lebanon, had made his living harvesting timber from the Blue Mountains on the north side of the county, to be used to keep the Cornwall plank road in repair.</p>
+
+    <p>In his 1890 biography, Artemas Wilhelm, while still living at the Jackson House in 1861, is described as having purchased the worn-out road (probably a significant share) and became its president. "Under his management it was thoroughly changed and made one of the best macadamized roads in the country." He also went on to build the spiral railroad at Big Hill, renovated the Cornwall mansions, managed several industries, and became the manager of Robert H. Coleman's affairs.</p>
+
+    <p>"Macadam" conjures visions of a road paved with blacktop; however, the technique is named for its Scottish inventor, John Macadam, and was invented around 1820. It consists of layers of crushed stone, with finer stone dust helping to bind the stones, especially when rolled and compressed. A later improved "tar-mac" included the introduction of bituminous coal tar at the turn of the 20th century.</p>
+
+    <p>As president of the Cornwall Turnpike Company, Wilhelm held the position until he retired and resigned in 1902. The company kept offices at 905 Willow Street.</p>
+
+    <p>The turnpike existed as a plank road for less than nine years, ending in 1861. Having turned macadam, the old plank mystique resurfaced in the 1880s, first in 1888 and later in 1911, when digging sewer systems at 10th and Cumberland revealed planks and wooden culverts that had been built for drainage.</p>
+
+    <p>The twenty-foot section of plank road was discovered 18 inches under the surface of the street. And in a related story, enterprising County Treasurer-elect John E. Hartman, of 10th and Lehman streets, retrieved a piece of the old plank road from the workers to have a walnut cane made for himself.</p>
+
+    <h2>Plank Roads &mdash; More Than You Wanted to Know</h2>
+
+    <p>According to a historical report about the Newtown Square plank road, the idea of plank roads came from Russia and Canada, and was first used in 1846 when such a road was built from Syracuse, New York to Lake Oneida, about 16 miles.</p>
+
+    <p>The idea caught on quickly between 1846 and 1856, with the General Assembly chartering about 300 plank turnpike companies.</p>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig11-plank-road-construction-diagram.jpg" alt="Diagram of simple plank road construction, showing wooden rails and planks">
+      <figcaption><span class="fig-no">FIG. 13</span>Image of simple plank road construction (Tredyffrin Easttown Historical Society).</figcaption>
+    </figure>
+
+    <p>The configuration of a road seemed to simply be a set of wooden rails, across which are laid 8-foot planks, ranging from 2 to 4 inches thick and 9 to 16 inches wide. If, according to one description, the planks were placed loosely on the rails, perhaps it was possible to quickly lay up to 5 miles of the Cornwall road within a six-month period, at a rate of 100&ndash;200 planks per day.</p>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig12-plank-road-specimen-cornwall-furnace.jpg" alt="A surviving plank fragment of the Cornwall plank road, on display at the Cornwall Iron Furnace">
+      <figcaption><span class="fig-no">FIG. 14</span>A surviving specimen of the Cornwall plank road is on display at the Cornwall Iron Furnace.</figcaption>
+    </figure>
+
+    <p>Another question is: where did all of those planks come from? The Cornwall Grist Mill had expanded to include a sawmill, which could have produced planks for the road passing just a hundred feet to the west. The Blue Mountains were also a source.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/two-roads-diverging/fig13-puncheon-road-illustration.jpg" alt="Illustration of a puncheon road, with stringers, running planks, and curb rails">
+      <figcaption><span class="fig-no">FIG. 15</span>Public domain image of a puncheon road, on the USDA website (from Wikipedia).</figcaption>
+    </figure>
+
+    <p>There are different types of planking. In addition to the simple example, Wikipedia offers a more substantial construction called a "puncheon," which, according to the illustration, not only has multiple stringers or sleepers, but running planks and curb rails that kept wagon wheels aligned, and perhaps allowed for wear induced by iron horseshoes.</p>
+
+    <p>Although the word "puncheon" does not appear in local descriptions, the fact that a "single track" had been reported completed suggests a more sophisticated design. The flat plank fragment on display at the Cornwall Iron Furnace could suggest either of the two design types.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/two-roads-diverging/fig14-corduroy-road-illustration.jpg" alt="Illustration of a corduroy road, made of rough-hewn logs">
+      <figcaption><span class="fig-no">FIG. 16</span>Corduroy road (source: Wikipedia, public domain).</figcaption>
+    </figure>
+
+    <p>Another classic term mentioned generally were corduroy roads, with rough-hewn logs placed directly on the ground, providing traction in muddy or marshy areas. These might be as much as 16 feet wide, quickly constructed by felling nearby trees.</p>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig15-lebanon-valley-beer-corduroy-road-ad.jpg" alt="Vintage Lebanon Valley Beer advertisement titled A Bumpy Ride on the Corduroy Road, retelling the plank road history">
+      <figcaption><span class="fig-no">FIG. 17</span>This quaint beer advertisement gives a quick history of the Cornwall plank road. It may have been a bumpy ride, but it would not have been accurate to call it a "corduroy road" (further, the year should have stated 1852).</figcaption>
+    </figure>
+
+    <p>The rough, noisy ride was not very enjoyable; such roads did not allow good rainwater drainage, and the jarring made it hazardous for wagons and automobiles. Higher speed vehicles also caused greater wear.</p>
+
+    <p>In fact, when automobiles were used on the Cornwall Turnpike (not with planks, but gravel and crushed stone), the turnpike company increased the toll rate to account for increased maintenance.</p>
+
+    <p>Far from the bone-jarring rattle of corduroy roads, one source described the sensation of riding a plank road as similar to riding a sleigh.</p>
+
+    <h2>Plank Road Etiquette and Behavior</h2>
+
+    <figure class="plate">
+      <img src="images/two-roads-diverging/fig16-old-plank-road-illustration.jpg" alt="Illustration titled The Old Plank Road, showing people, a horse, and a wagon gathered on the planked street">
+      <figcaption><span class="fig-no">FIG. 18</span>"The Old Plank Road."</figcaption>
+    </figure>
+
+    <p>If two wagons met on a single-track road, one would have to pull off the road to let the other pass. Afterwards, getting the wagon wheels back on the track could be challenging. The planks were roughly aligned to make it easier for the wheel to catch the plank edge as it was pulled back up (this would have been more challenging if it had rails like a puncheon).</p>
+
+    <p>As a macadam road, the turnpike company was the target of public ire. Letters to the editor in 1893 concerned the width of the ditches along the Cornwall road. The turnpike claimed a roadbed 40 feet wide, making it difficult for wagons on cross-streets to pass without difficulty.</p>
+
+    <p>Henry Lowery, the tollkeeper residing in the toll gate house at the southern portion of the road, suffered a burglary one evening in May of 1886. The perpetrators broke in during the night, taking a "fine suit of clothes" and three dollars.</p>
+
+    <p>And would you believe vandalism was a problem? In 1897 the Cornwall Turnpike Company was offering a $25 reward to capture the "persons who placed tacks and broken glass on the pike for the purpose of puncturing bicycle tires."</p>
+
+    <h2>Tolls and Toll Houses</h2>
+
+    <figure class="plate plate-sm">
+      <img src="images/two-roads-diverging/fig17-toll-schedule-toll-house.jpg" alt="A framed toll schedule that hung on the wall of the toll house">
+      <figcaption><span class="fig-no">FIG. 19</span>Toll schedule in its original frame, as it hung on the wall of the toll house (shared by Mike Trump).</figcaption>
+    </figure>
+
+    <p>Another matter of "etiquette" was the honor system in toll collections.</p>
+
+    <p>There were two toll houses: Henry Lowery's house in North Cornwall, and the other in Hauckville, where Cornwall Road passes the Lebanon High School today. Both are located about two miles from the endpoints of the road, respectively.</p>
+
+    <p>On stopping at the toll house, a toll was assessed by the distance and the conveyance. In 1873 the toll ranged from a half-cent to 4 cents per mile; more for a larger wagon, and the maximum rate for four horses. A load of hogs, sheep, or cattle was assessed by the score. Personal conveyances, whether a sulky or carriage, were two cents for one or two horses, but four cents for four horses. A sleigh or sled was charged a half-cent per mile per horse.</p>
+
+    <p>As rates were charged by the mile, there were markers at every mile. Those who were caught understating their travel, with intent to "defraud said Company of its toll," were charged a penalty of five dollars &mdash; a significant deterrent.</p>
+
+    <h2>Transition to a New Era</h2>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/two-roads-diverging/fig18a-new-toll-rates-cornwall-pike-1914.jpg" alt="Newspaper headline: New Schedule of Rates on Cornwall Pike, Autos Hard on Road">
+        <figcaption><span class="fig-no">FIG. 20</span>New rates on the Cornwall Pike, 1914 &mdash; automobiles blamed for the wear.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/two-roads-diverging/fig18b-new-toll-rates-detail-1914.jpg" alt="Newspaper article detailing the new toll rates for the Cornwall Turnpike in 1914">
+        <figcaption><span class="fig-no">FIG. 21</span>&hellip;ten cents for a one-way trip to Cornwall.</figcaption>
+      </figure>
+    </div>
+
+    <p>The introduction of the automobile on local roads created some problems for the turnpike, as well as some irritation to motorists, who in 1914 might prefer finding an alternate route than paying the outrageous sum of 10 cents to ride into Lebanon from Cornwall.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/two-roads-diverging/fig19-lebanon-free-of-toll-roads-1918.jpg" alt="Newspaper headline: Lebanon Co. Now Free of Toll Roads, transfer of Cornwall Pike took place this morning">
+      <figcaption><span class="fig-no">FIG. 22</span>"Lebanon Co. Now Free of Toll Roads," 1918.</figcaption>
+    </figure>
+
+    <p>By 1918 Pennsylvania was eliminating local toll roads. For several months there was much discourse at the county and state level, deciding finally that the state would buy the Cornwall Pike for $6,250, as long as Lebanon County paid half of the price.</p>
+
+    <p>On the day of closing, the deputy state highway commissioner immediately traveled down the road to close the two toll houses (which would be retained to house the road keepers in charge of its maintenance) and declare the road open to public use, toll-free.</p>
+
+    <h2>Retrospective</h2>
+
+    <p>A 1916 photograph from the Lebanon County Historical Society archives depicts two women posing for the camera while sitting on a fence alongside the turnpike, enjoying an early spring day, with no vehicles in sight.</p>
+
+    <p>The road, whether you know it as Cornwall Road, the old Cornwall Turnpike, or briefly the "plank road," quietly testifies to the long-passed iron industry that drove economic development, and also the great farms of Lebanon Valley which continue to grace our landscape; may they continue to flourish.</p>
+
+    <p>Artemas Wilhelm enjoyed "his road," having moved from Jackson House in the 1860s. A map depicts his new house ("A. Wilhelm") across the road from the Coleman estate, where he managed widow Sue Ellen Coleman's affairs.</p>
+
+    <p>Traveling to Lebanon and back for his other duties, he would admire and later purchase the 62-acre farm from Samuel Erb on the road now known as <a href="https://lebtown.com/2024/09/10/who-knew-wilhelm-an-intersection-with-lebanon-history/">Wilhelm Street</a>.</p>
+
+    <p>On Sunday mornings, Sue Ellen Coleman, with children Robert and Anne, would order her carriage prepared for the journey to hear Rev. Abel preach at St. Luke's Episcopal Church at 6th and Chestnut streets. The new road, more direct and more comfortable, made for a pleasant journey.</p>
+
+    <p>Little remains of the Cornwall turnpike today, other than two old toll houses that became private residences, and a few mile-markers.</p>
+
+    <p>And this remnant: locals traveling down Cornwall Road today into Cornwall center notice the low, red sandstone wall, opposite Toy Town. When fashioned with iron gates, this became the grand entrance to the Robert H. Coleman property.</p>
+
+    <p>A similar wall faces Rt. 419/Freeman Drive up to the culvert over Snitz Creek. The old wall stops where the old road passed through his father's property.</p>
+
+    <p>A memo from Artemas Wilhelm in October 1860 specified several hundred feet of stone wall, for which the stone mason estimated about 3,400 cubic feet of stone at a cost of $185.00. Wilhelm's sketch indicated, as a reference point, "to turnpike."</p>
+
+    <p>Apparently, it had become time to redirect traffic and encourage use of the toll road. For his efforts, William Coleman passed away the following year.</p>
+
+    <h2>Jackson House Story Updates</h2>
+
+    <p>Research on this topic keeps turning up new information even after parts have gone to press. Part 2 on the Horseshoe Turnpike has been updated, showing the discovery of a 1787 map depicting "the great Road" over South Mountain. Today's 28th Division Highway follows the same path from Boyd Street to Brickerville as the great road did back then.</p>
+
+    <p>The National Register of Historic Places description of the Cornwall estate (now Cornwall Manor) declares the Jackson House building as Federal/Greek Revival period (dating 1760&ndash;1830), with features that suggest late-18th-century construction.</p>
+
+    <p>On examining pictures of the old Farmer's Hotel, built in 1760, there seem to be architectural similarities to Jackson House that would date it several decades before the assumed 1830 date. You decide.</p>
+  </div>
+
+  <div class="credits">
+    <p>Thanks for ever-encouraging support from Friends of the Cornwall Iron Furnace. In particular, Pat Rhen, with his insights and passion for local roads; and Mike Trump, his collection of artifacts and photographs, and who knows where all of the fallen turnpike markers are.</p>
+    <p>Originally published on LebTown, August 5, 2026.</p>
+  </div>
+
+  <div class="series-nav" style="margin-top:2rem; border-top:1px solid rgba(43,36,29,0.18); border-bottom:none; padding-top:1.5rem;">
+    <a href="horseshoe-pike.html">&larr; Part Two</a>
+    <span class="current">Part 3 of 3</span>
+    <span class="disabled">End of series</span>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>

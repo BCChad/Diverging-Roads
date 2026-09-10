@@ -152,15 +152,22 @@
   }
   .callout strong{ color:var(--rust); }
 
-  .to-be-continued{
+  .series-nav{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1rem 0;
+    margin-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
     font-family:'Special Elite', monospace;
-    font-size:.72rem;
-    letter-spacing:.1em;
+    font-size:.7rem;
+    letter-spacing:.06em;
     text-transform:uppercase;
-    color:var(--rust);
-    margin-top:2rem;
-    margin-bottom:.5rem;
   }
+  .series-nav a{ color:var(--rust); text-decoration:none; }
+  .series-nav a:hover{ color:var(--iron); }
+  .series-nav .disabled{ color:#b5a887; }
+  .series-nav .current{ color:var(--slate); text-align:center; }
 
   .plate{
     margin:1.75rem 0;
@@ -251,7 +258,6 @@
   <div class="wrap">
     <div class="eyebrow">No. 025 &middot; Cornwall Furnace</div>
     <h1>Jackson House, on the Road to Lebanon County</h1>
-    <div class="subtitle">Part 1 of a Series</div>
     <div class="art-meta">
       <span>By Bruce Chadbourne</span>
       <span>&middot;</span>
@@ -261,6 +267,12 @@
 </header>
 
 <main class="wrap article">
+
+  <div class="series-nav">
+    <span class="disabled">&larr; Start of series</span>
+    <span class="current">Part 1 of 3</span>
+    <a href="horseshoe-pike.html">Part Two &rarr;</a>
+  </div>
 
   <figure class="plate">
     <img src="images/jackson-house/fig1-jackson-house-cornwall-childrens-center.jpg" alt="Jackson House at 220 Boyd Street, Cornwall, in its later years as Cornwall Children's Center">
@@ -357,14 +369,23 @@
 
     <p>Hopefully new life and purpose can be breathed into this historic structure.</p>
 
-    <p class="to-be-continued">To be continued</p>
     <p><em>Pulling the string on this story only seems to complicate matters, begging questions which this author intends to untangle in the next installment.</em></p>
+
+    <div class="callout">
+      <strong>Update:</strong> Research for <a href="two-roads-diverging.html">Part 3</a> turned up the National Register of Historic Places description of the Cornwall estate, which dates the Jackson House building to the Federal/Greek Revival period (1760&ndash;1830) &mdash; with features suggesting construction well before the assumed 1830s date. Comparing it to the old Farmer's Hotel in Lebanon, built in 1760, only deepens the question.
+    </div>
   </div>
 
   <div class="credits">
     <p>A special mention to the excellent history at <a href="https://en.wikipedia.org/wiki/U.S._Route_322_in_Pennsylvania">U.S. Route 322 in Pennsylvania</a> on Wikipedia.</p>
     <p>Thanks to the "Friends of the Cornwall Iron Furnace," whose assistance has been invaluable.</p>
     <p>Originally published on LebTown, June 24, 2026.</p>
+  </div>
+
+  <div class="series-nav" style="margin-top:2rem; border-top:1px solid rgba(43,36,29,0.18); border-bottom:none; padding-top:1.5rem;">
+    <span class="disabled">&larr; Start of series</span>
+    <span class="current">Part 1 of 3</span>
+    <a href="horseshoe-pike.html">Part Two &rarr;</a>
   </div>
 
   <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
