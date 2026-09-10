@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cornwall &amp; Western Railroad — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+  .section p.closing-question{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--rust);
+  }
+
+  .callout{
+    background:var(--paper-dark);
+    border-left:3px solid var(--brass);
+    padding:1rem 1.25rem;
+    margin:1.75rem 0;
+    font-size:.95rem;
+  }
+  .callout strong{ color:var(--rust); }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:flex;
+    gap:1.25rem;
+  }
+  .plate-row > .plate{ flex:1; margin-top:0; margin-bottom:0; min-width:0; }
+  @media (max-width:600px){
+    .plate-row{ flex-direction:column; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 028 &middot; Cornwall Furnace</div>
+    <h1>The Cornwall &amp; Western Railroad</h1>
+    <div class="subtitle">The story of a train that never left the station</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published September 9, 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/cornwall-western-railroad/fig1-cornwall-western-locomotive-blueprint.jpg" alt="A Cornwall locomotive photo composited over the original Cornwall and Western Railroad survey blueprint">
+    <figcaption><span class="fig-no">FIG. 1</span>The Cornwall &amp; Western Railroad, imagined over George Zinn's original survey blueprint.</figcaption>
+  </figure>
+
+  <p class="lead">Following two recent stories of roads that served Lebanon County, consider this curious third, a rail-road: as if three railroads were not sufficient to support the local iron industry and commerce, at the turn of the 20th century a fourth railroad was being planned.</p>
+
+  <div class="section">
+    <p>Although covered at the time in the local newspaper, this story lives again thanks to a lucky find of original material at Cornwall Manor. Get ready to climb aboard, for a story of iron, steel, and a dash of&hellip; chocolate!</p>
+
+    <h2>Hidden Away</h2>
+
+    <p>Sadly, after the Methodist Church Home (i.e. Cornwall Manor) acquired the "Mansion enclosure" and estate from the Freeman family in 1949, most of the historic Coleman and Freeman antique furnishings were auctioned off to offset the costs of the acquisition.</p>
+
+    <p>But lurking in a back hallway remained a trunk left unopened until decades later, containing the kind of odds and ends a family keeps for no particular reason other than not knowing what to do with the unimportant. Among them was a set of souvenir trivets from the World's Fair, an empty bottle of Carter's ink, and a tin of dried-up Vulcanol stove black.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig2-trunk-souvenirs-cornwall-manor.jpg" alt="Souvenir trivets, an old ink bottle, and a tin of stove black found in a trunk at Cornwall Manor">
+      <figcaption><span class="fig-no">FIG. 2</span>Souvenirs from a forgotten trunk: World's Fair trivets, a bottle of Carter's ink, and a tin of Vulcanol stove black.</figcaption>
+    </figure>
+
+    <p>And with them a handful of small, worn leather-bound books with labels like "transit book" and "level book." Almost less interesting were the pages inside, containing simple faded pencil sketches, lines and numbers in small hen-scratched handwriting.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig3-cwrr-survey-field-books.jpg" alt="Small leather-bound survey field books labeled C.&W.R.R.">
+      <figcaption><span class="fig-no">FIG. 3</span>Pocket-sized books of the C.&amp;W.R.R. survey.</figcaption>
+    </figure>
+
+    <p>What didn't make sense were the initials "C.&amp;W.R.R." on the cover of the books. Local history frequently refers to "C.R.R." and "C.&amp;L.R.R.," the two railroads that serviced the Cornwall Ore Banks, and which led to development of recreational parks at Mt. Gretna and Penryn.</p>
+
+    <p>At first it seemed likely the books were old records of either one &mdash; the Cornwall Railroad from the 1850s and the Cornwall &amp; Lebanon from the 1880s. After all, the names of both had undergone several iterations from the time of their inception. "C.&amp;W.R.R." could have been referring to an early version of the same thing.</p>
+
+    <p>But then more books turned up &mdash; not in the trunk, but casually displayed as old reading material in the mansion library. These were different: not "C.&amp;W.R.R." but "Mt. Hope Railway." If you know your local history &mdash; Mt. Hope was the property, not of the Colemans, but of the Grubb family, on the other side of South Mountain, down Route 72, where stood a mansion and furnace, now a winery and the Renaissance fairgrounds.</p>
+
+    <p class="closing-question">What is going on here?</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig4-mt-hope-railway-books.jpg" alt="More survey books, labeled Mt. Hope Railway">
+      <figcaption><span class="fig-no">FIG. 4</span>More books, these of the Mt. Hope Railway.</figcaption>
+    </figure>
+
+    <p>Cornwall Manor's Gateway Library includes materials that had been assembled by earlier residents with an interest in history. Dr. Thomas Hunter was a resident in the 1980s, publishing much of the local history, and was instrumental in achieving the National Historic Registry for Cornwall Manor.</p>
+
+    <p>Thanks to the work of Hunter and former employees, more records mentioning "C.&amp;W.R.R." were preserved, leaving sufficient clues for digging into this story.</p>
+
+    <h2>Weren't Three Railroads Enough?</h2>
+
+    <p>When the Union Canal opened in 1828, steam power followed within a few more decades. Those keeping track (unintended pun) of railroads know that the first through the area was the east-west Lebanon Valley Railroad from Reading to Harrisburg in the mid-1850s. After opening, it almost immediately sold, becoming part of the Philadelphia &amp; Reading railroad.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig5-lebanon-valley-railroad.jpg" alt="Map of the Lebanon Valley Railroad">
+      <figcaption><span class="fig-no">FIG. 5</span>Lebanon Valley Railroad, east-west connection from Reading, through Lebanon, to Harrisburg.</figcaption>
+    </figure>
+
+    <p>In the 1850s, when Cornwall's <a href="two-roads-diverging.html">plank road</a> opened a connection between the Cornwall mine and the canal, the Coleman industrialists also built the Cornwall railroad, first known as the North Lebanon railroad.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/cornwall-western-railroad/fig6-cornwall-railroad.jpg" alt="Cornwall Railroad map or certificate">
+        <figcaption><span class="fig-no">FIG. 6</span>Cornwall Railroad, the local line connecting Miners Village and ore banks to Lebanon.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/cornwall-western-railroad/fig7-cornwall-lebanon-railroad.jpg" alt="Cornwall and Lebanon Railroad advertisement">
+        <figcaption><span class="fig-no">FIG. 7</span>Cornwall &amp; Lebanon Railroad, claiming superior service compared to its rival.</figcaption>
+      </figure>
+    </div>
+
+    <p>Robert H. Coleman added a third in the 1880s, the Cornwall &amp; Lebanon railroad. It seemed redundant, having two lines connecting Lebanon to Cornwall, but initially Coleman hoped to enhance ore shipments by connecting his "Colebrook Valley Railroad" to the Pennsylvania railroad on the west end, to Cornwall on the east, by leasing the Cornwall Railroad. Strained relations with his cousins William C. Freeman and Edward C. Freeman prevented him from doing so. Rather than reconcile the bitterness, he found it easier to build his own railroad all the way to Lebanon.</p>
+
+    <p>The curious thing about their animosity was that of the various boards controlling the ore banks, the plank road, and the railroads, these men shared responsibility as directors and presidents.</p>
+
+    <h2>Time Passing&hellip;</h2>
+
+    <p>Now less than 20 years later, around 1900, the Coleman dynasty was considering another east-west line. By this time, <a href="florida-man.html">Robert H. Coleman had suffered financial ruin</a> and left town. Many of his assets had been bought by his cousin and rival William C. Freeman.</p>
+
+    <p>The Coleman name faded from Cornwall history, but commerce in iron ore remained strong with the advances of the steel industry.</p>
+
+    <p>Even though Coleman had already connected the Cornwall &amp; Lebanon Railroad westward to the Pennsylvania line at Conewago, the Freemans were now seeking to connect their Cornwall Railroad to points further west.</p>
+
+    <p>It is unclear why they would build another route, possibly just to expand capacity. The newspaper accounts also raised the matter of shipping farm goods out of the valley.</p>
+
+    <h2>Mt. Hope &mdash; Mt. Joy Railroad</h2>
+
+    <p>In 1898, the Freemans hired an engineer and surveyor with the intention of expanding the Cornwall Railroad to Mt. Joy, which already reached southward through Penryn to Mt. Hope. They visited each farm on the intended path, recording the details of their survey in the field books mentioned above.</p>
+
+    <p>"L. Hankins" was the name of the surveyor, as recorded in the field books. His partner was C. K. Bryant. He had documented his travel expenses from Front Royal, Virginia, for reimbursement. Names of other men &mdash; Miller, Stark, Carlton, and Ballard &mdash; rounded out the team.</p>
+
+    <p>Their work began March 9, 1898. Several Lancaster County papers picked up the brief story two weeks later, mentioning the railroad survey passing one-half mile of Mastersonville, a crossroads on North Colebrook road. Hankins' personal ledger reported room and board at the Mastersonville hotel.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig8-1898-mt-hope-mt-joy-survey-map.jpg" alt="Map showing an approximate red-line path connecting the Cornwall Railroad through Mt. Hope to the Pennsylvania Railroad at Mt. Joy">
+      <figcaption><span class="fig-no">FIG. 8</span>An approximate path (red line) connecting the Cornwall Railroad through Mt. Hope to the Pennsylvania Railroad at Mt. Joy, surveyed in 1898 but never built.</figcaption>
+    </figure>
+
+    <p>After the survey documents were delivered, the idea of the Mt. Hope railroad was abandoned and E. C. Freeman filed them away.</p>
+
+    <p>Freeman and Buckingham may have considered the economics of sending trains the long way over South Mountain to Mt. Joy, when a more direct route could be had by intersecting the Cornwall Railroad nearer to both the Cornwall Ore Bank and Lebanon industries.</p>
+
+    <p>More likely they had caught wind of a potential merger in the steel industry (read on&hellip;).</p>
+
+    <h2>Chartering the Cornwall &amp; Western Railroad</h2>
+
+    <p>The Cornwall &amp; Western Railroad was authorized in March 1901, with stock valued at $250,000. The primary shareholders were Edward C. Freeman and his brother-in-law Benjamin H. Buckingham, of the Cornwall estate.</p>
+
+    <p>The news article made no mention of the Mt. Hope extension to the south, but instead a 25-mile route westward from Cornwall to Steelton, through Fontana and Campbelltown. It would pass by the marble quarries near Derry and the Walton sandstone quarry on the Swatara.</p>
+
+    <p>The Cornwall &amp; Western Railroad would serve the southern part of Lebanon County, the newspaper claiming: "People living in that section are anxious to see the road built."</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/cornwall-western-railroad/fig9-charter-announcement-newspaper.jpg" alt="Newspaper article announcing the Cornwall and Western Railroad charter and its directors">
+        <figcaption><span class="fig-no">FIG. 9</span>The charter announcement, naming Buckingham, Freeman, <a href="restoring-millwoods-former-glory.html">R. Percy Alden</a>, and the other directors.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/cornwall-western-railroad/fig10-law-firm-charter-fees-letter.jpg" alt="Letter from a Philadelphia law firm confirming charter fees paid, March 15 1901">
+        <figcaption><span class="fig-no">FIG. 10</span>A Philadelphia law firm confirms the charter fees paid to the Commonwealth, March 15, 1901.</figcaption>
+      </figure>
+    </div>
+
+    <p>Buckingham would serve as president. Freeman, his cousin lawyer <a href="restoring-millwoods-former-glory.html">R. Percy Alden</a>, and six other local businessmen served as directors.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig11-pennsylvania-steelworks-steelton.jpg" alt="The Pennsylvania Steelworks at Steelton, along the Susquehanna River">
+      <figcaption><span class="fig-no">FIG. 11</span>The Pennsylvania Steelworks, Steelton, along the Susquehanna River and the tracks of the Pennsylvania Railroad, began producing steel in 1867. (Credit: Pennlive.com)</figcaption>
+    </figure>
+
+    <p>Pennsylvania would also benefit from having a new line into Lebanon, which had become a "rich freight-producing district." Plans included a length of double-tracking of the Cornwall Railroad between Lebanon and Midway, and the expansion of freight yards, to serve the 25-mile connection to the Pennsylvania Steel works at Steelton.</p>
+
+    <p>The Cornwall Railroad would also be building a roundhouse twice as large as the existing one at the Union Canal basin in Lebanon. They anticipated adding five locomotives for the Cornwall &amp; Western to the five already in service.</p>
+
+    <h2>Westward Through the County</h2>
+
+    <p>In early November of 1900, several months before the charter approval, J. R. Savage the engineer and surveyor Hankins were beginning again.</p>
+
+    <p>In addition to their leather-bound field books, other survey records were left behind in the Cornwall mansion. Among them are survey blueprints and copies of the right-of-way agreements that had been negotiated with each landowner. A register compiled by Savage listed each property to be traversed by the rail, with the linear distance and acreage of each agreement.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig12-survey-blueprint-right-of-way.jpg" alt="Survey blueprint and right-of-way register">
+      <figcaption><span class="fig-no">FIG. 12</span>Register of right-of-way agreements, compiled by Chief Engineer Savage.</figcaption>
+    </figure>
+
+    <p>The landowners signed agreements ceding a strip sixty feet wide, for the reported price of about $130 per acre. However, the engineer's record shows that some owners asked a lot more and settled for up to ten times that rate. In many cases the cost of fencing was also included.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig13-survey-map-property.jpg" alt="Survey map of one property along the proposed railroad route">
+      <figcaption><span class="fig-no">FIG. 13</span>Survey maps were created for each property along the proposed route.</figcaption>
+    </figure>
+
+    <p>The surveying work drew enough attention that a news story appeared January 24th, describing the work as being done by the Pennsylvania Railroad under "the greatest secrecy, and the engineers themselves have not made any statement of the purpose of the work."</p>
+
+    <p>"Unverified reports" claimed the surveying work concerned the construction of a rail connecting the Cornwall Railroad to the Pennsylvania Railroad near Middletown.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig14-planned-connection-steelton.jpg" alt="Map of the planned connection to the Pennsylvania Railroad at Steelton">
+      <figcaption><span class="fig-no">FIG. 14</span>The planned connection to the Pennsylvania Railroad in Steelton.</figcaption>
+    </figure>
+
+    <p>As the work of the survey neared completion, spokesmen for the Cornwall railroad were tight-lipped, whether President B. H. Buckingham, Superintendent A. M. Patch, or Chief Engineer Savage, each either denied reports or declined to be interviewed.</p>
+
+    <h2>Expansive Excitement</h2>
+
+    <p>In mid-March, when release of the charter made the story official, Savage and H. C. Shirk the attorney were visiting landowners, securing their agreement to rights-of-way. The farmers were described as "positive," expecting improved delivery of their produce to market.</p>
+
+    <p>They were supportive in every way, including on receipt of notices that certain barns and outbuildings must soon be removed. No obstacles were expected from the locals in constructing the line. Instead, rivalry arose among the towns along the route &mdash; Fontana, Mt. Pleasant, Campbelltown, Hockersville &mdash; vying for the construction of train stops on the line.</p>
+
+    <p>Rivalry of another type erupted from the offices of the Reading Railroad, which viewed the new line as a breach in the relations and agreements between the two major railroads. The Reading rattled its sword, proposing a long run from Chambersburg to Pittsburgh in competition with the Pennsylvania Railroad.</p>
+
+    <p>Along with the unhappy directors of the Reading Railroad, the people of Highspire (near Steelton) were becoming "somewhat agitated" when a wealthy businessman, J. F. Rohrer, began buying up large tracts of real estate &mdash; seventeen properties in all &mdash; that would be needed for the Pennsylvania Railroad.</p>
+
+    <p>Another report marked the importance of limestone mining, essential for furnaces, and limestone burning, producing lime for farms and other manufacturing purposes. With Lebanon Valley known for its great limestone formations, the railroad would "open and make accessible many limestone quarries."</p>
+
+    <p>Overall, by the end of March, barely two weeks after the charter was announced, the air was very positive, with construction expected to begin in late spring, and cars running on the road by year-end.</p>
+
+    <h2>Notable Support From a Caramel-Maker</h2>
+
+    <figure class="plate plate-sm">
+      <img src="images/cornwall-western-railroad/fig15-hershey-caramel-factory-newspaper.jpg" alt="Newspaper article headlined Soon Begin to Build, Erection of the Caramel Factory Near Campbelltown">
+      <figcaption><span class="fig-no">FIG. 15</span>"Soon Begin to Build" &mdash; Milton Hershey's planned caramel factory near the Cornwall &amp; Western.</figcaption>
+    </figure>
+
+    <p>That same day came a report concerning a Lancaster businessman named Milton Hershey, who had recently sold his successful caramel factory for $1 million.</p>
+
+    <p>Hershey intended to build a factory on his farm in Hockersville, several miles west of Campbelltown. He was making plans to erect a large building for the manufacture of caramels, to begin in the spring. He also would erect a new barn for the large herd of cows he envisioned.</p>
+
+    <p>Why here? And now? He wanted to locate the new factory near the Cornwall &amp; Western Road. Nearly everyone was on board!</p>
+
+    <h2>The Route as Planned</h2>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig16-route-comparison-map.jpg" alt="Map comparing the proposed Cornwall and Western route to the 1898 Mt. Joy survey route">
+      <figcaption><span class="fig-no">FIG. 16</span>Route of the proposed Cornwall &amp; Western (green), from survey data, compared to the 1898 Mt. Joy route (pink).</figcaption>
+    </figure>
+
+    <p>By May 1, the officials of the C.&amp;W.R.R. were more talkative: "the road a certainty, with a passenger depot on the Cornwall Railroad at West Chestnut Street." The Cornwall Railroad would be double-tracked from Lebanon to North Cornwall, where the Cornwall and Western would join and run westward past the North Cornwall furnaces.</p>
+
+    <p>From there it would pass just south of Zinn's Mill, continuing west to just north of Fontana, crossing the <a href="horseshoe-pike.html">Horseshoe Turnpike</a> below the Gingrich farm near the village of Mt. Pleasant. From there it would continue westward, passing close to the south of Campbelltown, touching the "Keystone Marble Company quarries" before continuing to Steelton.</p>
+
+    <p>In early May the right of way had been secured from Lebanon as far as Campbelltown. As might be expected, not everyone was happy; further west some farmers in Derry were holding out, complaining how badly their land would be cut up.</p>
+
+    <h2>Plans Derailed</h2>
+
+    <p>By the end of May, one analyst considered that Freeman and Buckingham, the chief shareholders, capitalized at $250,000, now had a franchise worth a million dollars in the unlikely scenario they might choose to sell it (maybe they should have). Given their interests in the businesses to be served by the Cornwall &amp; Western, they would certainly hold on to it.</p>
+
+    <div class="callout">
+      But hindsight being 20-20, one can go to Hershey today and know there is no chocolate factory south of Governor Road (Rt. 322). That beautiful Hershey factory sits further north, tucked between Benjamin Franklin Highway (Rt. 422) and the Reading (Norfolk Southern) railroad tracks, in view from Hershey Park's Kissing Tower and Great Bear roller-coaster.
+      <br><br>
+      The factory broke ground in 1903. In its originally intended place there's a boys' school (founded 1909) and a large medical center (broke ground in 1966). So why the change in plans?
+    </div>
+
+    <p>By mid-June the outlook for the little Cornwall &amp; Western was changing, in a big way.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig17-donegal-locomotive-photo.jpg" alt="Railroad men aboard the freight locomotive Donegal">
+      <figcaption><span class="fig-no">FIG. 17</span>Railroad men aboard the freight locomotive "Donegal," anticipating the expansion of the Cornwall Railroad. (Photo: Mark Cain)</figcaption>
+    </figure>
+
+    <p>A major merger had strengthened the Pennsylvania Steel Company, which previously had been a target of the United States Steel Company. They announced the purchase of half of the Cornwall Ore Bank, two-thirds of the Cornwall &amp; Lebanon Railroad, and <a href="unsung-benevolence.html">George Dawson Coleman's</a> Lebanon furnaces and associated properties. They had also purchased ore mines in Cuba.</p>
+
+    <p>There were also rumors of several major railroads buying a large interest in Pennsylvania Steel, which produced 700,000 tons of steel rails per year.</p>
+
+    <p>The Cornwall &amp; Western certainly was in good position to transport Cornwall ore to Pennsylvania Steel. But within a few days the news read differently: "The Cornwall &amp; Western is not being pushed as strongly as it was prior to Pennsylvania Steel having acquired a majority of the <em>Cornwall &amp; Lebanon</em> railroad" (emphasis added).</p>
+
+    <p>In the next breath, it was stated that Scranton's Lackawanna Iron and Steel Company, which had been leasing the <a href="bird-or-burd.html">Bird Coleman furnaces</a>, might support Freeman and Buckingham in completing the Cornwall &amp; Western by joining with the Cornwall Railroad. The old small-town rivalry between two local railroads lived on.</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig18-lackawanna-steel-letterhead.jpg" alt="Ornate Lackawanna Steel Company letterhead illustration">
+      <figcaption><span class="fig-no">FIG. 18</span>Lackawanna Steel Company letterhead.</figcaption>
+    </figure>
+
+    <p>The game darkened quickly, with elephants and alliances stampeding the region for control. Caught in the middle, Howard Shirk, solicitor for the proposed railroad, acknowledged that much was in the air and that he was "awaiting instructions."</p>
+
+    <p>Three days later, another shoe dropped, the headline reading "Lackawanna Co. Secures Control of Cornwall Interests," propping up Freeman and Buckingham by renewing a twenty-year lease with the owners of the Cornwall and North Cornwall furnaces, their share of the Ore Banks, and the Cornwall Railroad.</p>
+
+    <p>Concerning the Cornwall &amp; Western railroad, Lackawanna's lease included a provision that might reactivate the Mt. Hope to Mt. Joy railroad (planned in 1898 and thought abandoned).</p>
+
+    <p>And by the first of July, the engineers that had been assembled for the last few months on the Cornwall &amp; Western were "ordered away, the construction of the line being abandoned for the present." A week later, Edward C. Freeman and an official from Lackawanna traveled the proposed route of the railway, weighing their options. Afterwards, the board of directors met without making a public announcement.</p>
+
+    <p>An investigative reporter caught up with a Pennsylvania Railroad executive at the station in Lebanon, questioning him on the future of the Cornwall &amp; Western. "There is no longer any necessity for its construction." Another remarked the acquisition of the Cornwall &amp; Lebanon by the Pennsylvania Steel Company "will kill the Cornwall &amp; Western."</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig19-pennsylvania-steel-letterhead.jpg" alt="Letterhead of the Pennsylvania Steel Company, Steelton">
+      <figcaption><span class="fig-no">FIG. 19</span>Letterhead of the Pennsylvania Steel Company, Steelton.</figcaption>
+    </figure>
+
+    <p>Those remarks proved correct. In only four months from its inception, the proposed railroad had lost steam and would never be built.</p>
+
+    <p>By the end of 1901, Lackawanna Iron and Steel negotiated a purchase of the Cornwall assets it had leased earlier in the year.</p>
+
+    <div class="callout">
+      Both Pennsylvania Steel and Lackawanna continued operating until acquired by Bethlehem Steel, in 1916 and 1922 respectively. Incorporated in 1904 after Charles M. Schwab left U.S. Steel, Bethlehem Steel left a major footprint on industry in Lebanon County, until declaring bankruptcy in 2001.
+      <br><br>
+      U.S. Steel was acquired by Japan's Nippon Steel, becoming a subsidiary in 2025.
+    </div>
+
+    <p>The story of the Cornwall &amp; Western Railroad did not end in 1901. It continued operating as a company on paper, its charter good for another 998 years. The board of directors met for 40 years, through two world wars and the expansion of Pennsylvania's steel industry.</p>
+
+    <h2>Tying Up Loose Ends</h2>
+
+    <p>Finally, on October 22, 1944, a hearing was conducted in the Court of Common Pleas to take up the petition to dissolve the charter of the C.&amp;W.R.R. The newspaper remarked that even older citizens of Lebanon County were never aware that such a corporation existed.</p>
+
+    <p>It claimed that the success of Robert H. Coleman's Cornwall &amp; Lebanon Railroad had inspired brothers-in-law B. H. Buckingham and Edward Coleman Freeman to connect their Cornwall Railroad to Steelton. "Though vast sums were spent for surveys and preliminary work, not a rail was laid."</p>
+
+    <figure class="plate">
+      <img src="images/cornwall-western-railroad/fig20-buckingham-wife-freeman-photo.jpg" alt="Benjamin H. Buckingham, his wife Margaret Coleman Freeman Buckingham, and Edward Coleman Freeman seated together">
+      <figcaption><span class="fig-no">FIG. 20</span>Reflecting on dashed hopes: Benjamin H. Buckingham (left), his wife Margaret Coleman Freeman Buckingham, and Edward Coleman Freeman. (Cornwall Manor archives)</figcaption>
+    </figure>
+
+    <p>Though the stock was worthless, Pennsylvania statute required chartered corporations to file annual reports. Various law firms and the state authorities were described as "anxious to get the item off the books."</p>
+
+    <p>The petition was filed by William C. Freeman, Jr., then-president of the corporation, who had inherited the majority of the stock from his two uncles, who had died in 1906 and 1912 respectively. At the time, Buckingham was the president of the Cornwall Railroad and vice-president of Lackawanna Iron and Steel Company.</p>
+
+    <p>Edward's older brother Wm. C. Freeman, who had died in 1903 while visiting his son William at Princeton, had never participated in the Cornwall &amp; Western.</p>
+
+    <p>William, born in 1881, was two years old when the Cornwall &amp; Lebanon Railroad company was started. He participated in the family businesses, served in the Pennsylvania House and Senate, and was the Pennsylvania Secretary of Banking during the mid-1940s when he finally dissolved the Cornwall &amp; Western Railroad.</p>
+
+    <p>His aunt Margaret Coleman Freeman Buckingham died in 1946, leaving him sole heir of the Cornwall estate. He is better known by some simply as the man who sold the estate to the Methodist Church Home, now Cornwall Manor.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/cornwall-western-railroad/fig21-wm-c-freeman-jr-portrait.jpg" alt="Portrait of William C. Freeman Jr.">
+      <figcaption><span class="fig-no">FIG. 21</span>Wm. C. Freeman, Jr. (Photo: Cornwall Manor)</figcaption>
+    </figure>
+
+    <h2>And That Thing About Hershey&hellip;</h2>
+
+    <p>Many know that a prominent tract of land on Quentin Road in West Cornwall was demolished recently to become commercial property. Prior to becoming the Quentin Riding Club in 1934, it had been the Freeman Hackney Farm.</p>
+
+    <p>The farm was home to racehorses and hackney ponies, some that had been sent to the Coleman family by Queen Victoria. As the home of William, Jr., it remained famous for its prize horses.</p>
+
+    <p>In 1910 William, Jr. added a large herd of cattle to begin a dairy operation. Milton Hershey arranged to purchase the entire output of the dairy and used the milk to make his chocolate.</p>
+
+    <p>As mentioned, Hershey built his factory in 1905 alongside the tracks of the Reading Railroad, nowhere near his homestead in the southern part of town.</p>
+
+    <p>Strange to consider how different the landscape would be along the <a href="horseshoe-pike.html">Horseshoe Turnpike</a> (Route 322), now adorned by beautiful acres of the Milton Hershey School and the expansive Hershey Medical Center. And where would they have put a theme park?</p>
+
+    <p class="closing-question">If some evening you hear the mournful call of a train whistle along the Horseshoe Pike in Campbelltown, it must be a ghost&hellip; of what could have been, the Cornwall &amp; Western.</p>
+  </div>
+
+  <div class="credits">
+    <p>Special thanks to Cornwall Manor historian Henry Deemer, local railroad historian Mark Cain, and of course the Friends of the Cornwall Iron Furnace.</p>
+    <p>And stay tuned for an upcoming story of Edward C. Freeman, whose old trunk left behind many other details of life in Cornwall at the turn of the 20th century.</p>
+    <p>Originally published on LebTown, September 9, 2026.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
