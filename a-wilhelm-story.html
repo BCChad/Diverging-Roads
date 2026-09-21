@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Wilhelm Story — Diverging Roads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #e9dfc4;
+    --paper-dark: #ddd0a8;
+    --ink: #2b241d;
+    --iron: #211e1a;
+    --iron-light: #322d26;
+    --rust: #9a4a2e;
+    --brass: #ab7c34;
+    --brass-light: #c99a4e;
+    --slate: #47555d;
+    --max: 760px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    font-size:18px;
+  }
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 0, transparent 45%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--brass);
+    box-shadow:0 1px 0 rgba(0,0,0,0.08);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:.85rem; padding-bottom:.85rem;
+    max-width:var(--max);
+  }
+  .brand{
+    font-family:'Special Elite', monospace;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .navlinks{ display:flex; gap:1.5rem; list-style:none; }
+  .navlinks a{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--slate);
+  }
+  .navlinks a:hover{ color:var(--rust); }
+
+  header.art-hero{
+    background:var(--iron);
+    padding:3.25rem 1.5rem 3rem;
+  }
+  .art-hero .wrap{ max-width:var(--max); }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:1rem;
+  }
+  .art-hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:800;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    line-height:1.1;
+    color:var(--brass-light);
+    text-shadow:1px 1px 0 rgba(0,0,0,0.65), 0 -1px 0 rgba(255,255,255,0.08);
+    margin-bottom:.5rem;
+    max-width:600px;
+  }
+  .art-hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--brass);
+    margin-bottom:1.1rem;
+  }
+  .art-meta{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.2rem;
+  }
+
+  main.article{ padding:3rem 0 2rem; }
+
+  .lead{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.55;
+    color:var(--iron);
+    margin-bottom:2.25rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(43,36,29,0.18);
+  }
+
+  .section{ margin-bottom:1.75rem; }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    color:var(--iron);
+  }
+  .section p{ margin-bottom:1rem; max-width:66ch; }
+  .section p:last-child{ margin-bottom:0; }
+  .section p.closing-question{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--rust);
+  }
+
+  .quote-block{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    line-height:1.6;
+    color:var(--iron);
+    border-left:3px solid var(--brass);
+    padding:.5rem 0 .5rem 1.5rem;
+    margin:1.5rem 0;
+    max-width:60ch;
+  }
+  .quote-block .cite{
+    display:block;
+    font-family:'Special Elite', monospace;
+    font-size:.68rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-top:.6rem;
+    font-style:normal;
+  }
+
+  .callout{
+    background:var(--paper-dark);
+    border-left:3px solid var(--brass);
+    padding:1rem 1.25rem;
+    margin:1.75rem 0;
+    font-size:.95rem;
+  }
+  .callout strong{ color:var(--rust); }
+
+  .plate{
+    margin:1.75rem 0;
+    border:1px solid rgba(43,36,29,0.25);
+    background:var(--paper-dark);
+    padding:.6rem;
+  }
+  .plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(43,36,29,0.35);
+  }
+  .plate figcaption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    padding:.65rem .3rem .2rem;
+    line-height:1.5;
+  }
+  .plate figcaption .fig-no{
+    color:var(--rust);
+    margin-right:.4rem;
+  }
+  .plate-row{
+    display:flex;
+    gap:1.25rem;
+  }
+  .plate-row > .plate{ flex:1; margin-top:0; margin-bottom:0; min-width:0; }
+  @media (max-width:600px){
+    .plate-row{ flex-direction:column; }
+  }
+  .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+
+  ul.scrapbook{
+    list-style:none;
+    margin:1.5rem 0;
+  }
+  ul.scrapbook li{
+    font-size:.95rem;
+    line-height:1.6;
+    padding:.6rem 0 .6rem 1.1rem;
+    border-top:1px dotted rgba(43,36,29,0.3);
+    position:relative;
+  }
+  ul.scrapbook li:last-child{ border-bottom:1px dotted rgba(43,36,29,0.3); }
+  ul.scrapbook li::before{
+    content:"\2014";
+    position:absolute;
+    left:0;
+    color:var(--brass);
+  }
+
+  .credits{
+    margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(43,36,29,0.18);
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    line-height:1.8;
+    color:var(--slate);
+  }
+  .credits p{ margin-bottom:.6rem; }
+
+  .back-link{
+    display:inline-block;
+    margin-top:2.5rem;
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid var(--rust);
+    padding-bottom:.15rem;
+  }
+  .back-link:hover{ color:var(--iron); border-color:var(--iron); }
+
+  footer{
+    background:var(--iron);
+    color:#a99a7c;
+    padding:2.5rem 0;
+    text-align:center;
+    margin-top:3rem;
+  }
+  footer p{
+    font-family:'Special Elite', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Diverging Roads</a>
+    <ul class="navlinks">
+      <li><a href="index.html#chronicle">Essays</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="wrap">
+    <div class="eyebrow">No. 016 &middot; Coleman Family</div>
+    <h1>A Wilhelm Story</h1>
+    <div class="subtitle">He deserves to be remembered as more than a road sign</div>
+    <div class="art-meta">
+      <span>By Bruce Chadbourne</span>
+      <span>&middot;</span>
+      <span>Originally published September 10, 2024</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article">
+
+  <figure class="plate">
+    <img src="images/a-wilhelm-story/fig1-wilhelm-ave-new-signal.jpg" alt="New traffic signal and street signs at the realigned Cornwall Road, Wilhelm Avenue, and York Street intersection">
+    <figcaption><span class="fig-no">FIG. 1</span>The realigned Cornwall Road/Wilhelm Avenue/York Street intersection, with its new turn lanes and signals.</figcaption>
+  </figure>
+
+  <p class="lead">Although they wait for improvement at the Quentin Road/Isabel Drive intersection, Lebanon area motorists are finding relief thanks to the improved intersection on Cornwall Road and Wilhelm Avenue with the new turn lanes and traffic signals.</p>
+
+  <div class="section">
+    <p>Sitting at the new light, this author's mental motor idled with the thought: what's behind the "Wilhelm" name of that angular avenue that has since been realigned with York Street?</p>
+
+    <figure class="plate">
+      <img src="images/a-wilhelm-story/fig2-intersection-construction-aerial.jpg" alt="Aerial view of construction crews realigning the Cornwall Road and Wilhelm Avenue intersection">
+      <figcaption><span class="fig-no">FIG. 2</span>The intersection under construction.</figcaption>
+    </figure>
+
+    <p>Certainly it must be the noted 19th century manager of Coleman affairs, Artemas Wilhelm, yes? And how appropriate an intersection, as Wilhelm came from York.</p>
+
+    <p class="closing-question">Read on&hellip;</p>
+  </div>
+
+  <div class="section">
+    <h2>Who is this man?</h2>
+
+    <figure class="plate plate-sm">
+      <img src="images/a-wilhelm-story/fig3-artemas-wilhelm-portrait.jpg" alt="Engraved portrait of Artemas Wilhelm with his signature">
+      <figcaption><span class="fig-no">FIG. 3</span>Artemas Wilhelm.</figcaption>
+    </figure>
+
+    <p>Artemas Wilhelm has appeared multiple times in the "Who Knew?" series as the competent advisor who tried to keep Robert H. Coleman, "<a href="florida-man.html">Florida Man</a>," on track. He was far more than that; his achievements beginning much earlier. For all he accomplished in Lebanon county, he deserves to be memorialized by more than a road sign.</p>
+
+    <p>Wilhelm was born in Baltimore County, Maryland in 1822 to Sarah and John S. Wilhelm, of German descent. Six years later the family moved a few miles north (along the region of Interstate 83) to Shrewsbury, Pennsylvania. The family had a presence in York for many decades afterwards.</p>
+
+    <p>Artemas (as spelled on his grave monument, but also spelled Artemus and Artimus in various records) was privately educated by his parents. At sixteen he was employed on the Northern Central Railway being built between Baltimore and York.</p>
+
+    <p>At age 18 he apprenticed as a stone mason in Shrewsbury. Within five years he was assisting his father in constructing iron furnace no. 1 for the Ashland Iron Company in Maryland. According to Prowell's "History of York County (1907)," the Wilhelms were the builders of the first hot blast anthracite furnaces in America; the father having gone abroad to learn the technology of furnace construction. The Ashland works became the third largest producer of pig iron in the country, growing to 50 tons per day in the 1850s (our historic but antiquated Cornwall cold-blast charcoal furnace was producing about 3 tons per day). After his father's death in 1847, Wilhelm was retained to build furnace no. 2 at Ashland.</p>
+
+    <figure class="plate">
+      <img src="images/a-wilhelm-story/fig4-cornwall-anthracite-furnace.jpg" alt="Historic oval-framed photo of the Cornwall Anthracite Furnace">
+      <figcaption><span class="fig-no">FIG. 4</span>Cornwall Anthracite Furnace. (Photo Credit: Cornwall Iron Furnace)</figcaption>
+    </figure>
+
+    <p>His successes drew the attention of Cornwall's R. W. Coleman, who engaged Wilhelm in 1849 to build the Anthracite furnace in Cornwall, and a second one in 1853. He returned to Ashland until 1855, when once again he was retained by R. W. Coleman as superintendent and assistant of his various industries in Lebanon county including the Anthracite Furnaces. Both were young, yet accomplished 33-year old men.</p>
+
+    <figure class="plate">
+      <img src="images/a-wilhelm-story/fig5-jackson-house-cornwall.jpg" alt="Jackson House on Boyd Street, Cornwall">
+      <figcaption><span class="fig-no">FIG. 5</span>From 1849&ndash;1854, while working for R. W. Coleman, A. Wilhelm lodged at <a href="jackson-house.html">Jackson House</a> on Boyd Street, Cornwall.</figcaption>
+    </figure>
+
+    <p>R. W. Coleman died in 1864, leaving Wilhelm as the indispensable manager of affairs for the "Heirs of R. W. Coleman" business. Earlier in 1856 the family business had become insolvent. The Coleman estate had been refused loans and sought Wilhelm's capable hands to steer them back to prosperity. Wilhelm reluctantly agreed; he had no assets of his own but the banks loaned him money merely on the strength of his reputation.</p>
+
+    <p>In 1857 he purchased the Dudley, in 1873 remodeled it, calling the Donaghmore furnace. In 1870 he built the North Cornwall furnace, later the Bird Coleman furnaces, and in 1880 the Colebrook furnaces. For all of these he made the designs and drawings. He was also the inventor of several important improvements in blast furnaces.</p>
+
+    <p>In 1864 he was prominent in designing and completing the unique spiral railroad east of the Cornwall Iron Furnace, that climbed Cornwall's "Big Hill," for the mining of iron ore.</p>
+
+    <figure class="plate">
+      <img src="images/a-wilhelm-story/fig6-big-hill-spiral-railroad-map.jpg" alt="Survey map of Big Hill showing the spiral railroad and ore terrace above the Cornwall Iron Furnace">
+      <figcaption><span class="fig-no">FIG. 6</span>Big Hill, showing the spiral railroad grade and ore terrace Wilhelm engineered.</figcaption>
+    </figure>
+
+    <p>In October 1873 Wilhelm made difficult decisions to take furnaces "out of blast" (shut down) given the dire economic conditions.</p>
+
+    <div class="quote-block">
+      "Mr. Wilhelm was here this morning and looks very blue about money matters. I feel sorry for him. He is so conscientious in all he undertakes. It must be hard for him to stop the work on the Byrd Coleman and blow out the others, but then there is no iron selling and there will be no use in making it."
+      <span class="cite">Sue Ellen Coleman, in a letter to her son</span>
+    </div>
+
+    <p>Late October 1876 he enjoyed the perks of his association with the Coleman family, going to their <a href="iron-and-horses.html">Speedwell Stockfarm</a> to enjoy some time off, hunting with his setter. A month later newspapers reported him entertaining Governor (General) Hartranft and four other dignitaries who visited him in Cornwall and taking them to Speedwell to inspect the fine horses, "some of the finest equine blood in the country."</p>
+
+    <p>In the winter of 1877 Wilhelm donated 500 tons of coal on behalf of the Colemans to the benevolent Howard Association, to be distributed to the poor of Lebanon. The following month when a blizzard snowed-in the Cornwall turnpike "as high as the fences," he organized 40 workers from the estate to clear a good portion of the road.</p>
+
+    <p>In 1877 young Robert H. Coleman had achieved his majority and began taking the reins. Mr. Wilhelm steered Robert into several director roles in the Cornwall and Lebanon business while continuing in the position of manager. Robert retained him to supervise renovations to their Cornwall Cottage and the construction of Robert's first bridal mansion. In 1882 for reasons of health and at times in conflict with Robert, he stepped down.</p>
+
+    <p>His involvement in the smallest details is evidenced by one letter to R. W. Coleman regarding the spiral staircase for the Freeman (now Buckingham) mansion's tower: "Col. Freeman is here and desires to know what arrangement of stairway you design for ascending to the top story of this tower. I have suggested a spiral stairway of cast iron which could be made somewhat ornamental." A subsequent discussion expressed concern regarding iron because it would be open, with ladies ascending the stairs. They decided on an elegant wooden spiral staircase.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/a-wilhelm-story/fig7-freeman-mansion-spiral-staircase.jpg" alt="Elegant wooden spiral staircase in the Freeman-Buckingham mansion tower">
+      <figcaption><span class="fig-no">FIG. 7</span>The wooden spiral staircase Wilhelm's letter helped decide.</figcaption>
+    </figure>
+
+    <p>The Colemans were ever grateful for his years of service, having expanded their land holdings and multiplied their wealth under his careful eye. In 1877 Robert presented him a financial gift of $5,000 in recognition of his dedication to the family. Sue Ellen gave him an additional $2,000 near Christmastime. But that was simply established tradition; when Wilhelm began working for the R. W. Coleman in the 1850s for $600 a year, the grateful Coleman had been giving him $1,000 Christmas gifts yearly.</p>
+
+    <p>In summary, Artemas Wilhelm was the brains behind all of the Coleman furnaces in Cornwall. In addition he supervised the construction and improvement of their mansions, whether Coleman, Freeman or Alden (see the story of <a href="restoring-millwoods-former-glory.html">Millwood, the Alden Villa</a>).</p>
+  </div>
+
+  <div class="section">
+    <h2>Successful In His Own Right</h2>
+
+    <p>In addition to all that he did for the Colemans, Artemas Wilhelm conducted greater affairs of his own. According to Henry Grittinger's history, a charter for the Aurora Iron company was granted Artemas Wilhelm of Cornwall, D. S. Hammond, A. R. Boughter, William Shirk and P. L. Weimer of Lebanon in 1865 (all of these became masters of various Lebanon industries; for more, see Grittinger's 1904 report to the Lebanon County Historical Society).</p>
+
+    <p>They erected a plant east of Fourth street, Lebanon, for the purpose of manufacturing butt-weld wrought iron pipe. The company was unsuccessful and in 1882 re-organized as the Lebanon Iron company. Robert H. Coleman was president; A. Hess, secretary and treasurer; Thomas Evans, general superintendent; A. Wilhelm and D. S. Hammond, directors. The plant was enlarged and converted into a bar iron rolling mill. In July 1889, the company merged with other companies into the American Iron &amp; Steel company.</p>
+
+    <figure class="plate plate-sm">
+      <img src="images/a-wilhelm-story/fig8-lebanon-iron-company-associate.jpg" alt="Engraved portrait of Artemas Wilhelm, a second published likeness">
+      <figcaption><span class="fig-no">FIG. 8</span>Artemas Wilhelm, in a second published likeness.</figcaption>
+    </figure>
+
+    <p>Other brief mentions:</p>
+
+    <ul class="scrapbook">
+      <li><strong>1860</strong> &mdash; The Federal census lists him as "Manager," net worth $11,000.</li>
+      <li><strong>1861</strong> &mdash; He purchased the Cornwall Road turnpike, a worn-out plank road from years of hauling pig iron to the Union Canal, turning it into the "best macadam road in the country."</li>
+      <li><strong>1863</strong> &mdash; His Civil War service registration listed him as age 40, resident of Cornwall, occupation "Manager."</li>
+      <li><strong>1865</strong> &mdash; He was appointed postmaster of Cornwall on 5 January, succeeding his friend the late R. W. Coleman who had held the position since 1848 (d. 1864).</li>
+      <li><strong>1870</strong> &mdash; Federal census: "Supt. Iron Works," net worth $45,000 (growing but still a pittance compared to the Colemans' millions).</li>
+      <li><strong>1873</strong> &mdash; Wilhelm was elected president of the Lebanon Rolling Mill.</li>
+      <li><strong>1880</strong> &mdash; Federal census: "Manager of Coleman Estate" (net worth not recorded).</li>
+    </ul>
+
+    <p>Furthermore, he was described as "a large stockholder in many of the leading corporations of the State, one of the directors of the Commonwealth Trust and Safety Deposit Company, a member of the Central Iron Works of Harrisburg, and identified with telephone and electric light interests."</p>
+  </div>
+
+  <div class="section">
+    <h2>&ldquo;Red Tape&rdquo;</h2>
+
+    <p>The account found in "The Biographical Album of Prominent Pennsylvanians (1890)" includes this insight to the character and discipline that undergirded Wilhelm's successes. Whether to his back or to his face, in Cornwall he earned the nickname "Red Tape," because he was so insistent on having proper records, vouchers and invoices for every detail of work that he oversaw.</p>
+  </div>
+
+  <div class="section">
+    <h2>Artemas Wilhelm, Agriculturalist</h2>
+
+    <p>We have painted his portrait as "industrialist," but that would be incomplete. By the end of his career Wilhelm had been President of the State Agricultural Society, in addition to his directorships in many corporations. His obituary described him both as "widely known iron founder and agriculturalist."</p>
+
+    <p>To the point of the beginning of our story, Wilhelm acquired a 105-acre farm a mile south of Lebanon, located on what is now known as Wilhelm Avenue, a road known until recently as a convenient, if not sometimes difficult, connector between points A and B.</p>
+
+    <figure class="plate">
+      <img src="images/a-wilhelm-story/fig9-wilhelm-farm-aerial.jpg" alt="Aerial view of the Wilhelm farm along the North Lebanon Railroad">
+      <figcaption><span class="fig-no">FIG. 9</span>Aerial view of the farm.</figcaption>
+    </figure>
+
+    <p>The farm lay along the 6-mile North Lebanon Railroad, built in 1855 by his colleagues William Coleman and <a href="coleman-memorial-chapel.html">G. Dawson Coleman</a>. They acquired lands the railroad traversed and sold a plot to Wilhelm in gratitude for his services to the Coleman family.</p>
+
+    <p>Wilhelm Avenue began as a straight road connecting the Cornwall turnpike on west to what is now Lincoln Avenue on the east.</p>
+
+    <p>That would not be his only farming venture. Out west in Dauphin county, in 1873 he purchased the Doughtery farm in Paxtang. According to an old Harrisburg newspaper account, it "developed it into one of the finest farms and residences in the Lebanon Valley." He named it "Sunrise."</p>
+
+    <figure class="plate">
+      <img src="images/a-wilhelm-story/fig10-sunrise-estate-illustration.jpg" alt="Illustration of Artemas Wilhelm's Sunrise residence in Paxtang">
+      <figcaption><span class="fig-no">FIG. 10</span>Artemas Wilhelm's "Sunrise" residence, Paxtang. As depicted, the scene rivals the grandeur of the Freeman and Coleman estates in Cornwall. The Lebanon Courier mentions "Sunrise" as his summer home, while retaining his residence in York as his winter home.</figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="images/a-wilhelm-story/fig11-sunrise-estate-aerial-1930s.jpg" alt="1930s aerial photo of the Sunrise estate bordered by Wilhelm Road">
+      <figcaption><span class="fig-no">FIG. 11</span>The 1930s-era aerial photo shows Wilhelm's "Sunrise" estate, bordered to the left by Wilhelm Road. By the 1940s the property was being subdivided and is now completely replaced by residential streets of greater Harrisburg.</figcaption>
+    </figure>
+  </div>
+
+  <div class="section">
+    <h2>Wilhelm's Family</h2>
+
+    <p>Artemas married Elizabeth Boring Schall, daughter of John Schall of York ("Schall" a German name for "town crier"). They raised a family of four children, all apparently born in Cornwall. A map shows a house on Cornwall Road immediately across from the gates of Sue Ellen Coleman's great estate, in the area now known as Toytown.</p>
+
+    <p>Their first children were born the same years as William and Sue Ellen Coleman's children Robert H. and Anne Caroline and are mentioned in Anne's letters.</p>
+
+    <p>David Hammond Wilhelm (1857&ndash;1866) was first, dying young at 9 years of age. He was likely named for D. S. Hammond, one of Wilhelm's business colleagues.</p>
+
+    <p>J. (John) Schall Wilhelm (1858&ndash;1896) served as a clerk at Cornwall furnace in 1880, after attending Lafayette College in Easton, Pennsylvania with one of the Coleman cousins, Edward C. Freeman. He was expelled temporarily in 1876 for gambling, losing his money and not paying his college bills. He was known to "carouse" around Lebanon as well, causing his father considerable grief. More about him in a moment.</p>
+
+    <p>Daughters Isabel Schall (1865&ndash;1933) and Sarah Hand Coleman Wilhelm (1870&ndash;1915) rounded out the family. Sarah's name clearly honors two prominent women of the Coleman family. Sarah the elder Coleman had been engaged to Rev. Augustus Muhlenberg but died tragically. Her niece, the younger Sarah was unmarried, living at the Freeman/Buckingham estates in Washington D.C. and Cornwall. She erected the greenhouse that still stands at Cornwall Manor.</p>
+
+    <p>Curiously, the 1880 census lists a fifth Wilhelm child, Robert, age 14 "attending school." He did not appear in the 1870 census and no other mention of him has been found.</p>
+
+    <p>Artemas Wilhelm died September 20, 1887, having retired a few years earlier to his pleasant estate "Sunrise" in Paxtang. His wife Elizabeth remained until her death in 1901. Both are buried at Prospect Hill Cemetery in York.</p>
+  </div>
+
+  <div class="section">
+    <h2>About that Farm on Lebanon's Wilhelm Avenue</h2>
+
+    <p>On Wilhelm's death in 1887 his Lebanon farm passed to his surviving son, J. Schall Wilhelm, who had a remarkable career of his own after his turbulent college days.</p>
+
+    <p>He may have served simply as owner of the 105-acre property on Wilhelm Avenue. Newspaper accounts refer to the Eisenhauer family as tenants. J. Schall Wilhelm also owned a 200-acre hog farm in Paxtang, part of his father's "Sunrise" estate.</p>
+
+    <p>He is also credited as being active in manufacturing "up state," with an interest in politics.</p>
+
+    <p>A news story dated August 18, 1890 reported that the younger Wilhelm would be the Republican candidate for Congress in the York district. The next day an article appeared in which he declined the nomination due to poor health. A week later a third story appeared in which the York Republican party was adamant that he was electable and would be nominated as the candidate; but Wilhelm stood firm, deferring to his health concerns.</p>
+
+    <div class="plate-row">
+      <figure class="plate">
+        <img src="images/a-wilhelm-story/fig12-wilhelm-schall-gravestone.jpg" alt="Gravestone of Artemas Wilhelm and Elizabeth Boring Schall">
+        <figcaption><span class="fig-no">FIG. 12</span>The Wilhelm&ndash;Schall monument, Prospect Hill Cemetery, York.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="images/a-wilhelm-story/fig13-wilhelm-family-plot.jpg" alt="The Wilhelm family plot with obelisk monument at Prospect Hill Cemetery">
+        <figcaption><span class="fig-no">FIG. 13</span>The Wilhelm family plot.</figcaption>
+      </figure>
+    </div>
+
+    <p>J. Schall Wilhelm began seeing to his affairs. His various properties went up for sale in September 1894. He sold the 105-acre Lebanon farm on Wilhelm Avenue to C. W. Lynch in 1895.</p>
+
+    <p>The younger Wilhelm died at age 37 in 1896 and was buried with the rest of the Wilhelms in the family plot at Prospect Hill Cemetery in York.</p>
+  </div>
+
+  <div class="section">
+    <h2>Conclusion: Who was the genuine &ldquo;Iron Master&rdquo; of Lebanon?</h2>
+
+    <p>In the final five years of Wilhelm's career, imagine his thoughts upon seeing his young protege "Bob" Coleman receiving a vast inheritance and coming into his own.</p>
+
+    <p>Wilhelm had been the true steward, in the biblical sense, of his masters' estates. He had rescued, preserved, even multiplied the wealth of the previous generation, R.W. and William Coleman. They being deceased left Artemas, like an Uncle wanting the best for Robert and Anne. Knowing Robert to be headstrong, Wilhelm had every reason to worry, yet expressing encouragement and trust to the next generation.</p>
+
+    <p class="closing-question">His time was done. He sought retirement, aware of his own declining health. He realized what everyone eventually comes to understand in old age; he had run the course, fought the good fight, and must now trust that the next generation will rise to the task.</p>
+  </div>
+
+  <div class="credits">
+    <p>Originally published on LebTown, September 10, 2024.</p>
+  </div>
+
+  <a class="back-link" href="index.html">&larr; Back to Diverging Roads</a>
+
+</main>
+
+<footer>
+  <p>&copy; 2024&ndash;2026 Bruce Chadbourne</p>
+</footer>
+
+</body>
+</html>
