@@ -129,6 +129,15 @@
   .section p{ margin-bottom:1rem; max-width:66ch; }
   .section p:last-child{ margin-bottom:0; }
 
+  .callout{
+    background:var(--paper-dark);
+    border-left:3px solid var(--brass);
+    padding:1rem 1.25rem;
+    margin:0 0 2rem;
+    font-size:.95rem;
+  }
+  .callout strong{ color:var(--rust); }
+
   .quote-block{
     font-family:'Fraunces', serif;
     font-style:italic;
@@ -176,19 +185,29 @@
     margin-right:.4rem;
   }
   .plate-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
+    display:flex;
     gap:1.25rem;
   }
+  .plate-row > .plate{ flex:1; margin-top:0; margin-bottom:0; min-width:0; }
   .plate-row-3{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+    display:flex;
     gap:1rem;
   }
+  .plate-row-3 > .plate{ flex:1; margin-top:0; margin-bottom:0; min-width:0; }
   @media (max-width:600px){
-    .plate-row, .plate-row-3{ grid-template-columns:1fr; }
+    .plate-row, .plate-row-3{ flex-direction:column; }
   }
   .plate-sm{ max-width:280px; margin-left:auto; margin-right:auto; }
+  .row-caption{
+    font-family:'Special Elite', monospace;
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--slate);
+    text-align:center;
+    margin-top:.5rem;
+    margin-bottom:1.75rem;
+    line-height:1.5;
+  }
 
   .credits{
     margin-top:2.5rem;
@@ -243,7 +262,7 @@
 
 <header class="art-hero">
   <div class="wrap">
-    <div class="eyebrow">No. 022 &middot; Coleman Family</div>
+    <div class="eyebrow">No. 021 &middot; Coleman Family</div>
     <h1>Unsung Coleman Benevolence</h1>
     <div class="art-meta">
       <span>By Bruce Chadbourne</span>
@@ -255,124 +274,139 @@
 
 <main class="wrap article">
 
+  <div class="callout">The extended Coleman family, iron masters of Elizabeth, Cornwall, and Lebanon furnaces, has been known in various ways for its kindness and generosity to the many local charities, including numerous churches, hospitals and even <a href="spirit-of-kindness.html">women&rsquo;s shelters</a>. Here is another surprising story from the family archives of <a href="coleman-coachman.html">George Dawson Coleman</a>.</div>
+
   <div class="plate-row-3">
     <figure class="plate">
       <img src="images/unsung-benevolence/fig1a-mary-todd-lincoln-1861.jpg" alt="Matthew Brady's 1861 portrait of Mary Todd Lincoln">
-      <figcaption><span class="fig-no">FIG. 1</span>Mary Todd Lincoln, 1861&hellip;</figcaption>
+      <figcaption><span class="fig-no">FIG. 1</span>Mary Todd Lincoln</figcaption>
     </figure>
     <figure class="plate">
-      <img src="images/unsung-benevolence/fig1b-simon-cameron-portrait.jpg" alt="Portrait of Simon Cameron">
-      <figcaption><span class="fig-no">FIG. 1</span>&hellip;Simon Cameron&hellip;</figcaption>
+      <img src="images/unsung-benevolence/fig1b-simon-cameron-portrait.jpg" alt="Painted portrait of Simon Cameron, at desk, quilled pen in hand">
+      <figcaption><span class="fig-no">FIG. 1</span>Simon Cameron</figcaption>
     </figure>
     <figure class="plate">
       <img src="images/unsung-benevolence/fig1c-george-dawson-coleman.jpg" alt="Portrait of George Dawson Coleman">
-      <figcaption><span class="fig-no">FIG. 1</span>&hellip;and George Dawson Coleman. (Library of Congress; National Portrait Gallery; courtesy Craig Coleman)</figcaption>
+      <figcaption><span class="fig-no">FIG. 1</span>George Dawson Coleman</figcaption>
     </figure>
   </div>
-
-  <p class="lead">A rediscovered letter in the collection at Elizabeth Furnace reveals a quiet act of generosity: Lebanon's George Dawson Coleman, moved by an appeal from an old political friend, once offered a small fortune to help the widow of a slain president.</p>
+  <p class="row-caption">Photos: Matthew Brady&rsquo;s 1861 portrait of Mary Todd Lincoln (Library of Congress), Simon Cameron (National Portrait Gallery), George Dawson Coleman (courtesy Craig Coleman)</p>
 
   <div class="section">
+    <p class="lead">Mentioning the Lincoln assassination will for most people evoke images of John Wilkes Booth sneaking into the presidential box of Ford&rsquo;s Theater, and upon firing the fatal shot leaping to the stage floor with shouts of &ldquo;<em>Sic semper tyrannis!</em>&rdquo;</p>
+
     <figure class="plate">
-      <img src="images/unsung-benevolence/fig2-fords-theater-assassination.jpg" alt="Depiction of the assassination of Abraham Lincoln at Ford's Theatre">
-      <figcaption><span class="fig-no">FIG. 2</span>The assassination of Abraham Lincoln, Ford's Theatre, April 14, 1865.</figcaption>
+      <img src="images/unsung-benevolence/fig2-fords-theater-assassination.jpg" alt="Illustration of the assassination of Abraham Lincoln at Ford's Theatre">
+      <figcaption><span class="fig-no">FIG. 2</span>McAllister glass slide, restored by Adam Cuerden, license to use.</figcaption>
     </figure>
 
-    <p>When Abraham Lincoln was assassinated in April 1865, he left behind no pension, no formal provision, and an estate that would take years to settle. Mary Todd Lincoln, suddenly a widow with two surviving sons, found herself in genuine financial anxiety &mdash; despite an estate that, once properly valued by Judge David Davis, amounted to some $110,000, worth roughly $2 million today.</p>
+    <p>Years later, speaking at the funeral of Mary Todd Lincoln, a clergyman remarked that a single bullet claimed two victims.</p>
+    <p>Mary&rsquo;s life quickly changed after the assassination in April 1865. In the ensuing months this First Lady was essentially homeless, starting over in Chicago. The Lincoln&rsquo;s had previously lost two of their sons Eddie and Willie. She and two remaining sons, Robert and Tad stayed at the Tremont Hotel.</p>
+    <p>Much of what is written about Mary Todd Lincoln is critical. She had drawn much public criticism during their White House years for her obsession with expensive furnishings. The excesses caused the President to bear personal debt of almost $10,000 ($250,000 in today&rsquo;s value) against his annual salary of $25,000. On his death the debt became her responsibility.</p>
 
     <figure class="plate plate-sm">
       <img src="images/unsung-benevolence/fig3-judge-david-davis.jpg" alt="Portrait of Judge David Davis">
-      <figcaption><span class="fig-no">FIG. 3</span>Judge David Davis, who administered Lincoln's estate.</figcaption>
+      <figcaption><span class="fig-no">FIG. 3</span>Supreme Court Justice David Davis, Lincoln appointee (and 1860 campaign manager).</figcaption>
     </figure>
 
-    <p>But estate settlement took time, and Mary's own anxious temperament, compounded by grief, convinced her she was on the brink of poverty. She turned to old friends and political allies for help &mdash; among them, Pennsylvania's Simon Cameron.</p>
+    <p>Lincoln&rsquo;s estate was worth about $80,000 and as he died without a will the estate was administered by Supreme Court Justice Judge Davis, who encouraged Mary to return to the Lincoln home in Springfield Illinois. But she refused to live in a place where she would be constantly reminded of the loss of her husband. She wore Victorian mourning garb for the rest of her life.</p>
 
-    <h2>Simon Cameron (1799&ndash;1889)</h2>
+    <h2>Simon Cameron (1799-1889)</h2>
+
     <figure class="plate plate-sm">
-      <img src="images/unsung-benevolence/fig4-simon-cameron-full.jpg" alt="Full portrait of Simon Cameron">
+      <img src="images/unsung-benevolence/fig4-simon-cameron-full.jpg" alt="Portrait of Simon Cameron">
       <figcaption><span class="fig-no">FIG. 4</span>Simon Cameron.</figcaption>
     </figure>
 
-    <p>Cameron, the powerful Pennsylvania political boss, had served briefly as Lincoln's first Secretary of War before being eased out amid corruption allegations and dispatched instead as minister to Russia. Despite the awkward end to his cabinet tenure, Cameron and the Lincolns remained on cordial terms, and he retained enormous influence throughout Pennsylvania's business and political circles &mdash; including with Lebanon County's iron dynasty.</p>
+    <p>Pennsylvanians have many reasons to know of General Simon Cameron, a Pennsylvania politician who was Lincoln&rsquo;s secretary of war for several years before resigning in 1862 under the cloud of scandal concerning supply contracts. He had been nominated for the presidency in 1860, subsequently throwing his support to Lincoln, earning him the cabinet position.</p>
+    <p>He had come from Maytown, west of Lancaster and rose to fame working in Harrisburg newspapers, where he developed many political contacts and passions. In 1829 Pennsylvania Governor Shulze named him state Adjutant-General, for which he preferred to retain the title &ldquo;General&rdquo; for the rest of his career.</p>
+    <p>He had been United States Senator on two occasions in 1845 and 1857, to be elected yet a third time in 1866. His reputation continued for decades after for the political machine he built, wielding power over state jobs and contracts, a machine that continued under his son Daniel Cameron (who had served as Grant&rsquo;s secretary of war).</p>
 
-    <div class="plate-row">
-      <figure class="plate">
-        <img src="images/unsung-benevolence/fig5-harris-house-harrisburg.jpg" alt="The Harris House hotel in Harrisburg">
-        <figcaption><span class="fig-no">FIG. 5</span>The Harris House, Harrisburg, one of Cameron's frequent haunts.</figcaption>
-      </figure>
-      <figure class="plate">
-        <img src="images/unsung-benevolence/fig6-clifton-house-chicago.jpg" alt="The Clifton House hotel in Chicago">
-        <figcaption><span class="fig-no">FIG. 6</span>The Clifton House, Chicago, where Mary Todd Lincoln resided.</figcaption>
-      </figure>
-    </div>
+    <figure class="plate">
+      <img src="images/unsung-benevolence/fig5-harris-house-harrisburg.jpg" alt="A large stone house with a red roof, Harrisburg">
+      <figcaption><span class="fig-no">FIG. 5</span>The Harris House, Harrisburg.</figcaption>
+    </figure>
 
-    <h2>Mary Seeks Cameron's Assistance</h2>
-    <p>In early 1866, not yet a year widowed, Mary wrote to Cameron describing her circumstances in dire terms &mdash; the "destitute condition" of herself and her sons, and pleading for whatever assistance his considerable network might provide.</p>
-    <p>Cameron, whether from genuine sympathy, political calculation, or some mixture of both, took up her cause and began writing to friends and associates across Pennsylvania, soliciting contributions on Mary's behalf.</p>
+    <p>Cameron had purchased the Harris House in Harrisburg in 1861, and the house continues to stand in his memory. It is situated prominently on Harrisburg&rsquo;s riverfront, a few blocks from the State Capitol, and houses the Dauphin County Historical Society.</p>
+
+    <h2>Mary Seeks Cameron&rsquo;s Assistance</h2>
+    <p>Simon Cameron was aware of the difficulties Mary Todd Lincoln was having with Judge Davis managing the affairs of the Lincoln estate. In Chicago she had found rented quarters in a boarding house; such frugal circumstances were unsatisfactory to her style of living.</p>
+    <p>In a letter to &ldquo;General&rdquo; Cameron she complained that Judge Davis was unfairly cold and unsympathetic to her plight and instead should be grateful for the position given him by her late husband. She found &ldquo;life a torture&rdquo; in a Chicago boarding house with her sons, &ldquo;most revolting.&rdquo;</p>
+    <p>He had written suggesting that he could solicit funds from sympathetic friends to raise $20,000 so that she could buy a house.</p>
+    <p>She cautioned him that &ldquo;plain two-story frame houses&rdquo; in that neighborhood are lucky to be found at that price, more likely $25,000 to $30,000, but they proceeded with that plan.</p>
+    <p>In 1866 while Cameron began soliciting his friends, she used some of Lincoln&rsquo;s final salary to purchase a house for $17,000. An opportunity had availed itself, requiring her to take timely advantage.</p>
+
+    <figure class="plate">
+      <img src="images/unsung-benevolence/fig6-clifton-house-chicago.jpg" alt="A black and white drawing of the Clifton House building, Chicago">
+      <figcaption><span class="fig-no">FIG. 6</span>Chicago&rsquo;s Clifton House.</figcaption>
+    </figure>
+
+    <p>She had not adjusted her expectations to a lower standard of living however. Within a year, unable to afford living in her new home Mary Todd Lincoln rented out the house and moved into Chicago&rsquo;s Clifton House (above) and would move to various quarters in the years after.</p>
 
     <h2>George Dawson Coleman Responds</h2>
-    <p>Cameron contacted friends among his many political connections explaining the plight of the wife and children of the nation's beloved president.</p>
-    <p>Though most declined to lend assistance, a few friends rose to the occasion; one who stepped up was George Dawson Coleman. His letter below concludes with wishes that more would be raised than "the amount mentioned."</p>
+    <p>Cameron contacted friends among his many political connections explaining the plight of the wife and children of the nation&rsquo;s beloved president.</p>
+    <p>Though most declined to lend assistance, a few friends rose to the occasion; one who stepped up was George Dawson Coleman. His letter below concludes with wishes that more would be raised than &ldquo;the amount mentioned.&rdquo;</p>
 
     <div class="plate-row">
       <figure class="plate">
-        <img src="images/unsung-benevolence/fig7a-coleman-letter-page1.jpg" alt="First page of George Dawson Coleman's 1866 letter">
-        <figcaption><span class="fig-no">FIG. 7</span>Coleman's letter, page one&hellip;</figcaption>
+        <img src="images/unsung-benevolence/fig7a-coleman-letter-page1.jpg" alt="Handwritten letter from G. Dawson Coleman, Lebanon Furnaces, April 5, 1866">
+        <figcaption><span class="fig-no">FIG. 7</span>Coleman&rsquo;s letter&hellip;</figcaption>
       </figure>
       <figure class="plate">
-        <img src="images/unsung-benevolence/fig7b-coleman-letter-page2.jpg" alt="Second page of the letter">
-        <figcaption><span class="fig-no">FIG. 7</span>&hellip;and page two.</figcaption>
+        <img src="images/unsung-benevolence/fig7b-coleman-letter-endorsement.jpg" alt="Docketing endorsement on the reverse of Coleman's letter: G. Dawson Coleman, April 5 1866, Lincoln, $1000">
+        <figcaption><span class="fig-no">FIG. 7</span>&hellip;and its endorsement.</figcaption>
       </figure>
     </div>
 
     <div class="quote-block">
-      "Dear General, Lebanon Furnaces, April 5, 1866<br><br>
+      Dear General, Lebanon Furnaces, April 5, 1866<br><br>
       Yours of 3 Mar conveying the painful intelligence of the destitute condition of the family of our late President is received.<br><br>
       I feel that I owe every thing I am worth to the manner in which the Republican party and the late administration conducted the affairs of the nation during the late rebellion and to no one do I feel so much indebtedness as to Mr. Lincoln.<br><br>
       And I feel that I would be doing wrong to refuse your appeal and that I should be enjoying all the comforts of life while those nearest and dearest to him were suffering.<br><br>
       You may put my name down on your list for one thousand dollars, and I hope you will be able to raise a larger sum than the one you mention.<br><br>
-      Yours truly, G. Dawson Coleman"
-      <span class="cite">April 5, 1866</span>
+      Yours truly, G. Dawson Coleman
+      <span class="cite">G. Dawson Coleman, April 5, 1866</span>
     </div>
 
-    <h2>Coleman's Gratitude</h2>
-    <p>Coleman appreciated Lincoln's administration for personal reasons as well as how the "affairs of the nation" had been conducted.</p>
-    <p>A letter from Abraham Lincoln, found in the Coleman mansion during its demolition in 1961, <a href="https://lebtown.com/2019/02/18/this-presidents-day-remembering-lebanons-links-to-our-countrys-highest-elected-office/#abraham-lincoln" target="_blank" rel="noopener">as published previously on LebTown</a>, appointed Coleman as commissioner, representing the United States at Great Britain's 1862 Exposition of the Industry of All Nations. The exposition followed on the heels of Prince Albert's original Great Exposition of 1851 and was planned to surpass the 1855 Paris Exposition.</p>
+    <h2>Coleman&rsquo;s Gratitude</h2>
+    <p>Coleman appreciated Lincoln&rsquo;s administration for personal reasons as well as how the &ldquo;affairs of the nation&rdquo; had been conducted.</p>
+    <p>A letter from Abraham Lincoln, found in the Coleman mansion during its demolition in 1961. The story, <a href="https://lebtown.com/2019/02/18/this-presidents-day-remembering-lebanons-links-to-our-countrys-highest-elected-office/#abraham-lincoln" target="_blank" rel="noopener">published previously LebTown</a>, appointed Coleman as commissioner, representing the United States at Great Britain&rsquo;s 1862 Exposition of the Industry of All Nations. The exposition followed on the heels of Prince Albert&rsquo;s original Great Exposition of 1851 and was planned to surpass the 1855 Paris Exposition.</p>
 
     <figure class="plate plate-sm">
-      <img src="images/unsung-benevolence/fig8-coleman-1862-exposition.jpg" alt="Document related to Coleman's 1862 exposition commission">
-      <figcaption><span class="fig-no">FIG. 8</span>Coleman's 1862 commission.</figcaption>
+      <img src="images/unsung-benevolence/fig8-george-dawson-coleman-portrait.jpg" alt="Portrait of George Dawson Coleman in a suit">
+      <figcaption><span class="fig-no">FIG. 8</span>George Dawson Coleman.</figcaption>
     </figure>
 
-    <p>Coleman would again represent the United States in 1873 at the <a href="coleman-coachman.html">Vienna World's Fair</a>, appointed by his friend Ulysses S. Grant.</p>
+    <p>Coleman would again represent the United States in 1873 at the <a href="coleman-coachman.html">Vienna World&rsquo;s Fair</a>, appointed by his friend Ulysses S. Grant.</p>
 
     <h2>Coleman and Cameron</h2>
+
     <figure class="plate plate-sm">
-      <img src="images/unsung-benevolence/fig9-simon-cameron-loc-photo.jpg" alt="Library of Congress photograph of Simon Cameron">
-      <figcaption><span class="fig-no">FIG. 9</span>Cameron. (Library of Congress)</figcaption>
+      <img src="images/unsung-benevolence/fig9-simon-cameron-loc-photo.jpg" alt="Library of Congress photograph of Simon Cameron seated">
+      <figcaption><span class="fig-no">FIG. 9</span>Cameron, Library of Congress photo.</figcaption>
     </figure>
 
-    <p>Coleman and Cameron remained long-time friends. Most correspondences were of a social nature. Simon expressed condolences to Deborah Brown Coleman upon her husband George's passing in 1878. He remained a family friend for another decade until his own death in 1889, including helping to sponsor son Bertram Dawson Coleman on a world-wide trip, providing letters of introduction on his behalf to several foreign ministers.</p>
-    <p>One letter in 1861 between George and brother Robert Coleman (then in France) discussed the possibility of acquiring Cameron's influence in selling more iron to the government for the war, however there is no "smoking gun" indicating involvement in a Cameron scandal (thank goodness!).</p>
+    <p>Coleman and Cameron remained long-time friends. Most correspondences were of a social nature. Simon expressed condolences to Deborah Brown Coleman upon her husband George&rsquo;s passing in 1878. He remained a family friend for another decade until his own death in 1889, including helping to sponsor son Bertram Dawson Coleman on a world-wide trip, providing letters of introduction on his behalf to several foreign ministers.</p>
+    <p>One letter in 1861 between George and brother Robert Coleman (then in France) discussed the possibility of acquiring Cameron&rsquo;s influence in selling more iron to the government for the war, however there is no &ldquo;smoking gun&rdquo; indicating involvement in a Cameron scandal (thank goodness!).</p>
 
-    <h2>Mary Todd Lincoln's Final Years</h2>
-    <p>Simon Cameron's intentions to help in 1866 were never fully realized. Some responded, but others offered only regrets. He never raised the full amount. Some criticism suggested he was more focused that year on winning his return to the U.S. Senate, and that this seeming act of benevolence was more a matter of gilding his own reputation among supporters.</p>
-    <p>Later, with Cameron now in the Senate, and thanks to Mary's own lobbying, Congress finally granted the former First Lady a pension of $3,000 a year, in 1870.</p>
+    <h2>Mary Todd Lincoln&rsquo;s Final Years</h2>
+    <p>Simon Cameron&rsquo;s intentions to help in 1866 were never fully realized. Some responded, but others offered only regrets. He never raised the full amount. Some criticism suggested he was more focused that year on winning his return to the U. S. Senate, and that this seeming act of benevolence was more a matter of gilding his own reputation among supporters.</p>
+    <p>Later, with Cameron now in the Senate, and thanks to Mary&rsquo;s own lobbying Congress finally granted the former First Lady a pension of $3,000 a year, in 1870.</p>
 
     <figure class="plate plate-sm">
-      <img src="images/unsung-benevolence/fig10-mary-todd-lincoln-later.jpg" alt="A later portrait of Mary Todd Lincoln">
+      <img src="images/unsung-benevolence/fig10-mary-todd-lincoln-later.jpg" alt="A later portrait of Mary Todd Lincoln in mourning dress">
       <figcaption><span class="fig-no">FIG. 10</span>Mary Todd Lincoln, in later years.</figcaption>
     </figure>
 
     <p>Her final years remained turbulent up to her death at age 63 in 1882. Tad had died in 1871 of tuberculosis. She had lived estranged from her only remaining son Robert, who for a period of time had her committed to an asylum.</p>
-    <p>There is quite an interesting <a href="https://drloihjournal.blogspot.com/2016/11/mary-todd-lincoln-in-midst-of-chicago.html" target="_blank" rel="noopener">on-line history</a> of Mary's final years, including surviving the great 1871 Chicago fire just two blocks from Mrs. O'Leary's house.</p>
-    <p>Carl Sandburg wrote a series of acclaimed biographies of Abraham Lincoln, one winning him a Pulitzer Prize for History. In writing her biography, "Mary Lincoln, Wife and Widow," Sandburg established how Judge Davis had properly filed statements valuing Lincoln's estate at $110,000. Though it would not compare to George Dawson Coleman's millions, such an estate worth $2 million today should have provided for her comfortably.</p>
-    <p>Unconsolable, she is seen in history crying "poor me!", a starving, destitute and downtrodden woman. Parts of her life were indeed tragic, but possibly Coleman's kindness and benevolence had been misplaced.</p>
+    <p>There is quite an interesting <a href="https://drloihjournal.blogspot.com/2016/11/mary-todd-lincoln-in-midst-of-chicago.html" target="_blank" rel="noopener">on-line history</a> of Mary&rsquo;s final years, including surviving the great 1871 Chicago fire just two blocks from Mrs. O&rsquo;Leary&rsquo;s house.</p>
+    <p>Carl Sandburg wrote a series of acclaimed biographies of Abraham Lincoln, one winning him a Pulitzer Prize for History. In writing her biography, &ldquo;Mary Lincoln, Wife and Widow,&rdquo; Sandburg established how Judge Davis had properly filed statements valuing Lincoln&rsquo;s estate at $110,000. Though it would not compare to George Dawson Coleman&rsquo;s millions, such an estate worth $2 million today should have provided for her comfortably.</p>
+    <p>Unconsolable, she is seen in history crying &ldquo;poor me!&rdquo;, a starving, destitute and downtrodden woman. Parts of her life were indeed tragic, but possibly Coleman&rsquo;s kindness and benevolence had been misplaced.</p>
   </div>
 
   <div class="credits">
     <p>Craig Coleman, original documents.</p>
-    <p>Letters in Chicago historian Philip D. Sang's "Mary Todd Lincoln: A Tragic Portrait," 1961 (open source, Rutgers University Library).</p>
+    <p>Letters in Chicago historian Philip D. Sang&rsquo;s &ldquo;Mary Todd Lincoln: A Tragic Portrait,&rdquo; 1961 (open source, Rutgers University Library).</p>
     <p>Originally published on LebTown, June 3, 2025.</p>
   </div>
 
